@@ -1,6 +1,7 @@
 package Tester;
 
 import Shaders.StaticShader;
+import models.TextureModel;
 import renderEngine.Display_Manager;
 import renderEngine.Loader;
 import renderEngine.RawModel;
@@ -32,12 +33,19 @@ public class MainGameLoop {
 
         RawModel model = loader.loadToVAO(vertices, indices);
 
+        // Load texture
+        int textureID = loader.loadTexture("cat.png");
+        TextureModel texture = new TextureModel(textureID);
+
+        // Combine model and texture into a TextureModel
+        TextureModel texturedModel = new TextureModel(model, texture.getTextureID());
+
         // Main loop
         while (!displayManager.shouldClose()) {
             // game logic
             renderer.prepare();
             shader.start();
-            renderer.render(model);
+            renderer.render(texturedModel); // Render the textured model
             shader.stop();
             displayManager.updateDisplay();
         }

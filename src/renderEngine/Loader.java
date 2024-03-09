@@ -1,5 +1,6 @@
 package renderEngine;
 
+import java.nio.ByteBuffer;
 import java.nio.FloatBuffer;
 import java.nio.IntBuffer;
 import java.util.ArrayList;
@@ -10,6 +11,10 @@ import org.lwjgl.opengl.GL20;
 import org.lwjgl.opengl.GL30;
 
 import org.lwjgl.BufferUtils;
+import org.lwjgl.stb.STBImage;
+
+import static org.lwjgl.opengl.GL11C.*;
+import static org.lwjgl.opengl.GL30C.glGenerateMipmap;
 
 public class Loader {
 
@@ -47,6 +52,34 @@ public class Loader {
         GL20.glVertexAttribPointer(attributeNumber, 3, GL11.GL_FLOAT, false, 0, 0);
         GL15.glBindBuffer(GL15.GL_ARRAY_BUFFER, 0);
     }
+
+    public int loadTexture(String filePath) {
+        int textureID = glGenTextures();
+        glBindTexture(GL_TEXTURE_2D, textureID);
+
+        // Set texture parameters
+        glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_REPEAT);
+        glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_REPEAT);
+        glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
+        glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
+
+        // Load image data
+        IntBuffer widthBuffer = BufferUtils.createIntBuffer(1);
+        IntBuffer heightBuffer = BufferUtils.createIntBuffer(1);
+        IntBuffer channelsBuffer = BufferUtils.createIntBuffer(1);
+
+        ByteBuffer image = STBImage.stbi_load(filePath, widthBuffer, heightBuffer, channelsBuffer, 0);
+        if (image != null) {
+            glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB, widthBuffer.get(0), heightBuffer.get(0), 0, GL_RGB, GL_UNSIGNED_BYTE, image);
+            glGenerateMipmap(GL_TEXTURE_2D);
+            STBImage.stbi_image_free(image);
+        } else {
+            System.err.println("Failed to load texture: " + filePath);
+        }
+
+        return textureID;
+    }
+
 
     private void unbindVAO() {
         GL30.glBindVertexArray(0);
