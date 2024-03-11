@@ -27,22 +27,31 @@ public class MainGameLoop {
         };
 
         int[] indices = {
-                0,1,3,
-                3,1,2
+                0, 1, 3,
+                3, 1, 2
         };
 
-        RawModel model = loader.loadToVAO(vertices, indices);
+// Define texture coordinates for a rectangle
+        float[] textureCoords = {
+                1, 0,   // Top-left
+                0.5f, 0.5f,   // Bottom-left
+                1, 1,   // Bottom-right
+                1, 0    // Top-right
+        };
+
+        RawModel model = loader.loadToVAO(vertices, textureCoords, indices);
 
         // Load texture
-        int textureID = loader.loadTexture("cat.png");
-        TextureModel texture = new TextureModel(textureID);
+        int textureID = loader.loadTexture("C:\\Users\\yuval\\IdeaProjects\\game\\src\\cat.png");
 
         // Combine model and texture into a TextureModel
-        TextureModel texturedModel = new TextureModel(model, texture.getTextureID());
+        TextureModel texturedModel = new TextureModel(model, textureID);
 
         // Main loop
         while (!displayManager.shouldClose()) {
-            // game logic
+            // Game logic
+
+            // Render
             renderer.prepare();
             shader.start();
             renderer.render(texturedModel); // Render the textured model
@@ -50,6 +59,7 @@ public class MainGameLoop {
             displayManager.updateDisplay();
         }
 
+        // Clean up
         shader.cleanUp();
         loader.cleanUp();
         displayManager.closeDisplay();

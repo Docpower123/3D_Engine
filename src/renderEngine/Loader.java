@@ -20,12 +20,14 @@ public class Loader {
 
     private List<Integer> vaos = new ArrayList<Integer>();
     private List<Integer> vbos = new ArrayList<Integer>();
-    public RawModel loadToVAO(float[] positions, int[] indices) {
+
+    public RawModel loadToVAO(float[] positions, float[] textureCoords, int[] indices) {
         int vaoID = createVAO();
         bindIndicesBuffer(indices);
         storeDataInAttributeList(0, positions);
+        storeDataInAttributeList(1, textureCoords); // Pass the texture coordinates
         unbindVAO();
-        return new RawModel(vaoID,indices.length);
+        return new RawModel(vaoID, indices.length);
     }
 
     public void cleanUp() {
@@ -57,13 +59,13 @@ public class Loader {
         int textureID = glGenTextures();
         glBindTexture(GL_TEXTURE_2D, textureID);
 
-        // Set texture parameters
+        // Set texture parameters (optional)
         glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_REPEAT);
         glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_REPEAT);
         glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
         glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
 
-        // Load image data
+        // Load image data using STBImage
         IntBuffer widthBuffer = BufferUtils.createIntBuffer(1);
         IntBuffer heightBuffer = BufferUtils.createIntBuffer(1);
         IntBuffer channelsBuffer = BufferUtils.createIntBuffer(1);

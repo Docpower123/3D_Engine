@@ -19,15 +19,16 @@ public class Renderer {
         int textureID = textureModel.getTextureID();
 
         GL30.glBindVertexArray(model.getVaoID());
-        GL20.glEnableVertexAttribArray(0);
+        GL20.glEnableVertexAttribArray(0); // Position attribute
+        GL20.glEnableVertexAttribArray(1); // Texture coordinate attribute
 
         glBindTexture(GL_TEXTURE_2D, textureID);
 
         GL11.glDrawElements(GL11.GL_TRIANGLES, model.getVertexCount(), GL11.GL_UNSIGNED_INT, 0);
 
         GL20.glDisableVertexAttribArray(0);
+        GL20.glDisableVertexAttribArray(1);
         GL30.glBindVertexArray(0);
     }
-
 
 }
