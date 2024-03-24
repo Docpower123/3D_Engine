@@ -2,8 +2,8 @@ package Main;
 
 import Engine.Obj_Loader;
 import Engine.entities.Light;
-import Engine.models.RawModel;
-import Engine.models.TexturedModel;
+import Engine.Models.RawModel;
+import Engine.Models.TexturedModel;
 
 import org.lwjgl.opengl.Display;
 import org.lwjgl.util.vector.Vector3f;
@@ -12,7 +12,7 @@ import Engine.DisplayManager;
 import Engine.Loader;
 import Engine.Renderer;
 import Engine.shaders.StaticShader;
-import Engine.textures.ModelTexture;
+import Engine.Textures.ModelTexture;
 import Engine.entities.Camera;
 import Engine.entities.Entity;
 
@@ -30,6 +30,9 @@ public class MainGameLoop {
 		RawModel model = Obj_Loader.loadObjModel("dragon", loader);
 
 		TexturedModel staticModel = new TexturedModel(model,new ModelTexture(loader.loadTexture("white")));
+		ModelTexture texture = staticModel.getTexture();
+		texture.setShineDamper(10);
+		texture.setReflectivity(1);
 
 		Entity entity = new Entity(staticModel, new Vector3f(0,0,-25),0,0,0,1);
 		Light light = new Light((new Vector3f(0,0,-20)), new Vector3f(1,1,1));

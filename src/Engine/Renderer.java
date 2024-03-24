@@ -1,8 +1,9 @@
 package Engine;
 
-import Engine.models.RawModel;
-import Engine.models.TexturedModel;
+import Engine.Models.RawModel;
+import Engine.Models.TexturedModel;
 
+import Engine.Textures.ModelTexture;
 import org.lwjgl.opengl.Display;
 import org.lwjgl.opengl.GL11;
 import org.lwjgl.opengl.GL13;
@@ -46,6 +47,8 @@ public class Renderer {
 		Matrix4f transformationMatrix = Maths.createTransformationMatrix(entity.getPosition(),
 				entity.getRotX(), entity.getRotY(), entity.getRotZ(), entity.getScale());
 		shader.loadTransformationMatrix(transformationMatrix);
+		ModelTexture texture = model.getTexture();
+		shader.loadShineVarible(texture.getShineDamper(), texture.getReflectivity());
 		GL13.glActiveTexture(GL13.GL_TEXTURE0);
 		GL11.glBindTexture(GL11.GL_TEXTURE_2D, model.getTexture().getID());
 		GL11.glDrawElements(GL11.GL_TRIANGLES, rawModel.getVertexCount(), GL11.GL_UNSIGNED_INT, 0);

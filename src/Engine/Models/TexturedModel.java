@@ -1,6 +1,6 @@
-package Engine.models;
+package Engine.Models;
 
-import Engine.textures.ModelTexture;
+import Engine.Textures.ModelTexture;
 
 public class TexturedModel {
 	
@@ -12,7 +12,7 @@ public class TexturedModel {
 		this.texture = texture;
 	}
 
-	public Engine.models.RawModel getRawModel() {
+	public RawModel getRawModel() {
 		return rawModel;
 	}
 

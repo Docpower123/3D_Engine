@@ -1,6 +1,6 @@
 package Engine;
 
-import Engine.models.RawModel;
+import Engine.Models.RawModel;
 import org.lwjgl.util.vector.Vector2f;
 import org.lwjgl.util.vector.Vector3f;
 
