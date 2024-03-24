@@ -12,7 +12,7 @@ public class TexturedModel {
 		this.texture = texture;
 	}
 
-	public RawModel getRawModel() {
+	public Engine.models.RawModel getRawModel() {
 		return rawModel;
 	}
 

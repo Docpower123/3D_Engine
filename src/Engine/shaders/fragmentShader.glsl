@@ -1,14 +1,23 @@
-#version 150
+#version 400 core
 
-in vec3 colour;
 in vec2 pass_textureCoordinates;
+in vec3 surfaceNormal;
+in vec3 toLightVector;
 
 out vec4 out_Color;
 
 uniform sampler2D modelTexture;
+uniform vec3 lightcolor;
 
 void main(void){
 
-	out_Color = texture(modelTexture,pass_textureCoordinates);
+	vec3 unitNormal = normalize(surfaceNormal);
+	vec3 unitLightVector = normalize(toLightVector);
+
+	float nDot1 = dot(unitNormal, unitLightVector);
+	float brightness = max(nDot1, 0.0);
+	vec3 diffuse = brightness * lightcolor;
+
+	out_Color = vec4(diffuse, 1.0) * texture(modelTexture,pass_textureCoordinates);
 
 }
