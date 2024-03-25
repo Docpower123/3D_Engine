@@ -4,10 +4,12 @@ package engineTester;
 
 //RawModel treeModel = loader.loadToVAO(data.getVertices(), data.getTextureCoords(), data.getNormals(), data.getIndices());
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
+import entities.Player;
 import models.RawModel;
 import models.TexturedModel;
 
@@ -30,7 +32,7 @@ import toolbox.OBJFileLoader;
 
 public class MainGameLoop {
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws IOException {
 
 		DisplayManager.createDisplay();
 		Loader loader = new Loader();
@@ -52,28 +54,43 @@ public class MainGameLoop {
 		grass.getTexture().setUsefakeLighting(true);
 		TexturedModel fern = new TexturedModel(OBJLoader.loadObjModel("fern", loader), new ModelTexture(loader.loadTexture("fern")));
 		fern.getTexture().setHasTransparency(true);
+		fern.getTexture().setnumberOfRows(2);
+
+		Terrain terrain = new Terrain(0, 0, loader, texturePack, blendMap, "heightmap");
+		Light light = new Light(new Vector3f(0,1000000,0),new Vector3f(1,1,1));
+
 		List<Entity> entities = new ArrayList<>();
-		Random random = new Random();
-		for(int i=0;i<500;i++){
-			entities.add(new Entity(staticModel, new Vector3f(random.nextFloat()* 400,0,random.nextFloat() * 600),0,0,0,3));
-			entities.add(new Entity(grass, new Vector3f(random.nextFloat()* 800,0,random.nextFloat() * 600),0,0,0,1));
-			entities.add(new Entity(fern, new Vector3f(random.nextFloat()* 800,0,random.nextFloat() * 600),0,0,0,0.6f));
+		Random random = new Random(676452);
+		for (int i=0; i<400; i++){
+			if(i % 20 == 0){
+				float x = random.nextFloat() * 800;
+				float z = random.nextFloat() * 600;
+				float y = terrain.getHeightOfTerrain(x, z);
+				entities.add(new Entity(fern, random.nextInt(4), new Vector3f(x,y,z),0, random.nextFloat() * 360, 0, 0.9f ));
+			}
+			if(i % 5 == 0){
+				float x = random.nextFloat() * 800;
+				float z = random.nextFloat() * 600;
+				float y = terrain.getHeightOfTerrain(x,z);
+				entities.add(new Entity(grass, new Vector3f(x,y,z),0, random.nextFloat() * 360, 0, random.nextFloat() * 0.1f + 0.6f));
+				 x = random.nextFloat() * 800;
+				 z = random.nextFloat() * 600;
+				 y = terrain.getHeightOfTerrain(x, z);
+				 entities.add(new Entity(staticModel, new Vector3f(x,y,z),0, 0, 0, random.nextFloat() * 1 +4 ));
+			}
 		}
-		
-		Light light = new Light(new Vector3f(20000,20000,2000),new Vector3f(1,1,1));
 
-
-		Terrain terrain = new Terrain(0, 0, loader, texturePack, blendMap);
-		Terrain terrain2 = new Terrain(1, 0, loader, texturePack, blendMap);
-
-		Camera camera = new Camera();	
 		MasterRenderer renderer = new MasterRenderer();
-		
+		RawModel bunny = OBJLoader.loadObjModel("bunny", loader);
+		TexturedModel bunnyText = new TexturedModel(bunny, new ModelTexture(loader.loadTexture("white")));
+		Player player = new Player(bunnyText, new Vector3f(100,0,50), 0,0,0,0.25f);
+		Camera camera = new Camera(player);
+
 		while(!Display.isCloseRequested()){
 			camera.move();
-			
+			player.move(terrain);
+			renderer.processEntity(player);
 			renderer.processTerrain(terrain);
-			renderer.processTerrain(terrain2);
 			for(Entity entity:entities){
 				renderer.processEntity(entity);
 			}
