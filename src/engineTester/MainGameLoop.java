@@ -10,10 +10,13 @@ import java.util.List;
 import java.util.Random;
 
 import entities.Player;
+import guis.GuiRenderer;
+import guis.GuiTexture;
 import models.RawModel;
 import models.TexturedModel;
 
 import org.lwjgl.opengl.Display;
+import org.lwjgl.util.vector.Vector2f;
 import org.lwjgl.util.vector.Vector3f;
 
 import renderEngine.DisplayManager;
@@ -32,7 +35,7 @@ import toolbox.OBJFileLoader;
 
 public class MainGameLoop {
 
-	public static void main(String[] args) throws IOException {
+	public static void main(String[] args) {
 
 		DisplayManager.createDisplay();
 		Loader loader = new Loader();
@@ -55,9 +58,17 @@ public class MainGameLoop {
 		TexturedModel fern = new TexturedModel(OBJLoader.loadObjModel("fern", loader), new ModelTexture(loader.loadTexture("fern")));
 		fern.getTexture().setHasTransparency(true);
 		fern.getTexture().setnumberOfRows(2);
+		TexturedModel lamp = new TexturedModel(OBJLoader.loadObjModel("lamp", loader), new ModelTexture(loader.loadTexture("lamp")));
 
 		Terrain terrain = new Terrain(0, 0, loader, texturePack, blendMap, "heightmap");
-		Light light = new Light(new Vector3f(0,1000000,0),new Vector3f(1,1,1));
+
+
+		// Lights loading
+		List<Light> lights = new ArrayList<>();
+		lights.add(new Light(new Vector3f(0, 1000, -7000), new Vector3f(0.4f, 0.4f, 0.4f)));
+		lights.add(new Light(new Vector3f(185, 10, 293), new Vector3f(2, 0, 0), new Vector3f(1, 0.01f, 0.002f)));
+		lights.add(new Light(new Vector3f(370, 17, 300), new Vector3f(0, 2, 2), new Vector3f(1, 0.01f, 0.002f)));
+		lights.add(new Light(new Vector3f(293, 7, 305), new Vector3f(2, 2, 0), new Vector3f(1, 0.01f, 0.002f)));
 
 		List<Entity> entities = new ArrayList<>();
 		Random random = new Random(676452);
@@ -79,12 +90,22 @@ public class MainGameLoop {
 				 entities.add(new Entity(staticModel, new Vector3f(x,y,z),0, 0, 0, random.nextFloat() * 1 +4 ));
 			}
 		}
+		entities.add(new Entity(lamp, new Vector3f(185, -4.7f, 293), 0,0,0,1));
+		entities.add(new Entity(lamp, new Vector3f(370, 4.2f, 300), 0,0,0,1));
+		entities.add(new Entity(lamp, new Vector3f(293, -6.8f, 305), 0,0,0,1));
 
 		MasterRenderer renderer = new MasterRenderer();
 		RawModel bunny = OBJLoader.loadObjModel("bunny", loader);
 		TexturedModel bunnyText = new TexturedModel(bunny, new ModelTexture(loader.loadTexture("white")));
-		Player player = new Player(bunnyText, new Vector3f(100,0,50), 0,0,0,0.25f);
+		Player player = new Player(bunnyText, new Vector3f(185, -4.7f, 293), 0,0,0,0.25f);
 		Camera camera = new Camera(player);
+
+		List<GuiTexture> guis = new ArrayList<>();
+		GuiTexture gui = new GuiTexture(loader.loadTexture("health"), new Vector2f(0.5f, 0.5f), new Vector2f(0.25f, 0.25f));
+		guis.add(gui);
+
+		GuiRenderer guiRenderer = new GuiRenderer(loader);
+
 
 		while(!Display.isCloseRequested()){
 			camera.move();
@@ -94,10 +115,12 @@ public class MainGameLoop {
 			for(Entity entity:entities){
 				renderer.processEntity(entity);
 			}
-			renderer.render(light, camera);
+			renderer.render(lights, camera);
+			guiRenderer.render(guis);
 			DisplayManager.updateDisplay();
 		}
 
+		guiRenderer.cleanUp();
 		renderer.cleanUp();
 		loader.cleanUp();
 		DisplayManager.closeDisplay();
