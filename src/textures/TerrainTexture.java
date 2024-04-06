@@ -1,4 +1,4 @@
-package textures;
+package com.example.textures;
 
 public class TerrainTexture {
 
@@ -11,5 +11,4 @@ public class TerrainTexture {
     public int getTextureID() {
         return textureID;
     }
-
 }

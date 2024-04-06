@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="79f98a2b-50b6-4938-825d-816dbcea5210" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/lib.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/3D_Engine.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/old/game.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/old/old.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/entities/Enemy.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/libs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/libs/AppleJavaExtensions.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/libs/asm-debug-all.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/libs/jinput.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/libs/laf-plugin-7.2.1.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/libs/laf-widget-7.2.1.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/libs/log4j-api-2.0-beta9.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/libs/lwjgl-debug.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/libs/lwjgl.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/libs/lwjgl_test.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/libs/lwjgl_util.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/libs/lwjgl_util_applet.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/libs/lzma.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/libs/slick-util (2).jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/libs/substance-7.2.1.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/libs/trident-7.2.1.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/res/box.obj" beforeDir="false" afterPath="$PROJECT_DIR$/res/box.obj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/res/bunny.obj" beforeDir="false" afterPath="$PROJECT_DIR$/res/bunny.obj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/res/dragon.obj" beforeDir="false" afterPath="$PROJECT_DIR$/res/dragon.obj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/res/exampleOBJ.obj" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/res/fern.obj" beforeDir="false" afterPath="$PROJECT_DIR$/res/fern.obj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/res/fern.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/res/grass.obj" beforeDir="false" afterPath="$PROJECT_DIR$/res/grass.obj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/res/grassModel.obj" beforeDir="false" afterPath="$PROJECT_DIR$/res/grassModel.obj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/res/heightmap perlin.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/res/heightmap.png" beforeDir="false" afterPath="$PROJECT_DIR$/res/heightmap.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/res/lamp.mtl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/res/lamp.obj" beforeDir="false" afterPath="$PROJECT_DIR$/res/lamp.obj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/res/lamp.png" beforeDir="false" afterPath="$PROJECT_DIR$/res/lamp.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/res/lowPolyTree.obj" beforeDir="false" afterPath="$PROJECT_DIR$/res/lowPolyTree.obj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/res/person.obj" beforeDir="false" afterPath="$PROJECT_DIR$/res/person.obj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/res/pine.obj" beforeDir="false" afterPath="$PROJECT_DIR$/res/pine.obj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/res/stall.obj" beforeDir="false" afterPath="$PROJECT_DIR$/res/stall.obj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/res/stanfordBunny.obj" beforeDir="false" afterPath="$PROJECT_DIR$/res/stanfordBunny.obj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/res/tree.obj" beforeDir="false" afterPath="$PROJECT_DIR$/res/tree.obj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/engineTester/MainGameLoop.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/entities/Camera.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/entities/Camera.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/entities/Entity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/entities/Entity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/entities/GameCamera.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/entities/GameCamera.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/entities/Light.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/entities/Light.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/entities/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/entities/Player.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/guis/GuiRenderer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/guis/GuiRenderer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/guis/GuiShader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/guis/GuiShader.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/guis/GuiTexture.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/guis/GuiTexture.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/guis/guiFragmentShader.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/guis/guiVertexShader.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/models/RawModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/RawModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/models/TexturedModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/TexturedModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/renderEngine/DisplayManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/renderEngine/DisplayManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/renderEngine/EntityRenderer.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/renderEngine/Loader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/renderEngine/Loader.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/renderEngine/MasterRenderer.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/renderEngine/OBJLoader.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/renderEngine/TerrainRenderer.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/shaders/ShaderProgram.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/shaders/ShaderProgram.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/shaders/StaticShader.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/shaders/TerrainShader.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/shaders/fragmentShader.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/shaders/terrainFragmentShader.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/shaders/terrainVertexShader.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/shaders/vertexShader.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/terrains/Terrain.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/terrains/Terrain.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/textures/ModelTexture.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/textures/ModelTexture.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/textures/TerrainTexture.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/textures/TerrainTexture.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/textures/TerrainTexturePack.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/textures/TerrainTexturePack.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/toolbox/Maths.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/toolbox/Maths.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/toolbox/ModelData.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/toolbox/OBJFileLoader.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/toolbox/Vertex.java" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectColorInfo"><![CDATA[{
+  "associatedIndex": 4
+}]]></component>
+  <component name="ProjectId" id="2ej8AViTrX0sSzkrVdbCNHOwIaK" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Application.MainGameLoop30.executor": "Run",
+    "Application.Unnamed.executor": "Run",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "git-widget-placeholder": "master",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "C:/Users/yuval/Documents/GitHub/3D_Engine/lib",
+    "project.structure.last.edited": "Libraries",
+    "project.structure.proportion": "0.15429688",
+    "project.structure.side.proportion": "0.2"
+  }
+}]]></component>
+  <component name="RunManager">
+    <configuration name="Unnamed" type="Application" factoryName="Application" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.example.engineTester.MainGameLoop30" />
+      <module name="3D_Engine" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="jdk-21.0.2-openjdk-21.0.2-4caba194b151-4f524021" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="79f98a2b-50b6-4938-825d-816dbcea5210" name="Changes" comment="" />
+      <created>1712406483921</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1712406483921</updated>
+    </task>
+    <servers />
+  </component>
+</project>

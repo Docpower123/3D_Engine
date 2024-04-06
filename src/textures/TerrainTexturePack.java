@@ -1,4 +1,6 @@
-package textures;
+package com.example.textures;
+
+// OpenGL 3D Game Tutorial 17: Multitexturing
 
 public class TerrainTexturePack {
 
@@ -7,7 +9,8 @@ public class TerrainTexturePack {
     private TerrainTexture gTexture;
     private TerrainTexture bTexture;
 
-    public TerrainTexturePack(TerrainTexture backgroundTexture, TerrainTexture rTexture, TerrainTexture gTexture, TerrainTexture bTexture) {
+    public TerrainTexturePack(TerrainTexture backgroundTexture, TerrainTexture rTexture,
+                              TerrainTexture gTexture, TerrainTexture bTexture) {
         this.backgroundTexture = backgroundTexture;
         this.rTexture = rTexture;
         this.gTexture = gTexture;
@@ -29,5 +32,4 @@ public class TerrainTexturePack {
     public TerrainTexture getbTexture() {
         return bTexture;
     }
-
 }

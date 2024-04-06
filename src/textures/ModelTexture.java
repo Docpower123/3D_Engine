@@ -1,63 +1,72 @@
-package textures;
+package com.example.textures;
 
 public class ModelTexture {
-	
-	private int textureID;
-	
-	private float shineDamper = 1;
-	private float reflectivity = 0;
-	private boolean hasTransparency = false;
-	private boolean usefakeLighting = false;
-	private  int numberOfRows = 1;
 
-	public int getnumberOfRows() {
-		return numberOfRows;
-	}
+    private int textureID;
+    private int normalMap;
 
-	public void setnumberOfRows(int numnerOfRows) {
-		this.numberOfRows = numnerOfRows;
-	}
+    private float shineDamper = 1;
+    private float reflectivity = 0;
 
-	public boolean getUsefakeLighting() {
-		return usefakeLighting;
-	}
+    private boolean hasTransparency = false;
+    private boolean useFakeLighting = false;
 
-	public void setUsefakeLighting(boolean usefakeLighting) {
-		this.usefakeLighting = usefakeLighting;
-	}
+    // OpenGL 3D Game Tutorial 23: Texture Atlases
+    private int numberOfRows = 1;
 
-	public boolean isHasTransparency() {
-		return hasTransparency;
-	}
+    public ModelTexture(int textureID) {
+        this.textureID = textureID;
+    }
 
-	public void setHasTransparency(boolean hasTransparency) {
-		this.hasTransparency = hasTransparency;
-	}
+    public int getNumberOfRows() {
+        return numberOfRows;
+    }
 
-	public ModelTexture(int texture){
-		this.textureID = texture;
-	}
-	
-	public int getID(){
-		return textureID;
-	}
+    public int getNormalMap() {
+        return normalMap;
+    }
 
-	public float getShineDamper() {
-		return shineDamper;
-	}
+    public void setNormalMap(int normalMap) {
+        this.normalMap = normalMap;
+    }
 
-	public void setShineDamper(float shineDamper) {
-		this.shineDamper = shineDamper;
-	}
+    public void setNumberOfRows(int numberOfRows) {
+        this.numberOfRows = numberOfRows;
+    }
 
-	public float getReflectivity() {
-		return reflectivity;
-	}
+    public boolean isUseFakeLighting() {
+        return useFakeLighting;
+    }
 
-	public void setReflectivity(float reflectivity) {
-		this.reflectivity = reflectivity;
-	}
-	
-	
+    public void setUseFakeLighting(boolean useFakeLighting) {
+        this.useFakeLighting = useFakeLighting;
+    }
 
+    public boolean isHasTransparency() {
+        return hasTransparency;
+    }
+
+    public void setHasTransparency(boolean hasTransparency) {
+        this.hasTransparency = hasTransparency;
+    }
+
+    public int getID() {
+        return textureID;
+    }
+
+    public float getShineDamper() {
+        return shineDamper;
+    }
+
+    public void setShineDamper(float shineDamper) {
+        this.shineDamper = shineDamper;
+    }
+
+    public float getReflectivity() {
+        return reflectivity;
+    }
+
+    public void setReflectivity(float reflectivity) {
+        this.reflectivity = reflectivity;
+    }
 }
