@@ -16,7 +16,6 @@ public class Display {
     private static long window = -1L;
     
     public static void frameBufferSizeCallback(long window, int w, int h) {
-        // System.out.println("frameBufferSizeCallback: w, h: " + w + ", " + h);
         width = w;
         height = h;
         glViewport(0, 0, width, height);
@@ -33,7 +32,6 @@ public class Display {
         glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 3);
         glfwWindowHint(GLFW_OPENGL_FORWARD_COMPAT, GLFW_TRUE);
         glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
-        // glfwWindowHint(GLFW_VISIBLE, GLFW_FALSE);
         glfwWindowHint(GLFW_RESIZABLE, GLFW_TRUE);
         window = glfwCreateWindow(width, height, title, NULL, NULL);
         glfwMakeContextCurrent(window);

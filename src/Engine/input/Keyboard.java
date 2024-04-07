@@ -4,13 +4,10 @@ import java.util.HashMap;
 
 import static org.lwjgl.glfw.GLFW.*;
 
-// https://legacy.lwjgl.org/javadoc/org/lwjgl/input/Keyboard.html
-
 public class Keyboard {
 
     private static HashMap<Integer, String> keysDown = new HashMap<Integer, String>();
 
-    // Callback method used with Java 8 method references.
     public static void keyCallback(long window, int key, int scancode, int action, int mods) {
         System.out.println("keyCallback: key, scancode, action, mods: " + key + ", " + scancode + ", " + action + ", " + mods);
 
@@ -39,13 +36,6 @@ public class Keyboard {
 
     public static int KEY_T  = GLFW_KEY_T;
 
-
-    // Checks to see if a key is down.
-    
-    // Parameters:
-    //     key - Keycode to check
-    // Returns:
-    //     true if the key is down according to the last poll()
     public static boolean isKeyDown(int key) {
         return keysDown.containsKey(key);
     }

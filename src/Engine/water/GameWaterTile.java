@@ -1,12 +1,12 @@
 package com.example.Engine.water;
 
-public class WaterTile04 implements WaterTile {
+public class GameWaterTile implements WaterTile {
 
     private float height;
     private float x,z;
     private float size;
     
-    public WaterTile04(float x, float z, float height, float size) {
+    public GameWaterTile(float x, float z, float height, float size) {
         this.x = x;
         this.z = z;
         this.height = height;

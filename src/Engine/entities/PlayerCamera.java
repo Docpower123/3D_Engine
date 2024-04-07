@@ -4,7 +4,7 @@ import org.joml.Vector3f;
 
 import com.example.Engine.input.Keyboard;
 
-public class Camera18 implements Camera {
+public class PlayerCamera implements Camera {
 
     private Vector3f position = new Vector3f(0, 0, 0);
     // high or low
@@ -13,7 +13,7 @@ public class Camera18 implements Camera {
     private float yaw;
     private float roll;
 
-    public Camera18() {
+    public PlayerCamera() {
 
     }
 

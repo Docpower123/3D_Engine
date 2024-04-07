@@ -56,7 +56,6 @@ public class Enemy extends Entity {
     }
 
     private void die() {
-        // Implement logic for enemy death, such as removing it from the game world
         System.out.println("Enemy died!");
     }
 }

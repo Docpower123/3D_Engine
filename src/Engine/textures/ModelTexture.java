@@ -10,8 +10,6 @@ public class ModelTexture {
 
     private boolean hasTransparency = false;
     private boolean useFakeLighting = false;
-
-    // OpenGL 3D Game Tutorial 23: Texture Atlases
     private int numberOfRows = 1;
 
     public ModelTexture(int textureID) {

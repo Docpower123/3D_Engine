@@ -3,8 +3,6 @@ package com.example.Engine.fontMeshCreator;
 /**
  * Simple data structure class holding information about a certain glyph in the
  * font texture atlas. All sizes are for a font-size of 1.
- * 
- * @author Karl
  *
  */
 public class Character {

@@ -15,8 +15,6 @@ public class TextureData {
         this.width = width;
         this.height = height;
     }
-
-    // Added as optimization, so we don't need to copy the buffer.
     public void freeBuffer() {
         STBImage.stbi_image_free(buffer);
         buffer = null;

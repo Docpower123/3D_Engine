@@ -7,11 +7,10 @@ import com.example.Engine.input.Mouse;
 public class GameCamera implements Camera {
 
     private final float MIN_DISTANCE_FROM_PLAYER = 1;
-    //private final float MAX_DISTANCE_FROM_PLAYER = 1000;
     private final float MIN_PITCH = -90;
     private final float MAX_PITCH = 90;
     private final float CAMERA_Y_OFFSET = 7;
-    private final float CAMERA_PITCH_OFFSET = 0; // ThinMatrix has 4
+    private final float CAMERA_PITCH_OFFSET = 0;
     private final float ZOOM_LEVEL_FACTOR = 0.1f;
     private final float PITCH_CHANGE_FACTOR = 0.2f;
     private final float ANGLE_AROUND_PLAYER_CHANGE_FACTOR = 0.3f;
@@ -42,8 +41,6 @@ public class GameCamera implements Camera {
 
         moves++;
         if (moves >= 60) {
-            //System.err.println("Camera at (" + position.x + ", " + position.y + ", " + position.z + ")");
-            //System.err.println("Camera (pitch, yaw, roll) = (" + pitch + ", " + yaw + ", " + roll + ")");
             moves = 0;
         }
 

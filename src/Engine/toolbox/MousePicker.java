@@ -11,7 +11,6 @@ import org.joml.Vector4f;
 
 import com.example.Engine.input.Mouse;
 
-// http://antongerdelan.net/opengl/raycasting.html
 public class MousePicker {
 
     private static final int RECURSION_COUNT = 2000; // was 200
@@ -52,7 +51,6 @@ public class MousePicker {
     }
 
     private Vector3f calculateMouseRay() {
-        // viewport space
         float mouseX = Mouse.getX();
         float mouseY = Mouse.getY();
 
@@ -68,25 +66,16 @@ public class MousePicker {
     }
 
     private Vector3f toWorldCoords(Vector4f eyeCoords) {
-        // TODO
-        // Matrix4f invertedView = Matrix4f.invert(viewMatrix, null);
-        // Vector4f rayWorld = Matrix4f.transform(invertedView, eyeCoords, null);
-        // Vector3f mouseRay = new Vector3f(rayWorld.x, rayWorld.y, rayWorld.z);
         Vector3f mouseRay = new Vector3f();
         mouseRay.normalize();
         return mouseRay;
     }
 
     private Vector4f toEyeCoords(Vector4f clipCoords) {
-        //
-        // Matrix4f invertedProjection = Matrix4f.invert(projectionMatrix, null);
-        // Vector4f eyeCoords = Matrix4f.transform(invertedProjection, clipCoords, null);
         Vector4f eyeCoords = new Vector4f();
         return new Vector4f(eyeCoords.x, eyeCoords.y, -1f, 0f);
     }
 
-    // convert to opengl coordinate system -1 -> 1, -1 -> 1,
-    // origin at the center of screen
     private Vector2f getNormalizedDeviceCoords(float mouseX, float mouseY) {
         float x = (2f * mouseX) / Display.getWidth() - 1;
         float y = (2f * mouseY) / Display.getHeight() - 1;
@@ -99,7 +88,6 @@ public class MousePicker {
         Vector3f camPos = camera.getPosition();
         Vector3f start = new Vector3f(camPos.x, camPos.y, camPos.z);
         Vector3f scaledRay = new Vector3f(ray.x * distance, ray.y * distance, ray.z * distance);
-        //return Vector3f.add(start, scaledRay, null);
         return start.add(scaledRay);
     }
 
@@ -145,11 +133,6 @@ public class MousePicker {
     }
 
     private Terrain getTerrain(float worldX, float worldZ) {
-        // TODO
-        //int x = worldX / Terrain.SIZE;
-        //int z = worldZ / Terrain.SIZE;
-        //return terrains[x][z];
-        //return terrain;
         return world.getTerrain(worldX, worldZ);
     }
 }

@@ -8,10 +8,10 @@ import org.joml.Matrix4f;
 
 import org.joml.Vector3f;
 
-public class SkyboxShader30 extends ShaderProgram {
+public class SkyboxShader extends ShaderProgram {
 
-    private static final String VERTEX_FILE = "src/Engine/skybox/skyboxVertexShader30.glsl";
-    private static final String FRAGMENT_FILE = "src/Engine/skybox/skyboxFragmentShader30.glsl";
+    private static final String VERTEX_FILE = "src/Engine/skybox/skyboxVertexShader.glsl";
+    private static final String FRAGMENT_FILE = "src/Engine/skybox/skyboxFragmentShader.glsl";
 
     private static final float ROTATE_SPEED = 0.1f; // was 1f
 
@@ -27,7 +27,7 @@ public class SkyboxShader30 extends ShaderProgram {
 
     private float rotation = 0;
 
-    public SkyboxShader30() {
+    public SkyboxShader() {
         super(VERTEX_FILE, FRAGMENT_FILE);
     }
 
@@ -42,8 +42,6 @@ public class SkyboxShader30 extends ShaderProgram {
         matrix.m31(0);
         matrix.m32(0);
         rotation += ROTATE_SPEED * DisplayManager.getFrameTimeSeconds();
-        // TODO
-        // Matrix4f.rotate((float) Math.toRadians(rotation), new Vector3f(0, 1, 0), matrix, matrix);
         super.loadMatrix(location_viewMatrix, matrix);
     }
 

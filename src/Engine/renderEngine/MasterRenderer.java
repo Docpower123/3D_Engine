@@ -14,11 +14,11 @@ import com.example.Engine.entities.Camera;
 import com.example.Engine.entities.Entity;
 import com.example.Engine.entities.Light;
 import com.example.Engine.models.TexturedModel;
-import com.example.Engine.shaders.StaticShader30;
+import com.example.Engine.shaders.StaticShader;
 import com.example.Engine.skybox.Sky;
-import com.example.Engine.skybox.SkyboxRenderer30;
+import com.example.Engine.skybox.SkyboxRenderer;
 import com.example.Engine.terrains.Terrain;
-import com.example.Engine.terrains.TerrainShader30;
+import com.example.Engine.terrains.TerrainShader;
 import com.example.Engine.toolbox.Maths;
 
 /**
@@ -32,16 +32,16 @@ public class MasterRenderer {
 
     private Matrix4f projectionMatrix;
 
-    private StaticShader30 shader = new StaticShader30();
-    private EntityRenderer30 renderer;
+    private StaticShader shader = new StaticShader();
+    private EntityRenderer renderer;
 
-    private TerrainRenderer30 terrainRenderer;
-    private TerrainShader30 terrainShader = new TerrainShader30();
+    private TerrainRenderer terrainRenderer;
+    private TerrainShader terrainShader = new TerrainShader();
 
     private Map<TexturedModel, List<Entity>> entities = new HashMap<>();
     private List<Terrain> terrains = new ArrayList<>();
 
-    private SkyboxRenderer30 skyboxRenderer;
+    private SkyboxRenderer skyboxRenderer;
 
     /**
      * Constructor for MasterRenderer.
@@ -50,9 +50,9 @@ public class MasterRenderer {
     public MasterRenderer(Loader loader) {
         enableCulling();
         projectionMatrix = Maths.createProjectionMatrix(FOV, NEAR_PLANE, FAR_PLANE);
-        renderer = new EntityRenderer30(shader, projectionMatrix);
-        terrainRenderer = new TerrainRenderer30(terrainShader, projectionMatrix);
-        skyboxRenderer = new SkyboxRenderer30(loader, projectionMatrix);
+        renderer = new EntityRenderer(shader, projectionMatrix);
+        terrainRenderer = new TerrainRenderer(terrainShader, projectionMatrix);
+        skyboxRenderer = new SkyboxRenderer(loader, projectionMatrix);
     }
 
     /**

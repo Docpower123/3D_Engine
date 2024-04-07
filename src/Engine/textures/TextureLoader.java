@@ -30,13 +30,8 @@ public class TextureLoader {
         IntBuffer components = BufferUtils.createIntBuffer(1);
         ByteBuffer buffer = readByteBufferFromFileInputStream(fs);
 
-        // System.out.println("buffer data remaining: " + buffer.remaining());
 
         ByteBuffer data = STBImage.stbi_load_from_memory(buffer, width, height, components, 4);
-
-        // System.out.println("data width: " + width.get(0));
-        // System.out.println("data height: " + height.get(0));
-        // System.out.println("data remaining: " + data.remaining());
 
         int textureID = glGenTextures();
 
@@ -45,17 +40,8 @@ public class TextureLoader {
         glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA8, width.get(0), height.get(0), 0, GL_RGBA, GL_UNSIGNED_BYTE, data);
         glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_CLAMP);
         glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_CLAMP);
-        // if (useMipMap) {
-        //     glGenerateMipmap(GL_TEXTURE_2D);
-        //     glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR_MIPMAP_LINEAR);
-        //     glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR_MIPMAP_LINEAR);
-        //     // lod bias can be e.g. between 4 and -4
-        //     glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_LOD_BIAS, lodBias);
-        // }
-        // else {
             glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
             glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
-        // }
 
         STBImage.stbi_image_free(data);
 

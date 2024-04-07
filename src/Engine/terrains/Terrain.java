@@ -8,9 +8,6 @@ import com.example.Engine.textures.TerrainTexture;
 import com.example.Engine.textures.TerrainTexturePack;
 
 public interface Terrain {
-    //public static final float SIZE = 800;
-    
-    //getSize();
     public float getX();
     public float getZ();
     public float getSize();

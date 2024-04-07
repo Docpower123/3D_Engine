@@ -76,8 +76,6 @@ public class Player extends Entity {
         }
     }
 
-
-
     private void attack(List<Enemy> enemies) {
         for (Enemy enemy : enemies) {
             Vector3f enemyPos = enemy.getPosition();

@@ -36,15 +36,6 @@ public class Vertex {
             //Vector3f.add(averagedTangent, tangent, averagedTangent);
             averagedTangent.add(tangent);
         }
-//      Added length check because lowPolyTree.obj got:
-//      OBJFileLoader: loaded file: res/lowPolyTree.obj
-//      OBJFileLoader: vertices: 224
-//      OBJFileLoader: textureCoords: 257
-//      OBJFileLoader: normals: 182
-//      OBJFileLoader: faces: 432
-//      Exception in thread "main" java.lang.IllegalStateException: Zero length vector
-//          at org.joml.Vector.normalise(Vector.java:91)
-//            at objConverter.Vertex.averageTangents(Vertex.java:38)
         if (averagedTangent.length() > 0.0f) {
             averagedTangent.normalize();
         }

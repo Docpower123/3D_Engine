@@ -2,7 +2,7 @@ package com.example.Engine.renderEngine;
 
 import java.util.List;
 
-import com.example.Engine.terrains.TerrainShader30;
+import com.example.Engine.terrains.TerrainShader;
 import com.example.Engine.toolbox.Maths;
 import org.lwjgl.opengl.GL11;
 import org.lwjgl.opengl.GL13;
@@ -15,14 +15,12 @@ import com.example.Engine.models.RawModel;
 import com.example.Engine.terrains.Terrain;
 import com.example.Engine.textures.TerrainTexturePack;
 
-public class TerrainRenderer30 {
+public class TerrainRenderer {
 
-    private TerrainShader30 shader;
-    
-    // Tutorial 30: Cel Shading
+    private TerrainShader shader;
     private float shadingLevels = 10.0f;
 
-    public TerrainRenderer30(TerrainShader30 shader, Matrix4f projectionMatrix) {
+    public TerrainRenderer(TerrainShader shader, Matrix4f projectionMatrix) {
         this.shader = shader;
         shader.start();
         shader.loadProjectionMatrix(projectionMatrix);
@@ -38,7 +36,6 @@ public class TerrainRenderer30 {
             prepareTerrain(terrain);
             loadModelMatrix(terrain);
             int vertexCount = terrain.getModel().getVertexCount();
-            //GL11.glDrawElements(GL11.GL_LINES, vertexCount, GL11.GL_UNSIGNED_INT, 0);
             GL11.glDrawElements(GL11.GL_TRIANGLES, vertexCount, GL11.GL_UNSIGNED_INT, 0);
             unbindTerrain();
         }
@@ -53,8 +50,6 @@ public class TerrainRenderer30 {
         bindTextures(terrain);
         shader.loadShineVariables(1, 0);
     }
-    
-    // OpenGL 3D Game Tutorial 17: Multitexturing
     private void bindTextures(Terrain terrain) {
         TerrainTexturePack texturePack = terrain.getTexturePack();
         GL13.glActiveTexture(GL13.GL_TEXTURE0);
@@ -68,8 +63,6 @@ public class TerrainRenderer30 {
         GL13.glActiveTexture(GL13.GL_TEXTURE4);
         GL11.glBindTexture(GL11.GL_TEXTURE_2D, terrain.getBlendMap().getTextureID());
     }
-    
-    // unbindTexturedModel
     public void unbindTerrain() {
         GL20.glDisableVertexAttribArray(0);
         GL20.glDisableVertexAttribArray(1);

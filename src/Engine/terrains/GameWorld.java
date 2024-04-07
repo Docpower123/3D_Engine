@@ -10,19 +10,18 @@ import com.example.Engine.renderEngine.Loader;
 import com.example.Engine.textures.TerrainTexture;
 import com.example.Engine.textures.TerrainTexturePack;
 
-public class World29 implements World {
+public class GameWorld implements World {
 
     float waterHeight;
     
     List<Terrain> terrains;
     
-    public World29(Loader loader, float terrainSize, float terrainMaxHeight, float waterHeight) {
+    public GameWorld(Loader loader, float terrainSize, float terrainMaxHeight, float waterHeight) {
         
         // *********TERRAIN TEXTURE STUFF**********
 
         TerrainTexture backgroundTexture = new TerrainTexture(loader.loadTexture("grassy"));
         TerrainTexture rTexture = new TerrainTexture(loader.loadTexture("dirt"));
-        //TerrainTexture gTexture = new TerrainTexture(loader.loadTexture("pinkFlowers"));
         TerrainTexture gTexture = new TerrainTexture(loader.loadTexture("rockDiffuse"));
         TerrainTexture bTexture = new TerrainTexture(loader.loadTexture("mossPath256"));
 
@@ -34,7 +33,7 @@ public class World29 implements World {
         
         for (int x = -2; x < 2; x++) {
             for (int z = -2; z < 2; z++) {
-                Terrain terrain = new TerrainWater04(x, z, terrainSize, terrainMaxHeight, loader, texturePack, blendMap, "heightmap");
+                Terrain terrain = new TerrainWater(x, z, terrainSize, terrainMaxHeight, loader, texturePack, blendMap, "heightmap");
                 terrains.add(terrain);
             }
         }
@@ -52,9 +51,7 @@ public class World29 implements World {
         if (terrain != null) {
             height = terrain.getHeightOfTerrain(worldX, worldZ);
         }
-        
-        //System.out.println("World29: getHeightOfTerrain: (" + worldX + ", " + worldZ + "), height " + height);
-        
+
         return height;
     }
     
@@ -73,7 +70,6 @@ public class World29 implements World {
     }
     
     public Terrain getTerrain(float worldX, float worldZ) {
-        // this could be optimized with a hash table
         for (int i = 0; i < terrains.size(); i++) {
             Terrain terrain = terrains.get(i);
             if (terrain.containsPosition(worldX, worldZ)) {
@@ -82,8 +78,6 @@ public class World29 implements World {
         }
         return null;
     }
-    
-    // this class doesn't have handle water
     public List<WaterTile> getWaterTiles() {
         return null;
     }

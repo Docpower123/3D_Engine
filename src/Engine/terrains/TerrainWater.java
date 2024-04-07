@@ -16,10 +16,7 @@ import com.example.Engine.textures.ModelTexture;
 import com.example.Engine.textures.TerrainTexture;
 import com.example.Engine.textures.TerrainTexturePack;
 
-public class TerrainWater04 implements Terrain {
-
-    //public static final float SIZE = 20000; // Thinmatrix has 800
-    //public static final float MAX_HEIGHT = 9000; // 40
+public class TerrainWater implements Terrain {
     private static final float MAX_PIXEL_COLOR = 256 * 256 * 256;
     private static final float HEIGHT_OFFSET = 0;
 
@@ -33,8 +30,8 @@ public class TerrainWater04 implements Terrain {
 
     private float[][] heights;
 
-    public TerrainWater04(int gridX, int gridZ, float size, float maxHeight, Loader loader, TerrainTexturePack texturePack,
-                   TerrainTexture blendMap, String heightMap) {
+    public TerrainWater(int gridX, int gridZ, float size, float maxHeight, Loader loader, TerrainTexturePack texturePack,
+                        TerrainTexture blendMap, String heightMap) {
         this.texturePack = texturePack;
         this.blendMap = blendMap;
         this.size = size;
@@ -63,8 +60,6 @@ public class TerrainWater04 implements Terrain {
     public RawModel getModel() {
         return model;
     }
-    
-    // uses texture pack, so can return null
     public ModelTexture getTexture() {
         return null;
     }
@@ -136,8 +131,6 @@ public class TerrainWater04 implements Terrain {
         float[] normals = new float[count * 3];
         float[] textureCoords = new float[count * 2];
 
-        // TODO: should this be (VERTEX_COUNT - 1) or (VERTEX_COUNT * 1) ???, (VERTEX_COUNT - 1) seems to be enough
-        //int[] indices = new int[6 * (VERTEX_COUNT - 1) * (VERTEX_COUNT * 1)];
         int[] indices = new int[6 * (VERTEX_COUNT - 1) * (VERTEX_COUNT - 1)];
 
         int vertexPointer = 0;

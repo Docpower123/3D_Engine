@@ -9,12 +9,12 @@ import com.example.Engine.toolbox.Maths;
 import org.joml.Matrix4f;
 import org.joml.Vector3f;
 
-public class WaterShader30 extends ShaderProgram {
+public class WaterShader extends ShaderProgram {
     
     private static final int MAX_LIGHTS = 4;
 
-    private final static String VERTEX_FILE = "src/Engine/water/waterVertex30.glsl";
-    private final static String FRAGMENT_FILE = "src/Engine/water/waterFragment30.glsl";
+    private final static String VERTEX_FILE = "src/Engine/water/waterVertex.glsl";
+    private final static String FRAGMENT_FILE = "src/Engine/water/waterFragment.glsl";
 
     private int location_modelMatrix;
     private int location_viewMatrix;
@@ -39,7 +39,7 @@ public class WaterShader30 extends ShaderProgram {
     
     private int location_shadingLevels;
 
-    public WaterShader30() {
+    public WaterShader() {
         super(VERTEX_FILE, FRAGMENT_FILE);
     }
 
@@ -62,9 +62,7 @@ public class WaterShader30 extends ShaderProgram {
         location_cameraPosition = getUniformLocation("cameraPosition");
         location_normalMap = getUniformLocation("normalMap");
         location_depthMap = getUniformLocation("depthMap");
-        
-        // OpenGL 3D Game Tutorial 25: Multiple Lights,
-        // OpenGL 3D Game Tutorial 26: Point Lights
+
         location_lightPosition = new int[MAX_LIGHTS];
         location_lightColor = new int[MAX_LIGHTS];
         location_attenuation = new int[MAX_LIGHTS];

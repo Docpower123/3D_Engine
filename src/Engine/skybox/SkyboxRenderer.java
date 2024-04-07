@@ -11,7 +11,7 @@ import org.lwjgl.opengl.GL30;
 import org.joml.Matrix4f;
 import org.joml.Vector3f;
 
-public class SkyboxRenderer30 {
+public class SkyboxRenderer {
 
     private static String[] TEXTURE_FILES = {
         "skyRight", "skyLeft", "skyTop", "skyBottom", "skyBack", "skyFront"
@@ -24,9 +24,8 @@ public class SkyboxRenderer30 {
     private RawModel cube;
     private int texture;
     private int nightTexture;
-    private SkyboxShader30 shader;
+    private SkyboxShader shader;
     private float time = 0;
-    // Tutorial 30: Cel Shading
     private float shadingLevels = 10.0f;
     
     private static final float SIZE = 50000f;
@@ -75,11 +74,11 @@ public class SkyboxRenderer30 {
         SIZE, -SIZE, SIZE
     };
 
-    public SkyboxRenderer30(Loader loader, Matrix4f projectionMatrix) {
+    public SkyboxRenderer(Loader loader, Matrix4f projectionMatrix) {
         cube = loader.loadToVAO(VERTICES, 3);
         texture = loader.loadCubeMap(TEXTURE_FILES);
         nightTexture = loader.loadCubeMap(NIGHT_TEXTURE_FILES);
-        shader = new SkyboxShader30();
+        shader = new SkyboxShader();
         shader.start();
         shader.connectTextureUnits();
         shader.loadProjectionMatrix(projectionMatrix);
@@ -107,11 +106,8 @@ public class SkyboxRenderer30 {
 
     private void bindTextures() {
         time += DisplayManager.getFrameTimeSeconds() * 100; // 100 instead of 1000 to slow down a bit
-        
-        //System.out.println("time = " + time);
-        
+
         time %= 24000;
-        //time = 12000;
         int texture1;
         int texture2;
         

@@ -16,7 +16,7 @@ import org.lwjgl.opengl.GL30;
 import org.joml.Matrix4f;
 import org.joml.Vector3f;
 
-public class WaterRenderer30 {
+public class WaterRenderer {
     
     private static final String DUDV_MAP = "waterDUDV";
     private static final String NORMAL_MAP = "normalMap";
@@ -24,22 +24,20 @@ public class WaterRenderer30 {
     private static final float WAVE_SPEED = 0.03f;
 
     private RawModel quad;
-    private WaterShader30 shader;
+    private WaterShader shader;
     private WaterFrameBuffers fbos;
-    
-    // tiling has to be huge since the water tiles are huge
-    private float tiling = 100f; // was 6 in OpenGL Water Tutorial 5: DuDv Maps
+    private float tiling = 100f;
     
     private float moveFactor = 0f;
-    private float waveStrength = 0.04f; // 0.02 before water tutorial 8
+    private float waveStrength = 0.04f;
     
     private int dudvTexture;
     private int normalMap;
     
     private float shadingLevels = 10.0f;
     
-    public WaterRenderer30(Loader loader, WaterShader30 shader, Matrix4f projectionMatrix,
-                           WaterFrameBuffers fbos) {
+    public WaterRenderer(Loader loader, WaterShader shader, Matrix4f projectionMatrix,
+                         WaterFrameBuffers fbos) {
         this.shader = shader;
         this.fbos = fbos;
         dudvTexture = loader.loadTexture(DUDV_MAP);
@@ -102,7 +100,6 @@ public class WaterRenderer30 {
     }
 
     private void setUpVAO(Loader loader) {
-        // Just x and z vertex positions here, y is set to 0 in v.shader
         float[] vertices = {
                  0, 0,
                  0, 1,

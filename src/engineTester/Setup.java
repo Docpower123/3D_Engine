@@ -27,12 +27,12 @@ import com.example.Engine.renderEngine.MasterRenderer;
 import com.example.Engine.skybox.Sky;
 import com.example.Engine.terrains.Terrain;
 import com.example.Engine.terrains.World;
-import com.example.Engine.terrains.World29;
+import com.example.Engine.terrains.GameWorld;
 import com.example.Engine.toolbox.MousePicker;
 import com.example.Engine.water.WaterFrameBuffers;
-import com.example.Engine.water.WaterRenderer30;
-import com.example.Engine.water.WaterShader30;
-import com.example.Engine.water.WaterTile04;
+import com.example.Engine.water.WaterRenderer;
+import com.example.Engine.water.WaterShader;
+import com.example.Engine.water.GameWaterTile;
 
 public class Setup
 {
@@ -90,7 +90,7 @@ public class Setup
             text.setColor(0.1f, 0.1f, 0.4f);
         }
 
-        World world = new World29(loader, terrainSize, terrainMaxHeight, waterHeight);
+        World world = new GameWorld(loader, terrainSize, terrainMaxHeight, waterHeight);
         List<Terrain> terrains = world.getTerrains();
 
         // *****************************************
@@ -173,7 +173,7 @@ public class Setup
         Camera camera1 = new GameCamera(player);
         camera1.getPosition().set(0, 20, 0);
 
-        Camera camera2 = new Camera18();
+        Camera camera2 = new PlayerCamera();
         camera2.getPosition().set(0, 30, 0);
 
         Camera camera = camera1;
@@ -181,16 +181,16 @@ public class Setup
         // Water
         WaterFrameBuffers buffers = new WaterFrameBuffers();
 
-        WaterShader30 waterShader = new WaterShader30();
-        WaterRenderer30 waterRenderer = new WaterRenderer30(loader, waterShader, renderer.getProjectionMatrix(), buffers);
+        WaterShader waterShader = new WaterShader();
+        WaterRenderer waterRenderer = new WaterRenderer(loader, waterShader, renderer.getProjectionMatrix(), buffers);
         List<WaterTile> waters = new ArrayList<>();
-        WaterTile water = new WaterTile04(0, 0, waterHeight, waterSize);
+        WaterTile water = new GameWaterTile(0, 0, waterHeight, waterSize);
         waters.add(water);
-        water = new WaterTile04(-1 * waterSize, 0, waterHeight, waterSize);
+        water = new GameWaterTile(-1 * waterSize, 0, waterHeight, waterSize);
         waters.add(water);
-        water = new WaterTile04(-1 * waterSize, -1 * waterSize, waterHeight, waterSize);
+        water = new GameWaterTile(-1 * waterSize, -1 * waterSize, waterHeight, waterSize);
         waters.add(water);
-        water = new WaterTile04(0, -1 * waterSize, waterHeight, waterSize);
+        water = new GameWaterTile(0, -1 * waterSize, waterHeight, waterSize);
         waters.add(water);
 
 

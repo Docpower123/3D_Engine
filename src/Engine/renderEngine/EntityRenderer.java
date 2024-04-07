@@ -13,18 +13,16 @@ import org.joml.Vector3f;
 import com.example.Engine.entities.Entity;
 import com.example.Engine.models.RawModel;
 import com.example.Engine.models.TexturedModel;
-import com.example.Engine.shaders.StaticShader30;
+import com.example.Engine.shaders.StaticShader;
 import com.example.Engine.textures.ModelTexture;
 import com.example.Engine.toolbox.Maths;
 
-public class EntityRenderer30 {
+public class EntityRenderer {
     
-    private StaticShader30 shader;
-    
-    // Tutorial 30: Cel Shading
+    private StaticShader shader;
     private float shadingLevels = 10.0f;
     
-    public EntityRenderer30(StaticShader30 shader, Matrix4f projectionMatrix) {
+    public EntityRenderer(StaticShader shader, Matrix4f projectionMatrix) {
         this.shader = shader;
         shader.start();
         shader.loadProjectionMatrix(projectionMatrix);
@@ -54,7 +52,6 @@ public class EntityRenderer30 {
         GL20.glEnableVertexAttribArray(1); // textureCoordinates
         GL20.glEnableVertexAttribArray(2); // normal
         ModelTexture texture = model.getTexture();
-        // OpenGL 3D Game Tutorial 23: Texture Atlases
         shader.loadNumberOfRows(texture.getNumberOfRows());
         if (texture.isHasTransparency()) {
             MasterRenderer.disableCulling();
@@ -83,7 +80,6 @@ public class EntityRenderer30 {
         Matrix4f transformationMatrix = Maths.createTransformationMatrix(
                 translation, rx, ry, rz, scale);
         shader.loadTransformationMatrix(transformationMatrix);
-        // OpenGL 3D Game Tutorial 23: Texture Atlases
         shader.loadTextureOffset(entity.getTextureXOffset(), entity.getTextureYOffset());
     }
 }

@@ -11,8 +11,6 @@ import com.example.Engine.renderEngine.Display;
 
 /**
  * Provides functionality for getting the values from a font file.
- * 
- * @author Karl
  *
  */
 public class MetaFile {
