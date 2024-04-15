@@ -18,7 +18,7 @@ import com.example.Engine.textures.TerrainTexturePack;
 public class TerrainRenderer {
 
     private TerrainShader shader;
-    private float shadingLevels = 10.0f;
+    private float shadingLevels = 20.0f;
 
     public TerrainRenderer(TerrainShader shader, Matrix4f projectionMatrix) {
         this.shader = shader;

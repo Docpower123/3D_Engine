@@ -48,7 +48,7 @@ void main(void)
         
         vec3 unitLightVector = normalize(toLightVector[i]);
         float nDot1 = dot(unitNormal, unitLightVector);
-        float brightness = max(nDot1, 0.0);
+        float brightness = max(nDot1, 0.6);
         
         float level = 0;
         if (shadingLevels > 0.1) {

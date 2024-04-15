@@ -88,9 +88,9 @@ public class Main
         MasterRenderer renderer = new MasterRenderer(loader);
         TextMaster.init(loader);
         if (title.length() > 0) {
-            FontType font = new FontType(loader.loadFontTextureAtlas("candara"), new File("res/fonts/candara.fnt"));
-            GUIText text = new GUIText(title, 1.3f, font, new Vector2f(0.0f, 0.85f), 0.3f, true);
-            text.setColor(0.1f, 0.1f, 0.4f);
+            //FontType font = new FontType(loader.loadFontTextureAtlas("candara"), new File("res/fonts/candara.fnt"));
+            //GUIText text = new GUIText(title, 1.3f, font, new Vector2f(0.0f, 0.85f), 0.3f, true);
+            //text.setColor(0.1f, 0.1f, 0.4f);
         }
 
         World world = new GameWorld(loader, terrainSize, terrainMaxHeight, waterHeight);
@@ -121,13 +121,13 @@ public class Main
 
         // Sun and Lamps
         List<Light> lights = new ArrayList<Light>();
-        lights.add(new Light(new Vector3f(30000, 3000, 0), new Vector3f(0.0039f, 0.0055f, 0.068f)));
+        lights.add(new Light(new Vector3f(30000, 3000, 0), new Vector3f(1, 1, 1)));
 
         ex = 1126.3969f;
         ez = 2621.307f;
         ey = world.getHeightOfTerrain(ex, ez);
         entities.add(new Entity(lampModel, new Vector3f(ex, ey, ez), 0, 0, 0, 1f));
-        lights.add(new Light(new Vector3f(ex, ey+14, ez), new Vector3f(3, 1, 1), new Vector3f(1, 0.01f, 0.002f)));
+        lights.add(new Light(new Vector3f(ex, ey+14, ez), new Vector3f(3, 1, 1), new Vector3f(1, 0.001f, 0.002f)));
 
         ex = 375.8717f;
         ez = 587.5373f;
@@ -162,15 +162,15 @@ public class Main
             }
         }
 
-        float px = 350f; //-2163f;
-        float pz = 540f; //2972f;
+        float px = 350f;
+        float pz = 540f;
         float py = world.getHeightOfTerrain(px, pz);
 
-        TexturedModel playerModel = loader.createTexturedModel("person", "playerTexture", 1, 0);
+        TexturedModel playerModel = loader.createTexturedModel("bunny", "playerTexture", 1, 0);
         Player player = new Player(playerModel, new Vector3f(px, py, pz), 0, 2, 0, 0.6f);
         entities.add(player);
 
-        for(int i=0; i<500; i++){
+        for(int i=0; i<10; i++){
             Enemy enemy = new Enemy(playerModel, new Vector3f(random.nextFloat() - 2, py, random.nextFloat() - 2), 0, 2, 0, 0.6f);
             entities.add(enemy);
             enemies.add(enemy);

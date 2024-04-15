@@ -8,12 +8,12 @@ import com.example.Engine.textures.TerrainTexture;
 import com.example.Engine.textures.TerrainTexturePack;
 
 public interface Terrain {
-    public float getX();
-    public float getZ();
-    public float getSize();
-    public Vector3f getPosition();
-    public RawModel getModel();
-    public ModelTexture getTexture();
+     float getX();
+     float getZ();
+    float getSize();
+    Vector3f getPosition();
+    RawModel getModel();
+    ModelTexture getTexture();
     public TerrainTexturePack getTexturePack();
     public TerrainTexture getBlendMap();
     public float getHeightOfTerrain(float worldX, float worldZ);

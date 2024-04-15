@@ -20,9 +20,9 @@ public class TerrainShader extends ShaderProgram {
     private int location_transformationMatrix;
     private int location_projectionMatrix;
     private int location_viewMatrix;
-    private int location_lightPosition[];
-    private int location_lightColor[];
-    private int location_attenuation[];
+    private int[] location_lightPosition;
+    private int[] location_lightColor;
+    private int[] location_attenuation;
     private int location_shineDamper;
     private int location_reflectivity;
     private int location_skyColor;

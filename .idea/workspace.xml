@@ -6,60 +6,62 @@
   <component name="ChangeListManager">
     <list default="true" id="79f98a2b-50b6-4938-825d-816dbcea5210" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Engine/entities/Camera18.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Engine/entities/PlayerCamera.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Engine/entities/Enemy.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Engine/entities/Enemy.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Engine/entities/Entity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Engine/entities/Entity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Engine/entities/GameCamera.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Engine/entities/GameCamera.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Engine/entities/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Engine/entities/Player.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Engine/fontMeshCreator/Character.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Engine/fontMeshCreator/Character.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Engine/fontMeshCreator/FontType.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Engine/fontMeshCreator/FontType.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Engine/fontMeshCreator/GUIText.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Engine/fontMeshCreator/GUIText.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Engine/fontMeshCreator/Line.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Engine/fontMeshCreator/Line.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Engine/fontMeshCreator/MetaFile.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Engine/fontMeshCreator/MetaFile.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Engine/fontMeshCreator/TextMeshData.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Engine/fontMeshCreator/TextMeshData.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Engine/fontMeshCreator/Word.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Engine/fontMeshCreator/Word.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Engine/fontRendering/fontFragment.glsl" beforeDir="false" afterPath="$PROJECT_DIR$/src/Engine/fontRendering/fontFragment.glsl" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Engine/input/Keyboard.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Engine/input/Keyboard.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Engine/input/Mouse.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Engine/input/Mouse.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Engine/normalMappingObjConverter/NormalMappedObjLoader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Engine/normalMappingObjConverter/NormalMappedObjLoader.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Engine/objConverter/Vertex.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Engine/objConverter/Vertex.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Engine/renderEngine/Display.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Engine/renderEngine/Display.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Engine/renderEngine/DisplayManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Engine/renderEngine/DisplayManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Engine/renderEngine/EntityRenderer30.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Engine/renderEngine/EntityRenderer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Engine/renderEngine/Loader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Engine/renderEngine/Loader.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Engine/renderEngine/MasterRenderer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Engine/renderEngine/MasterRenderer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Engine/renderEngine/TerrainRenderer30.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Engine/renderEngine/TerrainRenderer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Engine/shaders/ShaderProgram.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Engine/shaders/ShaderProgram.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Engine/shaders/StaticShader30.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Engine/shaders/StaticShader.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Engine/shaders/StaticShaderWater03.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Engine/shaders/StaticShaderWater.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Engine/shaders/fragmentShader30.glsl" beforeDir="false" afterPath="$PROJECT_DIR$/src/Engine/shaders/fragmentShader.glsl" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Engine/shaders/fragmentShaderWater03.glsl" beforeDir="false" afterPath="$PROJECT_DIR$/src/Engine/shaders/fragmentShaderWater.glsl" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Engine/shaders/vertexShader30.glsl" beforeDir="false" afterPath="$PROJECT_DIR$/src/Engine/shaders/vertexShader.glsl" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Engine/shaders/vertexShaderWater03.glsl" beforeDir="false" afterPath="$PROJECT_DIR$/src/Engine/shaders/vertexShaderWater.glsl" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Engine/skybox/SkyboxRenderer30.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Engine/skybox/SkyboxRenderer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Engine/skybox/SkyboxShader30.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Engine/skybox/SkyboxShader.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Engine/skybox/skyboxFragmentShader30.glsl" beforeDir="false" afterPath="$PROJECT_DIR$/src/Engine/skybox/skyboxFragmentShader.glsl" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Engine/skybox/skyboxVertexShader30.glsl" beforeDir="false" afterPath="$PROJECT_DIR$/src/Engine/skybox/skyboxVertexShader.glsl" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/3D_Engine/com/example/Engine/entities/Camera18.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/3D_Engine/com/example/Engine/entities/Enemy.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/3D_Engine/com/example/Engine/entities/Enemy.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/3D_Engine/com/example/Engine/entities/Entity.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/3D_Engine/com/example/Engine/entities/Entity.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/3D_Engine/com/example/Engine/entities/GameCamera.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/3D_Engine/com/example/Engine/entities/GameCamera.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/3D_Engine/com/example/Engine/entities/Player.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/3D_Engine/com/example/Engine/entities/Player.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/3D_Engine/com/example/Engine/fontMeshCreator/Character.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/3D_Engine/com/example/Engine/fontMeshCreator/Character.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/3D_Engine/com/example/Engine/fontMeshCreator/FontType.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/3D_Engine/com/example/Engine/fontMeshCreator/FontType.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/3D_Engine/com/example/Engine/fontMeshCreator/GUIText.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/3D_Engine/com/example/Engine/fontMeshCreator/GUIText.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/3D_Engine/com/example/Engine/fontMeshCreator/Line.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/3D_Engine/com/example/Engine/fontMeshCreator/Line.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/3D_Engine/com/example/Engine/fontMeshCreator/MetaFile.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/3D_Engine/com/example/Engine/fontMeshCreator/MetaFile.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/3D_Engine/com/example/Engine/fontMeshCreator/TextMeshData.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/3D_Engine/com/example/Engine/fontMeshCreator/TextMeshData.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/3D_Engine/com/example/Engine/fontMeshCreator/Word.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/3D_Engine/com/example/Engine/fontMeshCreator/Word.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/3D_Engine/com/example/Engine/fontRendering/fontFragment.glsl" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/3D_Engine/com/example/Engine/fontRendering/fontFragment.glsl" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/3D_Engine/com/example/Engine/input/Keyboard.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/3D_Engine/com/example/Engine/input/Keyboard.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/3D_Engine/com/example/Engine/input/Mouse.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/3D_Engine/com/example/Engine/input/Mouse.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/3D_Engine/com/example/Engine/normalMappingObjConverter/NormalMappedObjLoader.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/3D_Engine/com/example/Engine/normalMappingObjConverter/NormalMappedObjLoader.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/3D_Engine/com/example/Engine/objConverter/Vertex.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/3D_Engine/com/example/Engine/objConverter/Vertex.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/3D_Engine/com/example/Engine/renderEngine/Display.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/3D_Engine/com/example/Engine/renderEngine/Display.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/3D_Engine/com/example/Engine/renderEngine/DisplayManager.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/3D_Engine/com/example/Engine/renderEngine/DisplayManager.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/3D_Engine/com/example/Engine/renderEngine/EntityRenderer30.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/3D_Engine/com/example/Engine/renderEngine/Loader.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/3D_Engine/com/example/Engine/renderEngine/Loader.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/3D_Engine/com/example/Engine/renderEngine/TerrainRenderer30.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/3D_Engine/com/example/Engine/shaders/ShaderProgram.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/3D_Engine/com/example/Engine/shaders/ShaderProgram.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/3D_Engine/com/example/Engine/shaders/StaticShader30.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/3D_Engine/com/example/Engine/shaders/StaticShaderWater03.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/3D_Engine/com/example/Engine/shaders/fragmentShader30.glsl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/3D_Engine/com/example/Engine/shaders/fragmentShaderWater03.glsl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/3D_Engine/com/example/Engine/shaders/vertexShader30.glsl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/3D_Engine/com/example/Engine/shaders/vertexShaderWater03.glsl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/3D_Engine/com/example/Engine/skybox/SkyboxRenderer30.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/3D_Engine/com/example/Engine/skybox/SkyboxShader30.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/3D_Engine/com/example/Engine/skybox/skyboxFragmentShader30.glsl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/3D_Engine/com/example/Engine/skybox/skyboxVertexShader30.glsl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/3D_Engine/com/example/Engine/terrains/TerrainShader30.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/3D_Engine/com/example/Engine/terrains/TerrainWater04.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/3D_Engine/com/example/Engine/terrains/World29.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/3D_Engine/com/example/Engine/terrains/terrainFragmentShader30.glsl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/3D_Engine/com/example/Engine/terrains/terrainVertexShader30.glsl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/3D_Engine/com/example/Engine/textures/ModelTexture.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/3D_Engine/com/example/Engine/textures/ModelTexture.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/3D_Engine/com/example/Engine/textures/TerrainTexturePack.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/3D_Engine/com/example/Engine/textures/TerrainTexturePack.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/3D_Engine/com/example/Engine/textures/TextureData.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/3D_Engine/com/example/Engine/textures/TextureData.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/3D_Engine/com/example/Engine/textures/TextureLoader.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/3D_Engine/com/example/Engine/textures/TextureLoader.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/3D_Engine/com/example/Engine/toolbox/Maths.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/3D_Engine/com/example/Engine/toolbox/Maths.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/3D_Engine/com/example/Engine/toolbox/MousePicker.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/3D_Engine/com/example/Engine/toolbox/MousePicker.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/3D_Engine/com/example/Engine/water/WaterRenderer30.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/3D_Engine/com/example/Engine/water/WaterShader30.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/3D_Engine/com/example/Engine/water/WaterTile04.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/3D_Engine/com/example/Engine/water/waterFragment30.glsl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/3D_Engine/com/example/Engine/water/waterVertex30.glsl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/3D_Engine/com/example/engineTester/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/3D_Engine/com/example/engineTester/Main.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/3D_Engine/com/example/engineTester/Setup.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/3D_Engine/com/example/engineTester/Setup.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Engine/renderEngine/TerrainRenderer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Engine/renderEngine/TerrainRenderer.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Engine/terrains/Terrain.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Engine/terrains/Terrain.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Engine/terrains/TerrainShader30.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Engine/terrains/TerrainShader.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Engine/terrains/TerrainWater04.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Engine/terrains/TerrainWater.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Engine/terrains/World.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Engine/terrains/World.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Engine/terrains/World29.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Engine/terrains/GameWorld.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Engine/terrains/terrainFragmentShader30.glsl" beforeDir="false" afterPath="$PROJECT_DIR$/src/Engine/terrains/terrainFragmentShader.glsl" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Engine/terrains/terrainVertexShader30.glsl" beforeDir="false" afterPath="$PROJECT_DIR$/src/Engine/terrains/terrainVertexShader.glsl" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Engine/textures/ModelTexture.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Engine/textures/ModelTexture.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Engine/textures/TerrainTexturePack.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Engine/textures/TerrainTexturePack.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Engine/textures/TextureData.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Engine/textures/TextureData.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Engine/textures/TextureLoader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Engine/textures/TextureLoader.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Engine/toolbox/Maths.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Engine/toolbox/Maths.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Engine/toolbox/MousePicker.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Engine/toolbox/MousePicker.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Engine/water/WaterRenderer30.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Engine/water/WaterRenderer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Engine/water/WaterShader30.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Engine/water/WaterShader.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Engine/water/WaterTile04.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Engine/water/GameWaterTile.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Engine/water/waterFragment30.glsl" beforeDir="false" afterPath="$PROJECT_DIR$/src/Engine/water/waterFragment.glsl" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Engine/water/waterVertex30.glsl" beforeDir="false" afterPath="$PROJECT_DIR$/src/Engine/water/waterVertex.glsl" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Engine/terrains/TerrainShader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Engine/terrains/TerrainShader.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Engine/terrains/terrainFragmentShader.glsl" beforeDir="false" afterPath="$PROJECT_DIR$/src/Engine/terrains/terrainFragmentShader.glsl" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/engineTester/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/engineTester/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/engineTester/Setup.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/engineTester/Setup.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -84,27 +86,28 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Application.Main (2).executor&quot;: &quot;Run&quot;,
-    &quot;Application.Main (3).executor&quot;: &quot;Run&quot;,
-    &quot;Application.Main.executor&quot;: &quot;Run&quot;,
-    &quot;Application.MainGameLoop (2).executor&quot;: &quot;Run&quot;,
-    &quot;Application.MainGameLoop.executor&quot;: &quot;Run&quot;,
-    &quot;Application.MainGameLoop30.executor&quot;: &quot;Run&quot;,
-    &quot;Application.Unnamed (1).executor&quot;: &quot;Run&quot;,
-    &quot;Application.Unnamed.executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/yuval/Documents/GitHub/3D_Engine/lib&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Libraries&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.15429688&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Application.Main (2).executor": "Run",
+    "Application.Main (3).executor": "Run",
+    "Application.Main.executor": "Run",
+    "Application.MainGameLoop (2).executor": "Run",
+    "Application.MainGameLoop.executor": "Run",
+    "Application.MainGameLoop30.executor": "Run",
+    "Application.Unnamed (1).executor": "Run",
+    "Application.Unnamed.executor": "Run",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "full.screen.before.presentation.mode": "true",
+    "git-widget-placeholder": "master",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "C:/Users/yuval/Documents/GitHub/3D_Engine/lib",
+    "project.structure.last.edited": "Libraries",
+    "project.structure.proportion": "0.15429688",
+    "project.structure.side.proportion": "0.2"
   }
-}</component>
+}]]></component>
   <component name="RunManager" selected="Application.Main">
     <configuration name="Main (2)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.example.engineTester.Main" />
@@ -149,14 +152,6 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="Main" type="Application" factoryName="Application" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.example.engineTester.Main" />
-      <module name="3D_Engine" />
-      <option name="VM_PARAMETERS" value="-XstartOnFirstThread" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="MainGameLoop (2)" type="Application" factoryName="Application" temporary="true">
       <option name="MAIN_CLASS_NAME" value="com.example.engineTester.MainGameLoop" />
       <module name="3D_Engine" />
@@ -180,6 +175,14 @@
     </configuration>
     <configuration name="MainGameLoop" type="Application" factoryName="Application" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.example.engineTester.MainGameLoop" />
+      <module name="3D_Engine" />
+      <option name="VM_PARAMETERS" value="-XstartOnFirstThread" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Main" type="Application" factoryName="Application" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.example.engineTester.Main" />
       <module name="3D_Engine" />
       <option name="VM_PARAMETERS" value="-XstartOnFirstThread" />
       <method v="2">
