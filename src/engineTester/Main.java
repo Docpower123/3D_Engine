@@ -166,7 +166,7 @@ public class Main
         float pz = 540f;
         float py = world.getHeightOfTerrain(px, pz);
 
-        TexturedModel playerModel = loader.createTexturedModel("bunny", "playerTexture", 1, 0);
+        TexturedModel playerModel = loader.createTexturedModel("bunny", "white", 1, 0);
         Player player = new Player(playerModel, new Vector3f(px, py, pz), 0, 2, 0, 0.6f);
         entities.add(player);
 
