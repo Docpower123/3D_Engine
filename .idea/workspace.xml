@@ -5,79 +5,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="79f98a2b-50b6-4938-825d-816dbcea5210" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/win.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Server Files/client.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Server Files/server.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/client.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/mac.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/3D_Engine.iml" beforeDir="false" afterPath="$PROJECT_DIR$/3D_Engine.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/3D_Engine/com/example/Engine/entities/Camera.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/3D_Engine/com/example/Engine/entities/Camera.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/3D_Engine/com/example/Engine/entities/Enemy.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/3D_Engine/com/example/Engine/entities/Enemy.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/3D_Engine/com/example/Engine/entities/Entity.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/3D_Engine/com/example/Engine/entities/Entity.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/3D_Engine/com/example/Engine/entities/GameCamera.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/3D_Engine/com/example/Engine/entities/GameCamera.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/3D_Engine/com/example/Engine/entities/Light.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/3D_Engine/com/example/Engine/entities/Light.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/3D_Engine/com/example/Engine/entities/Player.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/3D_Engine/com/example/Engine/entities/Player.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/3D_Engine/com/example/Engine/entities/PlayerCamera.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/3D_Engine/com/example/Engine/entities/PlayerCamera.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/3D_Engine/com/example/Engine/fontMeshCreator/Character.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/3D_Engine/com/example/Engine/fontMeshCreator/Character.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/3D_Engine/com/example/Engine/fontMeshCreator/FontType.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/3D_Engine/com/example/Engine/fontMeshCreator/FontType.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/3D_Engine/com/example/Engine/fontMeshCreator/GUIText.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/3D_Engine/com/example/Engine/fontMeshCreator/GUIText.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/3D_Engine/com/example/Engine/fontMeshCreator/Line.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/3D_Engine/com/example/Engine/fontMeshCreator/Line.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/3D_Engine/com/example/Engine/fontMeshCreator/MetaFile.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/3D_Engine/com/example/Engine/fontMeshCreator/MetaFile.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/3D_Engine/com/example/Engine/fontMeshCreator/TextMeshCreator.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/3D_Engine/com/example/Engine/fontMeshCreator/TextMeshCreator.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/3D_Engine/com/example/Engine/fontMeshCreator/TextMeshData.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/3D_Engine/com/example/Engine/fontMeshCreator/TextMeshData.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/3D_Engine/com/example/Engine/fontMeshCreator/Word.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/3D_Engine/com/example/Engine/fontMeshCreator/Word.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/3D_Engine/com/example/Engine/fontRendering/FontRenderer.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/3D_Engine/com/example/Engine/fontRendering/FontRenderer.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/3D_Engine/com/example/Engine/fontRendering/FontShader.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/3D_Engine/com/example/Engine/fontRendering/FontShader.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/3D_Engine/com/example/Engine/fontRendering/TextMaster.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/3D_Engine/com/example/Engine/fontRendering/TextMaster.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/3D_Engine/com/example/Engine/guis/GuiRenderer.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/3D_Engine/com/example/Engine/guis/GuiRenderer.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/3D_Engine/com/example/Engine/guis/GuiShader.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/3D_Engine/com/example/Engine/guis/GuiShader.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/3D_Engine/com/example/Engine/guis/GuiTexture.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/3D_Engine/com/example/Engine/guis/GuiTexture.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/3D_Engine/com/example/Engine/input/Keyboard.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/3D_Engine/com/example/Engine/input/Keyboard.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/3D_Engine/com/example/Engine/input/Mouse.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/3D_Engine/com/example/Engine/input/Mouse.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/3D_Engine/com/example/Engine/models/RawModel.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/3D_Engine/com/example/Engine/models/RawModel.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/3D_Engine/com/example/Engine/models/TexturedModel.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/3D_Engine/com/example/Engine/models/TexturedModel.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/3D_Engine/com/example/Engine/normalMappingObjConverter/ModelDataNM.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/3D_Engine/com/example/Engine/normalMappingObjConverter/ModelDataNM.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/3D_Engine/com/example/Engine/normalMappingObjConverter/NormalMappedObjLoader.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/3D_Engine/com/example/Engine/normalMappingObjConverter/NormalMappedObjLoader.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/3D_Engine/com/example/Engine/normalMappingObjConverter/VertexNM.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/3D_Engine/com/example/Engine/normalMappingObjConverter/VertexNM.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/3D_Engine/com/example/Engine/objConverter/ModelData.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/3D_Engine/com/example/Engine/objConverter/ModelData.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/3D_Engine/com/example/Engine/objConverter/OBJFileLoader.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/3D_Engine/com/example/Engine/objConverter/OBJFileLoader.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/3D_Engine/com/example/Engine/objConverter/Vertex.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/3D_Engine/com/example/Engine/objConverter/Vertex.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/3D_Engine/com/example/Engine/renderEngine/Display.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/3D_Engine/com/example/Engine/renderEngine/Display.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/3D_Engine/com/example/Engine/renderEngine/DisplayManager.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/3D_Engine/com/example/Engine/renderEngine/DisplayManager.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/3D_Engine/com/example/Engine/renderEngine/EntityRenderer.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/3D_Engine/com/example/Engine/renderEngine/EntityRenderer.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/3D_Engine/com/example/Engine/renderEngine/Loader.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/3D_Engine/com/example/Engine/renderEngine/Loader.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/3D_Engine/com/example/Engine/renderEngine/MasterRenderer.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/3D_Engine/com/example/Engine/renderEngine/MasterRenderer.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/3D_Engine/com/example/Engine/renderEngine/TerrainRenderer.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/3D_Engine/com/example/Engine/renderEngine/TerrainRenderer.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/3D_Engine/com/example/Engine/shaders/ShaderProgram.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/3D_Engine/com/example/Engine/shaders/ShaderProgram.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/3D_Engine/com/example/Engine/shaders/StaticShader.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/3D_Engine/com/example/Engine/shaders/StaticShader.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/3D_Engine/com/example/Engine/shaders/StaticShaderWater.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/3D_Engine/com/example/Engine/shaders/StaticShaderWater.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/3D_Engine/com/example/Engine/skybox/Sky.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/3D_Engine/com/example/Engine/skybox/Sky.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/3D_Engine/com/example/Engine/skybox/SkyboxRenderer.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/3D_Engine/com/example/Engine/skybox/SkyboxRenderer.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/3D_Engine/com/example/Engine/skybox/SkyboxShader.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/3D_Engine/com/example/Engine/skybox/SkyboxShader.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/3D_Engine/com/example/Engine/terrains/GameWorld.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/3D_Engine/com/example/Engine/terrains/GameWorld.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/3D_Engine/com/example/Engine/terrains/Terrain.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/3D_Engine/com/example/Engine/terrains/Terrain.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/3D_Engine/com/example/Engine/terrains/TerrainShader.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/3D_Engine/com/example/Engine/terrains/TerrainShader.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/3D_Engine/com/example/Engine/terrains/TerrainWater.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/3D_Engine/com/example/Engine/terrains/TerrainWater.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/3D_Engine/com/example/Engine/terrains/World.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/3D_Engine/com/example/Engine/terrains/World.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/3D_Engine/com/example/Engine/textures/ModelTexture.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/3D_Engine/com/example/Engine/textures/ModelTexture.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/3D_Engine/com/example/Engine/textures/TerrainTexture.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/3D_Engine/com/example/Engine/textures/TerrainTexture.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/3D_Engine/com/example/Engine/textures/TerrainTexturePack.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/3D_Engine/com/example/Engine/textures/TerrainTexturePack.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/3D_Engine/com/example/Engine/textures/Texture.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/3D_Engine/com/example/Engine/textures/Texture.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/3D_Engine/com/example/Engine/textures/TextureData.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/3D_Engine/com/example/Engine/textures/TextureData.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/3D_Engine/com/example/Engine/textures/TextureLoader.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/3D_Engine/com/example/Engine/textures/TextureLoader.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/3D_Engine/com/example/Engine/toolbox/Maths.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/3D_Engine/com/example/Engine/toolbox/Maths.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/3D_Engine/com/example/Engine/toolbox/MousePicker.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/3D_Engine/com/example/Engine/toolbox/MousePicker.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/3D_Engine/com/example/Engine/water/GameWaterTile.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/3D_Engine/com/example/Engine/water/GameWaterTile.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/3D_Engine/com/example/Engine/water/WaterFrameBuffers.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/3D_Engine/com/example/Engine/water/WaterFrameBuffers.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/3D_Engine/com/example/Engine/water/WaterRenderer.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/3D_Engine/com/example/Engine/water/WaterRenderer.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/3D_Engine/com/example/Engine/water/WaterShader.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/3D_Engine/com/example/Engine/water/WaterShader.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/3D_Engine/com/example/Engine/water/WaterTile.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/3D_Engine/com/example/Engine/water/WaterTile.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/3D_Engine/com/example/engineTester/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/3D_Engine/com/example/engineTester/Main.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/3D_Engine/com/example/engineTester/Setup.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/3D_Engine/com/example/engineTester/Setup.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Server Files/client.py" beforeDir="false" afterPath="$PROJECT_DIR$/Server Files/client.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Server Files/server.py" beforeDir="false" afterPath="$PROJECT_DIR$/Server Files/server.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/client.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/engineTester/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/engineTester/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/engineTester/Setup.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/engineTester/Client.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -103,33 +37,37 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Application.Main (2).executor&quot;: &quot;Run&quot;,
-    &quot;Application.Main (3).executor&quot;: &quot;Run&quot;,
-    &quot;Application.Main (4).executor&quot;: &quot;Run&quot;,
-    &quot;Application.Main.executor&quot;: &quot;Run&quot;,
-    &quot;Application.MainGameLoop (2).executor&quot;: &quot;Run&quot;,
-    &quot;Application.MainGameLoop.executor&quot;: &quot;Run&quot;,
-    &quot;Application.MainGameLoop30.executor&quot;: &quot;Run&quot;,
-    &quot;Application.Unnamed (1).executor&quot;: &quot;Run&quot;,
-    &quot;Application.Unnamed.executor&quot;: &quot;Run&quot;,
-    &quot;Python.client.executor&quot;: &quot;Run&quot;,
-    &quot;Python.server.executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;full.screen.before.presentation.mode&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
-    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/yuval/Documents/GitHub/3D_Engine/lib/win&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Libraries&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.15429688&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Application.ChatClient.executor": "Run",
+    "Application.ChatServer.executor": "Run",
+    "Application.Client.executor": "Run",
+    "Application.Main (2).executor": "Run",
+    "Application.Main (3).executor": "Run",
+    "Application.Main (4).executor": "Run",
+    "Application.Main.executor": "Run",
+    "Application.MainGameLoop (2).executor": "Run",
+    "Application.MainGameLoop.executor": "Run",
+    "Application.MainGameLoop30.executor": "Run",
+    "Application.TimeServer.executor": "Run",
+    "Application.Unnamed (1).executor": "Run",
+    "Application.Unnamed.executor": "Run",
+    "Python.client.executor": "Run",
+    "Python.server.executor": "Run",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "full.screen.before.presentation.mode": "true",
+    "git-widget-placeholder": "master",
+    "ignore.virus.scanning.warn.message": "true",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "C:/Users/yuval/Documents/GitHub/3D_Engine/lib/win",
+    "project.structure.last.edited": "Libraries",
+    "project.structure.proportion": "0.15429688",
+    "project.structure.side.proportion": "0.2"
   }
-}</component>
-  <component name="RunManager" selected="Application.MainGameLoop">
+}]]></component>
+  <component name="RunManager">
     <configuration name="Main (2)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.example.engineTester.Main" />
       <module name="3D_Engine" />
@@ -246,6 +184,29 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Server Files/client.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="server" type="PythonConfigurationType" factoryName="Python" nameIsGenerated="true">
+      <module name="3D_Engine" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="SDK_NAME" value="Python 3.12" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/Server Files" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Server Files/server.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />

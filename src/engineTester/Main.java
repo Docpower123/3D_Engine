@@ -43,7 +43,7 @@ public class Main
 
     String title = "3D Engine";
     float terrainSize = 20000;
-    float terrainMaxHeight = 2000;
+    float terrainMaxHeight = 20000;
     float waterSize = terrainSize;
     float waterHeight = 0;
     Random random = new Random(676452);

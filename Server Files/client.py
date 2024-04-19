@@ -2,7 +2,7 @@ import socket
 import threading
 
 # Define server address and port
-SERVER_ADDRESS = '127.0.0.1'  # Server's IP address
+SERVER_ADDRESS = '192.168.1.110'  # Server's IP address
 SERVER_PORT = 43434  # Server's port number
 
 # Flag to check if it's the first message
@@ -43,10 +43,11 @@ def send_messages(client_socket):
 
 
 def first(data):
-    data = data.split(',')
-    terrainSize = data[0]
-    terrainMaxHeight = data[1]
-    waterSize = terrainSize
+    print(data)
+    #data = data.split(',')
+    #terrainSize = data[0]
+    #terrainMaxHeight = data[1]
+    #waterSize = terrainSize
 
 
 # Create a TCP socket
