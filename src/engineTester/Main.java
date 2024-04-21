@@ -43,7 +43,7 @@ public class Main
 
     String title = "3D Engine";
     float terrainSize = 20000;
-    float terrainMaxHeight = 20000;
+    float terrainMaxHeight = 2000;
     float waterSize = terrainSize;
     float waterHeight = 0;
     Random random = new Random(676452);
@@ -121,7 +121,7 @@ public class Main
 
         // Sun and Lamps
         List<Light> lights = new ArrayList<Light>();
-        lights.add(new Light(new Vector3f(30000, 3000, 0), new Vector3f(1, 1, 1)));
+        lights.add(new Light(new Vector3f(20000, 20000, 20000), new Vector3f(1, 1, 1)));
 
         ex = 1126.3969f;
         ez = 2621.307f;

@@ -7,11 +7,8 @@
     <list default="true" id="79f98a2b-50b6-4938-825d-816dbcea5210" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Server Files/client.py" beforeDir="false" afterPath="$PROJECT_DIR$/Server Files/client.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Server Files/server.py" beforeDir="false" afterPath="$PROJECT_DIR$/Server Files/server.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/client.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/engineTester/Client.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/engineTester/Client.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/engineTester/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/engineTester/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/engineTester/Setup.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/engineTester/Client.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -29,6 +26,15 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {}
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/Docpower123/3D_Engine.git&quot;,
+    &quot;accountId&quot;: &quot;4f7b6fe7-f483-4ddc-b436-2500930aba43&quot;
+  }
+}</component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 4
 }</component>
@@ -37,36 +43,37 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Application.ChatClient.executor": "Run",
-    "Application.ChatServer.executor": "Run",
-    "Application.Client.executor": "Run",
-    "Application.Main (2).executor": "Run",
-    "Application.Main (3).executor": "Run",
-    "Application.Main (4).executor": "Run",
-    "Application.Main.executor": "Run",
-    "Application.MainGameLoop (2).executor": "Run",
-    "Application.MainGameLoop.executor": "Run",
-    "Application.MainGameLoop30.executor": "Run",
-    "Application.TimeServer.executor": "Run",
-    "Application.Unnamed (1).executor": "Run",
-    "Application.Unnamed.executor": "Run",
-    "Python.client.executor": "Run",
-    "Python.server.executor": "Run",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "full.screen.before.presentation.mode": "true",
-    "git-widget-placeholder": "master",
-    "ignore.virus.scanning.warn.message": "true",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/yuval/Documents/GitHub/3D_Engine/lib/win",
-    "project.structure.last.edited": "Libraries",
-    "project.structure.proportion": "0.15429688",
-    "project.structure.side.proportion": "0.2"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Application.ChatClient.executor&quot;: &quot;Run&quot;,
+    &quot;Application.ChatServer.executor&quot;: &quot;Run&quot;,
+    &quot;Application.Client.executor&quot;: &quot;Run&quot;,
+    &quot;Application.Main (2).executor&quot;: &quot;Run&quot;,
+    &quot;Application.Main (3).executor&quot;: &quot;Run&quot;,
+    &quot;Application.Main (4).executor&quot;: &quot;Run&quot;,
+    &quot;Application.Main.executor&quot;: &quot;Run&quot;,
+    &quot;Application.MainGameLoop (2).executor&quot;: &quot;Run&quot;,
+    &quot;Application.MainGameLoop.executor&quot;: &quot;Run&quot;,
+    &quot;Application.MainGameLoop30.executor&quot;: &quot;Run&quot;,
+    &quot;Application.TimeServer.executor&quot;: &quot;Run&quot;,
+    &quot;Application.Unnamed (1).executor&quot;: &quot;Run&quot;,
+    &quot;Application.Unnamed.executor&quot;: &quot;Run&quot;,
+    &quot;Python.client.executor&quot;: &quot;Run&quot;,
+    &quot;Python.server.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;full.screen.before.presentation.mode&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/yuval/Documents/GitHub/3D_Engine/lib/win&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Libraries&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15429688&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.editor&quot;
   }
-}]]></component>
+}</component>
   <component name="RunManager">
     <configuration name="Main (2)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.example.engineTester.Main" />
@@ -201,7 +208,6 @@
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="SDK_NAME" value="Python 3.12" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/Server Files" />
       <option name="IS_MODULE_SDK" value="false" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
@@ -225,14 +231,6 @@
       <item itemvalue="Application.MainGameLoop (2)" />
     </list>
   </component>
-  <component name="SharedIndexes">
-    <attachedChunks>
-      <set>
-        <option value="jdk-21.0.2-openjdk-21.0.2-4caba194b151-4f524021" />
-        <option value="jdk-22-openjdk-22-3183f394aec4-bad0321e" />
-      </set>
-    </attachedChunks>
-  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -243,5 +241,16 @@
       <updated>1712406483921</updated>
     </task>
     <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
 </project>
