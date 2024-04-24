@@ -13,61 +13,91 @@ import com.example.Engine.terrains.Terrain;
 import com.example.Engine.terrains.World;
 import com.example.Engine.toolbox.MousePicker;
 import com.example.Engine.water.*;
+
 import org.joml.Vector3f;
 import org.joml.Vector4f;
 import org.lwjgl.opengl.GL11;
 import org.lwjgl.opengl.GL30;
 
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
+import java.io.*;
 import java.net.Socket;
+import java.net.SocketException;
 import java.util.Random;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.concurrent.CountDownLatch;
 
 public class Client{
+
+    // Networking Variables
+    private static CountDownLatch latch;
+    private static volatile String[] world_packet;
+    private static Socket client; // Client socket
+
+    // Game Variables
     static String title = "3D Engine Demo";
     static Loader loader = new Loader();
     static Random random = new Random(676452);
     static List<Entity> entities = new ArrayList<>();
     static List<Enemy> enemies = new ArrayList<>();
 
-    public static String[] wifi() throws IOException {
-        String ip = "localhost";
-        int port = 12345;
-        Socket client = new Socket(ip, port);
-        InputStream data = client.getInputStream();
+    static class Networking implements Runnable {
+        private OutputStream outputStream; // Output stream for sending data
 
-        // Create a BufferedReader to read data from InputStream
-        BufferedReader reader = new BufferedReader(new InputStreamReader(data));
+        public void send(String data) throws IOException {
+            outputStream.write(data.getBytes());
+            outputStream.flush();
+        }
 
-        // Read and print data from the server in a while loop
-        String line;
-        boolean flag = false;
-        String[] world_packet = null;
-        while ((line = reader.readLine()) != null) {
-            if (!flag) {
-                flag = true;
-                world_packet = line.substring(1, line.length() - 1).split(", ");
-
-            } else {
+        @Override
+        public void run() {
+            String ip = "localhost";
+            int port = 12345;
+            try {
+                client = new Socket(ip, port);
+                outputStream = client.getOutputStream(); // Initialize the output stream
+                boolean is_first = false;
+                String line;
+                InputStream data = client.getInputStream();
+                BufferedReader reader = new BufferedReader(new InputStreamReader(data));
+                while (true) { // Check if thread is not interrupted
+                    if (!is_first && (line = reader.readLine()) != null) {
+                        world_packet = line.substring(1, line.length() - 1).split(", ");
+                        is_first = true;
+                        latch.countDown(); // Signal that the packet is received
+                    } else {
+                        if ((line = reader.readLine()) != null) {
+                            System.out.println(line);
+                        } else {
+                            // Handle the case where the server closes the connection
+                            System.out.println("Server closed the connection.");
+                            break;
+                        }
+                    }
+                }
+            } catch (IOException e) {
+                System.out.println("Connection reset by server.");
             }
         }
 
-        // Close the resources
-        reader.close();
-        client.close();
-        return world_packet;
+        public void interrupt() {
+            try {
+                client.close();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }        }
     }
 
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] args) throws IOException, InterruptedException {
         DisplayManager.createDisplay(title);
         MasterRenderer renderer = new MasterRenderer(loader);
-        String[] world_packet = wifi();
+        latch = new CountDownLatch(1); // Initialize the latch
+        Networking networking = new Networking();
+        Thread thread = new Thread(networking);
+        thread.start();
+        latch.await(); // Wait until the world packet is received
         World world = new GameWorld(loader,Float.parseFloat(world_packet[0]), Float.parseFloat(world_packet[1]), 0);
         List<Terrain> terrains = world.getTerrains();
 
@@ -82,7 +112,6 @@ public class Client{
         TexturedModel toonRocksModel = loader.createTexturedModel("toonRocks", "toonRocks", 10, 1);
         TexturedModel lampModel = loader.createTexturedModel("lamp", "lamp", 1, 0, false, true);
 
-        // TODO: add all model to a hash map
         Map<String, Object> variables = new HashMap<>();
         variables.put("'rocksModel'", rocksModel);
         variables.put("'toonRocksModel'", toonRocksModel);
@@ -173,6 +202,10 @@ public class Client{
         // main game loop
         while(!Display.isCloseRequested()){
             player.move(world, enemies);
+            // send player location to server
+            if(networking != null){
+                networking.send(player.getPosition().toString());
+            }
             camera.move();
             picker.update();
             GL11.glEnable(GL30.GL_CLIP_DISTANCE0);
@@ -197,6 +230,7 @@ public class Client{
             waterRenderer.render(waters, sky, camera, lights);
             int frames = DisplayManager.updateDisplay();
         }
+        networking.interrupt(); // Interrupt the networking thread
         buffers.cleanUp();
         waterShader.cleanUp();
         renderer.cleanUp();

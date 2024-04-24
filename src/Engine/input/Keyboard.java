@@ -9,8 +9,6 @@ public class Keyboard {
     private static HashMap<Integer, String> keysDown = new HashMap<Integer, String>();
 
     public static void keyCallback(long window, int key, int scancode, int action, int mods) {
-        System.out.println("keyCallback: key, scancode, action, mods: " + key + ", " + scancode + ", " + action + ", " + mods);
-
         if (action == GLFW_PRESS) {
             keysDown.put(key, "down");
         }

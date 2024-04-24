@@ -1,69 +1,98 @@
 import socket
 import threading
+import time
+import random
 
-# Define host and port
-HOST = '192.168.1.110'  # Loopback address for localhost
-PORT = 43434  # Arbitrary non-privileged port
-
-# List to hold all client connections
+# List to keep track of connected clients
 clients = []
 
-def handle_client(client_socket, client_address):
+
+# Function to create the world data
+def create_world():
+    world = []
+    world.append(20000)  # Add elements to the list using append method
+    world.append(2000)
+    # create lights entities
+    for i in range(2, 100, 2):
+        world.append(abs(random.random()))
+        world.append(abs(random.random()))
+    # create entities
+    for i in range(101, 2106, 6):
+        world.append(random.choice(
+            ["treeModel", "lowPolyTreeModel", "pineModel", "grassModel", "flowerModel", "fernModel", "toonRocksModel"]))
+        world.append(abs(random.random()))  # ex
+        world.append(abs(random.random()))  # ez
+        world.append(abs(random.random()))  # rx
+        world.append(abs(random.random()))  # rz
+        world.append(random.uniform(0, 5))  # scale
+    return world
+
+
+# Function to handle each client connection
+def handle_client(client_socket, addr):
+    print("Connection from", addr)
     try:
+        # Send world data to the client
+        world_data = create_world()
+        client_socket.sendall(bytes(str(world_data) + '\n', 'utf-8'))
+        time.sleep(1)  # Introduce a delay for demonstration
+
+        # Add client to the list of connected clients
+        clients.append((client_socket, addr))
+
+        # Receive and broadcast messages from the client
         while True:
-            # Receive data from the client
-            data = client_socket.recv(1024).decode('utf-8')
+            data = client_socket.recv(1024)
             if not data:
                 break
-
-            print(f"Received from {client_address}: {data}")
-
-            # Broadcast the received data to all clients
-            for c in clients:
-                if c != client_socket:
-                    c.sendall(data.encode('utf-8'))
+            print("Received data from", addr, ":", data.decode('utf-8'))
+            broadcast(data)
     except Exception as e:
-        print(f"An error occurred with client {client_address}: {e}")
+        print("Error handling client:", e)
     finally:
-        # Remove the client from the list
-        clients.remove(client_socket)
+        # Remove client from the list of connected clients
+        clients.remove((client_socket, addr))
+        # Close the connection
         client_socket.close()
+        print("Connection closed with", addr)
 
-def broadcast_message(message):
-    # Send a message to all clients
-    for client_socket in clients:
+
+# Function to broadcast messages to all connected clients
+def broadcast(message):
+    for client, _ in clients:
         try:
-            client_socket.sendall(message.encode('utf-8'))
+            client.sendall(message)
         except Exception as e:
-            print(f"Error sending message to a client: {e}")
+            print("Error broadcasting message:", e)
 
-# Create a TCP socket
-server_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 
-# Bind the socket to the address and port
-server_socket.bind((HOST, PORT))
+# Function to start the server
+def server():
+    # Define host and port
+    host = 'localhost'
+    port = 12345
 
-# Start listening for incoming connections
-server_socket.listen()
+    # Create a socket object
+    server_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 
-print(f"Server listening on {HOST}:{PORT}")
+    # Bind the socket to the host and port
+    server_socket.bind((host, port))
 
-while True:
-    # Accept incoming connection
-    client_socket, client_address = server_socket.accept()
-    print(f"Connection established with {client_address}")
+    # Listen for incoming connections
+    server_socket.listen(5)
 
-    # Add the client to the list
-    clients.append(client_socket)
+    print("Server listening on port", port)
 
-    # Create a new thread to handle the client
-    client_thread = threading.Thread(target=handle_client, args=(client_socket, client_address))
-    client_thread.start()
+    # Accept incoming connections and handle them in separate threads
+    while True:
+        # Accept incoming connection
+        client_socket, addr = server_socket.accept()
 
-    # Send a welcome message to the client
-    welcome_message = "Welcome to the chat server!"
-    client_socket.sendall(welcome_message.encode('utf-8'))
+        # Create a new thread to handle the client
+        client_thread = threading.Thread(target=handle_client, args=(client_socket, addr))
+        client_thread.start()
 
-    # Send a message to all clients about the new connection
-    new_client_message = f"{client_address} has joined the chat."
-    broadcast_message(new_client_message)
+
+# Run the server
+if __name__ == "__main__":
+    server()

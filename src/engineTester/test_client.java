@@ -62,6 +62,13 @@ public class test_client {
                 }
             }
         }
+        public void stop(){
+            try {
+                client.close();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
     }
 
     public static void main(String[] args) throws InterruptedException, IOException {
@@ -75,6 +82,6 @@ public class test_client {
         if (networking != null) {
             networking.send("Hello, server!");
         }
-
+        networking.stop();
     }
 }

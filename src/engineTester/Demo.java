@@ -1,6 +1,5 @@
 package com.example.engineTester;
 
-import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
@@ -17,8 +16,6 @@ import com.example.Engine.entities.*;
 import com.example.Engine.guis.GuiRenderer;
 import com.example.Engine.guis.GuiTexture;
 import com.example.Engine.water.WaterTile;
-import com.example.Engine.fontMeshCreator.FontType;
-import com.example.Engine.fontMeshCreator.GUIText;
 import com.example.Engine.fontRendering.TextMaster;
 import com.example.Engine.models.TexturedModel;
 import com.example.Engine.renderEngine.Display;
@@ -35,10 +32,10 @@ import com.example.Engine.water.WaterRenderer;
 import com.example.Engine.water.WaterShader;
 import com.example.Engine.water.GameWaterTile;
 
-public class Main
+public class Demo
 {
     public static void main(String[] args) {
-        new Main();
+        new Demo();
     }
 
     String title = "3D Engine";
@@ -83,7 +80,7 @@ public class Main
         }
     }
 
-    public Main() {
+    public Demo() {
         DisplayManager.createDisplay(title);
         MasterRenderer renderer = new MasterRenderer(loader);
         TextMaster.init(loader);
