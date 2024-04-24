@@ -52,13 +52,9 @@ public class Client{
         while ((line = reader.readLine()) != null) {
             if (!flag) {
                 flag = true;
-                System.out.println(STR."World Packet: \{line}");
                 world_packet = line.substring(1, line.length() - 1).split(", ");
-                System.out.println(world_packet.length);
-                System.out.println(world_packet[99]);
-                System.out.println(world_packet[100]);
+
             } else {
-                System.out.println(line);
             }
         }
 

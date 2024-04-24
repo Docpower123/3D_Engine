@@ -32,7 +32,7 @@ void main(void)
 
     pass_textureCoordinates = textureCoordinates;
     
-    surfaceNormal = (transformationMatrix * vec4(normal, 0.0)).xyz;
+    surfaceNormal = (transformationMatrix * vec4(normal, 1.0)).xyz;
     
     for (int i = 0; i < 4; i++) {
         toLightVector[i] = lightPosition[i] - worldPosition.xyz;

@@ -87,14 +87,13 @@ public class Player extends Entity {
         }
     }
 
+    //TODO: implement takeDamage
     public void takeDamage(int amount) {
         long currentTime = System.currentTimeMillis();
         if (currentTime - lastDamageTime > DAMAGE_COOLDOWN) {
             health -= amount;
             lastDamageTime = currentTime;
-            System.out.println("Player took " + amount + " damage. Remaining health: " + health);
         } else {
-            System.out.println("Player is invincible. Cannot take damage yet.");
         }
     }
 

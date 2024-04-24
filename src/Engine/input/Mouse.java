@@ -20,7 +20,6 @@ public class Mouse {
     private static boolean haveOldY = false;
 
     public static void mouseCallback(long window, int button, int action, int mods) {
-        System.out.println("mouseCallback: button, action, mods: " + button + ", " + action + ", " + mods);
 
         switch (button) {
             case GLFW_MOUSE_BUTTON_LEFT: System.out.println("left"); break;
@@ -38,7 +37,6 @@ public class Mouse {
     }
 
     public static void cursorPosCallback(long window, double x, double y) {
-        System.out.println("cursorPosCallback: x, y: " + x + ", " + y);
         mouseX = x;
         mouseY = y;
     }
