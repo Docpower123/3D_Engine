@@ -38,7 +38,7 @@ public class GameWorld implements World {
             }
         }
         
-        System.out.println("World29: generated " + terrains.size() + " terrains.");
+        System.out.println(STR."World: generated \{terrains.size()} terrains.");
         
         this.waterHeight = waterHeight;
     }

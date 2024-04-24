@@ -129,7 +129,7 @@ public class Client{
         lights.add(new Light(new Vector3f(30000, 3000, 0), new Vector3f(1, 1, 1)));
 
         // loop to read all lamps positions and add them to the list
-        for(int i=2; i<4; i+=2){
+        for(int i=2; i<200; i+=2){
             ex = Float.parseFloat(world_packet[i]);
             ez = Float.parseFloat(world_packet[i+1]);
             ey = world.getHeightOfTerrain(ex, ez);
@@ -138,7 +138,7 @@ public class Client{
         }
 
         // loop to read all entities positions and add them to the list
-        for(int i=100; i<106; i+=6){
+        for(int i=200; i<50000; i+=6){
             TexturedModel model = (TexturedModel) variables.get(world_packet[i]);
             ex = Float.parseFloat(world_packet[i+1]);
             ez = Float.parseFloat(world_packet[i+2]);
@@ -162,6 +162,7 @@ public class Client{
                 }
             }
         }
+
 
         // set up the player & camera
         float player_x = random.nextFloat();
@@ -237,6 +238,4 @@ public class Client{
         loader.cleanUp();
         DisplayManager.closeDisplay();
     }
-
-
 }

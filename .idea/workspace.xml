@@ -5,127 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="79f98a2b-50b6-4938-825d-816dbcea5210" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Server Files/client.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Server Files/server.py" beforeDir="false" afterPath="$PROJECT_DIR$/Server Files/server.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/old/--2020.pdf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/old/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/old/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/old/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/old/.idea/libraries/libs.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/old/.idea/misc.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/old/.idea/modules.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/old/.idea/uiDesigner.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/old/.idea/vcs.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/old/game.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/old/libs/AppleJavaExtensions.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/old/libs/PNGDecoder.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/old/libs/asm-debug-all.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/old/libs/jinput.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/old/libs/laf-plugin-7.2.1.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/old/libs/laf-widget-7.2.1.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/old/libs/log4j-api-2.0-beta9.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/old/libs/lwjgl-debug.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/old/libs/lwjgl.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/old/libs/lwjgl_test.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/old/libs/lwjgl_util.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/old/libs/lwjgl_util_applet.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/old/libs/lzma.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/old/libs/slick-util (2).jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/old/libs/substance-7.2.1.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/old/libs/trident-7.2.1.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/old/old.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/old/res/back.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/old/res/blendMap.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/old/res/bottom.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/old/res/box.obj" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/old/res/box.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/old/res/bunny.obj" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/old/res/dirt.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/old/res/dragon.obj" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/old/res/exampleOBJ.obj" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/old/res/fern.obj" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/old/res/fern.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/old/res/flower.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/old/res/front.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/old/res/grass.obj" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/old/res/grassFlowers.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/old/res/grassModel.obj" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/old/res/grassTexture.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/old/res/grassy.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/old/res/grassy2.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/old/res/grassy3.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/old/res/health.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/old/res/heightmap perlin.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/old/res/heightmap.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/old/res/lamp.mtl" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/old/res/lamp.obj" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/old/res/lamp.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/old/res/left.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/old/res/lowPolyTree.obj" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/old/res/lowPolyTree.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/old/res/mossPath256.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/old/res/mud.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/old/res/path.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/old/res/person.blend" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/old/res/person.obj" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/old/res/pine.obj" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/old/res/pine.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/old/res/pinkFlowers.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/old/res/playerTexture.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/old/res/right.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/old/res/stall.obj" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/old/res/stallTexture.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/old/res/stanfordBunny.obj" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/old/res/top.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/old/res/tree.obj" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/old/res/tree.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/old/res/white.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/old/src/engineTester/MainGameLoop.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/old/src/entities/Camera.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/old/src/entities/Entity.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/old/src/entities/Light.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/old/src/entities/Player.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/old/src/guis/GuiRenderer.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/old/src/guis/GuiShader.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/old/src/guis/GuiTexture.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/old/src/guis/guiFragmentShader.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/old/src/guis/guiVertexShader.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/old/src/models/RawModel.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/old/src/models/TexturedModel.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/old/src/renderEngine/DisplayManager.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/old/src/renderEngine/EntityRenderer.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/old/src/renderEngine/Loader.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/old/src/renderEngine/MasterRenderer.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/old/src/renderEngine/OBJLoader.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/old/src/renderEngine/TerrainRenderer.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/old/src/shaders/ShaderProgram.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/old/src/shaders/StaticShader.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/old/src/shaders/TerrainShader.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/old/src/shaders/fragmentShader.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/old/src/shaders/terrainFragmentShader.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/old/src/shaders/terrainVertexShader.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/old/src/shaders/vertexShader.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/old/src/skybox/SkyboxRenderer.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/old/src/skybox/SkyboxShader.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/old/src/skybox/skyboxFragmentShader.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/old/src/skybox/skyboxVertexShader.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/old/src/terrains/Terrain.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/old/src/textures/ModelTexture.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/old/src/textures/TerrainTexture.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/old/src/textures/TerrainTexturePack.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/old/src/textures/TextureData.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/old/src/toolbox/Maths.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/old/src/toolbox/ModelData.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/old/src/toolbox/OBJFileLoader.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/old/src/toolbox/Vertex.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Engine/input/Keyboard.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Engine/input/Keyboard.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/TimeServer.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Engine/terrains/GameWorld.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Engine/terrains/GameWorld.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/engineTester/Client.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/engineTester/Client.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/engineTester/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/engineTester/Demo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/engineTester/test_client.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/engineTester/test_client.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/engineTester/test_client.java" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -160,40 +43,41 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Application.ChatClient.executor&quot;: &quot;Run&quot;,
-    &quot;Application.ChatServer.executor&quot;: &quot;Run&quot;,
-    &quot;Application.Client.executor&quot;: &quot;Run&quot;,
-    &quot;Application.Main (2).executor&quot;: &quot;Run&quot;,
-    &quot;Application.Main (3).executor&quot;: &quot;Run&quot;,
-    &quot;Application.Main (4).executor&quot;: &quot;Run&quot;,
-    &quot;Application.Main.executor&quot;: &quot;Run&quot;,
-    &quot;Application.MainGameLoop (2).executor&quot;: &quot;Run&quot;,
-    &quot;Application.MainGameLoop.executor&quot;: &quot;Run&quot;,
-    &quot;Application.MainGameLoop30.executor&quot;: &quot;Run&quot;,
-    &quot;Application.PythonServerClient.executor&quot;: &quot;Run&quot;,
-    &quot;Application.TimeServer.executor&quot;: &quot;Run&quot;,
-    &quot;Application.Unnamed (1).executor&quot;: &quot;Run&quot;,
-    &quot;Application.Unnamed.executor&quot;: &quot;Run&quot;,
-    &quot;Application.test.executor&quot;: &quot;Run&quot;,
-    &quot;Application.test_client.executor&quot;: &quot;Run&quot;,
-    &quot;Python.client.executor&quot;: &quot;Run&quot;,
-    &quot;Python.server.executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;full.screen.before.presentation.mode&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
-    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/yuval/Documents/GitHub/3D_Engine/lib/win&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;SDKs&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.15429688&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;advanced.settings&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Application.ChatClient.executor": "Run",
+    "Application.ChatServer.executor": "Run",
+    "Application.Client.executor": "Run",
+    "Application.Demo.executor": "Run",
+    "Application.Main (2).executor": "Run",
+    "Application.Main (3).executor": "Run",
+    "Application.Main (4).executor": "Run",
+    "Application.Main.executor": "Run",
+    "Application.MainGameLoop (2).executor": "Run",
+    "Application.MainGameLoop.executor": "Run",
+    "Application.MainGameLoop30.executor": "Run",
+    "Application.PythonServerClient.executor": "Run",
+    "Application.TimeServer.executor": "Run",
+    "Application.Unnamed (1).executor": "Run",
+    "Application.Unnamed.executor": "Run",
+    "Application.test.executor": "Run",
+    "Application.test_client.executor": "Run",
+    "Python.client.executor": "Run",
+    "Python.server.executor": "Run",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "full.screen.before.presentation.mode": "true",
+    "git-widget-placeholder": "master",
+    "ignore.virus.scanning.warn.message": "true",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "C:/Users/yuval/Documents/GitHub/3D_Engine/lib/win",
+    "project.structure.last.edited": "SDKs",
+    "project.structure.proportion": "0.15429688",
+    "project.structure.side.proportion": "0.2",
+    "settings.editor.selected.configurable": "preferences.keymap"
   }
-}</component>
+}]]></component>
   <component name="RunManager">
     <configuration name="Demo" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.example.engineTester.Demo" />
