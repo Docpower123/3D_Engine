@@ -5,10 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="79f98a2b-50b6-4938-825d-816dbcea5210" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/mac.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/win.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Engine/terrains/GameWorld.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Engine/terrains/GameWorld.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/engineTester/Client.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/engineTester/Client.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/engineTester/test_client.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/3D_Engine.iml" beforeDir="false" afterPath="$PROJECT_DIR$/3D_Engine.iml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -72,13 +72,13 @@
     "ignore.virus.scanning.warn.message": "true",
     "kotlin-language-version-configured": "true",
     "last_opened_file_path": "C:/Users/yuval/Documents/GitHub/3D_Engine/lib/win",
-    "project.structure.last.edited": "SDKs",
+    "project.structure.last.edited": "Libraries",
     "project.structure.proportion": "0.15429688",
     "project.structure.side.proportion": "0.2",
-    "settings.editor.selected.configurable": "preferences.keymap"
+    "settings.editor.selected.configurable": "configurable.group.appearance"
   }
 }]]></component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Application.Main">
     <configuration name="Demo" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.example.engineTester.Demo" />
       <module name="3D_Engine" />
@@ -166,6 +166,14 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="Main" type="Application" factoryName="Application" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.example.engineTester.Main" />
+      <module name="3D_Engine" />
+      <option name="VM_PARAMETERS" value="-XstartOnFirstThread" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="MainGameLoop (2)" type="Application" factoryName="Application" temporary="true">
       <option name="MAIN_CLASS_NAME" value="com.example.engineTester.MainGameLoop" />
       <module name="3D_Engine" />
@@ -189,14 +197,6 @@
     </configuration>
     <configuration name="MainGameLoop" type="Application" factoryName="Application" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.example.engineTester.MainGameLoop" />
-      <module name="3D_Engine" />
-      <option name="VM_PARAMETERS" value="-XstartOnFirstThread" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="Main" type="Application" factoryName="Application" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.example.engineTester.Main" />
       <module name="3D_Engine" />
       <option name="VM_PARAMETERS" value="-XstartOnFirstThread" />
       <method v="2">
@@ -255,12 +255,13 @@
       <method v="2" />
     </configuration>
     <list>
+      <item itemvalue="Application.Main" />
       <item itemvalue="Application.MainGameLoop" />
       <item itemvalue="Application.Unnamed" />
+      <item itemvalue="Application.Main (2)" />
+      <item itemvalue="Application.Main (3)" />
       <item itemvalue="Application.Demo" />
       <item itemvalue="Application.MainGameLoop (2)" />
-      <item itemvalue="Python.server" />
-      <item itemvalue="Python.client" />
     </list>
     <recent_temporary>
       <list>
