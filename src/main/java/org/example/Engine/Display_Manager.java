@@ -13,8 +13,8 @@ import static java.lang.System.*;
 public class Display_Manager {
 
     private static String title;
-    private static int width = 1280;
-    private static int height = 720;
+    private static int width = 1024;
+    private static int height = 768;
     private static long window;
 
     private static long lastFrameTime = getCurrentTime();
