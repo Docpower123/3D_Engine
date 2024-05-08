@@ -5,9 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="79f98a2b-50b6-4938-825d-816dbcea5210" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/Engine/entities/other_players.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Client.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Client.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/example/Client.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/example/Client.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -49,6 +49,7 @@
     &quot;Application.Client.executor&quot;: &quot;Run&quot;,
     &quot;Application.Demo.executor&quot;: &quot;Run&quot;,
     &quot;Application.Mac.executor&quot;: &quot;Run&quot;,
+    &quot;Application.Mac_Client.executor&quot;: &quot;Run&quot;,
     &quot;Application.Main (2).executor&quot;: &quot;Run&quot;,
     &quot;Application.Main (3).executor&quot;: &quot;Run&quot;,
     &quot;Application.Main (4).executor&quot;: &quot;Run&quot;,
@@ -78,10 +79,11 @@
     &quot;settings.editor.selected.configurable&quot;: &quot;configurable.group.appearance&quot;
   }
 }</component>
-  <component name="RunManager">
-    <configuration name="Demo" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="org.example.Demo" />
+  <component name="RunManager" selected="Application.Client">
+    <configuration name="Client" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="org.example.Client" />
       <module name="Engine" />
+      <option name="VM_PARAMETERS" value="-XstartOnFirstThread" />
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="org.example.*" />
@@ -121,7 +123,21 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="Mac" type="Application" factoryName="Application">
+    <configuration name="Mac_Client" type="Application" factoryName="Application" temporary="true">
+      <option name="MAIN_CLASS_NAME" value="org.example.Client" />
+      <module name="Engine" />
+      <option name="VM_PARAMETERS" value="-XstartOnFirstThread" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="org.example.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Mac_Demo" type="Application" factoryName="Application">
       <option name="ALTERNATIVE_JRE_PATH" value="openjdk-22" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
       <option name="MAIN_CLASS_NAME" value="org.example.Demo" />
@@ -132,12 +148,15 @@
       </method>
     </configuration>
     <list>
-      <item itemvalue="Application.Mac" />
+      <item itemvalue="Application.Mac_Demo" />
       <item itemvalue="Application.Demo" />
+      <item itemvalue="Application.Client" />
+      <item itemvalue="Application.Mac_Client" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.Demo" />
+        <item itemvalue="Application.Client" />
+        <item itemvalue="Application.Mac_Client" />
       </list>
     </recent_temporary>
   </component>

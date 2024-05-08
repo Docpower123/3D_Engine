@@ -1,7 +1,5 @@
 package org.example;
 
-
-
 import org.example.Engine.Display_Manager;
 import org.example.Engine.Loader;
 import org.example.Engine.MasterRenderer;
@@ -21,7 +19,6 @@ import org.lwjgl.opengl.GL30;
 
 import java.io.*;
 import java.net.Socket;
-import java.net.SocketException;
 import java.util.Random;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -74,21 +71,25 @@ public class Client{
                         latch.countDown(); // Signal that the packet is received
                     } else {
                         if ((line = reader.readLine()) != null) {
-                            String[] data_packet = line.substring(3, line.length() - 1).split(":");
-                            System.out.println(data_packet[1]);
-                            String ip_pl = data_packet[0].split(",")[0];
-                            ip_pl = ip_pl.substring(0, ip_pl.length() - 1);
-                            // format location out of the packet
-                            Float x,y,z;
-                            String[] location = data_packet[1].substring(2, data_packet[1].length() - 1).split(",");
-                            x = Float.parseFloat(location[0]);
-                            y = Float.parseFloat(location[1]);
-                            String[] data_z = location[2].split(",");
-                            String z_string = data_z[0];
-                            z = Float.parseFloat(z_string.split("/n")[0]);
-                            System.out.println(z);
-                            loc_map.put(ip_pl, new Vector3f(x, y, z));
-                            ips.add(ip_pl);
+                            String[] clientData = line.split(";");
+                            System.out.println(clientData[1]);
+                            if(clientData != null){
+                                for(int i=0; i<clientData.length; i++){
+                                    String[] data_packet = clientData[i].substring(3, clientData[i].length() - 1).split(":");
+                                    String ip_pl = data_packet[0].split(",")[0];
+                                    ip_pl = ip_pl.substring(0, ip_pl.length() - 1);
+                                    // format location out of the packet
+                                    Float x,y,z;
+                                    String[] location = data_packet[1].substring(2, data_packet[1].length() - 1).split(",");
+                                    x = Float.parseFloat(location[0]);
+                                    y = Float.parseFloat(location[1]);
+                                    String[] data_z = location[2].split(",");
+                                    String z_string = data_z[0];
+                                    z = Float.parseFloat(z_string.split("/n")[0]);
+                                    loc_map.put(ip_pl, new Vector3f(x, y, z));
+                                    ips.add(ip_pl);
+                                }
+                            }
 
                         } else {
                             // Handle the case where the server closes the connection
@@ -227,7 +228,7 @@ public class Client{
                     if (players_map.containsKey(ips.get(i))) {
                         players_map.get(ips.get(i)).moving(loc_map.get(ips.get(i)));
                     } else {
-                        other_players player1 = new other_players(playerModel, loc_map.get(ips.get(i)), 1.6f);
+                        other_players player1 = new other_players(playerModel, loc_map.get(ips.get(i)), 0.6f);
                         players_map.put(ips.get(i), player1);
                         entities.add(player1);
                     }
@@ -236,7 +237,7 @@ public class Client{
             player.move(world, enemies);
             // send player location to server
             if(networking != null){
-                networking.send(player.getPosition().x +","+ player.getPosition().y +","+ player.getPosition().z+"/n");
+                networking.send(player.getPosition().x*-1 +","+ player.getPosition().y +","+ player.getPosition().z+"/n");
             }
             camera.move();
             picker.update();
