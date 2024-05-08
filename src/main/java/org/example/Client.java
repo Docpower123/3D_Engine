@@ -35,6 +35,9 @@ public class Client{
     private static CountDownLatch latch;
     private static volatile String[] world_packet;
     private static Socket client; // Client socket
+    private static volatile Map<String, Vector3f> loc_map = new HashMap<>();
+    private static volatile Map<String, other_players> players_map = new HashMap<>();
+    private static volatile List<String> ips = new ArrayList<>();
 
     // Game Variables
     static String title = "3D Engine Demo";
@@ -42,6 +45,8 @@ public class Client{
     static Random random = new Random(676452);
     static List<Entity> entities = new ArrayList<>();
     static List<Enemy> enemies = new ArrayList<>();
+    static List<other_players> players = new ArrayList<>();
+
 
     static class Networking implements Runnable {
         private OutputStream outputStream; // Output stream for sending data
@@ -53,7 +58,7 @@ public class Client{
 
         @Override
         public void run() {
-            String ip = "localhost";
+            String ip = "192.168.1.190";
             int port = 12345;
             try {
                 client = new Socket(ip, port);
@@ -69,7 +74,22 @@ public class Client{
                         latch.countDown(); // Signal that the packet is received
                     } else {
                         if ((line = reader.readLine()) != null) {
-                            System.out.println(line);
+                            String[] data_packet = line.substring(3, line.length() - 1).split(":");
+                            System.out.println(data_packet[1]);
+                            String ip_pl = data_packet[0].split(",")[0];
+                            ip_pl = ip_pl.substring(0, ip_pl.length() - 1);
+                            // format location out of the packet
+                            Float x,y,z;
+                            String[] location = data_packet[1].substring(2, data_packet[1].length() - 1).split(",");
+                            x = Float.parseFloat(location[0]);
+                            y = Float.parseFloat(location[1]);
+                            String[] data_z = location[2].split(",");
+                            String z_string = data_z[0];
+                            z = Float.parseFloat(z_string.split("/n")[0]);
+                            System.out.println(z);
+                            loc_map.put(ip_pl, new Vector3f(x, y, z));
+                            ips.add(ip_pl);
+
                         } else {
                             // Handle the case where the server closes the connection
                             System.out.println("Server closed the connection.");
@@ -202,10 +222,21 @@ public class Client{
 
         // main game loop
         while(!Display_Manager.isCloseRequested()){
+            if(ips != null) {
+                for (int i = 0; i < ips.size(); i++) {
+                    if (players_map.containsKey(ips.get(i))) {
+                        players_map.get(ips.get(i)).moving(loc_map.get(ips.get(i)));
+                    } else {
+                        other_players player1 = new other_players(playerModel, loc_map.get(ips.get(i)), 1.6f);
+                        players_map.put(ips.get(i), player1);
+                        entities.add(player1);
+                    }
+                }
+            }
             player.move(world, enemies);
             // send player location to server
             if(networking != null){
-                networking.send(player.getPosition().toString());
+                networking.send(player.getPosition().x +","+ player.getPosition().y +","+ player.getPosition().z+"/n");
             }
             camera.move();
             picker.update();
@@ -231,6 +262,8 @@ public class Client{
             waterRenderer.render(waters, sky, camera, lights);
             Display_Manager.updateDisplay();
         }
+
+        //TODO: send kill signal to server
         networking.interrupt(); // Interrupt the networking thread
         buffers.cleanUp();
         waterShader.cleanUp();
