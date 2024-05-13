@@ -35,6 +35,7 @@ public class Client{
     static List<Light> lights = new ArrayList<Light>();
     static List<Entity> entities = new ArrayList<>();
     static List<Enemy> enemies = new ArrayList<>();
+    static Map<String, other_players> ips = new HashMap<>();
 
     public static void main(String[] args) throws InterruptedException {
         // Set up and run the Client
@@ -72,10 +73,23 @@ public class Client{
         while (!Display_Manager.isCloseRequested()){
             player.move(world, enemies);
             camera.move();
+            client.sendPlayerPosition(player.getPosition());
+            // prints the locations for testings
+            Map<String, Vector3f> locations = client.getPlayerPositions();
+            locations.forEach((playerId, position) -> {
+                if(!ips.containsKey(playerId)){
+                    other_players other_player = new other_players(playerModel, position, 3.6f);
+                    ips.put(playerId, other_player);
+                    entities.add(other_player);
+                }
+                ips.get(playerId).moving(position);
+            });
+
             GL11.glEnable(GL30.GL_CLIP_DISTANCE0);
             renderer.renderScene(entities, terrains, lights, sky, camera, new Vector4f(0, -1, 0, 1000000));
             Display_Manager.updateDisplay();
         }
+
         client.stopClient();
         renderer.cleanUp();
         loader.cleanUp();

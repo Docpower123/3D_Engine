@@ -7,6 +7,7 @@ import random
 clients = []
 client_positions = {}  # Dictionary to store client positions
 
+
 # Function to create the world data
 def create_world():
     world = []
@@ -30,6 +31,7 @@ def create_world():
         world.append(random.uniform(0.7, 3))
     return world
 
+
 # Function to handle each client connection
 def handle_client(client_socket, addr):
     print("Connection from", addr)
@@ -48,9 +50,10 @@ def handle_client(client_socket, addr):
             if not data:
                 break
             position = data.decode('utf-8')
-            print("Received position from", addr, ":", position)
+            #print("Received position from", addr, ":", position)
             client_positions[addr] = position  # Update client position
             update_positions()
+            #print(client_positions)
     except Exception as e:
         print("Error handling client:", e)
     finally:
@@ -60,17 +63,21 @@ def handle_client(client_socket, addr):
         client_socket.close()
         print("Connection closed with", addr)
 
+
 # Function to broadcast updated positions to all connected clients
 def update_positions():
     # Create a formatted string of all positions
-    positions_data = ';'.join(f"{addr}: {pos}" for addr, pos in client_positions.items())
+    positions_data = ';'.join(f"{addr}; {pos}" for addr, pos in client_positions.items())
     encoded_data = bytes(positions_data + '\n', 'utf-8')
     for client, _ in clients:
         try:
+            print(encoded_data.decode())
             client.sendall(encoded_data)
 
         except Exception as e:
             print("Error broadcasting positions:", e)
+
+
 # Function to start the server
 def server():
     host = 'localhost'
@@ -84,6 +91,7 @@ def server():
         client_socket, addr = server_socket.accept()
         client_thread = threading.Thread(target=handle_client, args=(client_socket, addr))
         client_thread.start()
+
 
 if __name__ == "__main__":
     server()

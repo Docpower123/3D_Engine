@@ -6,7 +6,10 @@
   <component name="ChangeListManager">
     <list default="true" id="79f98a2b-50b6-4938-825d-816dbcea5210" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Server Files/Server.py" beforeDir="false" afterPath="$PROJECT_DIR$/Server Files/Server.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Client.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Client.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/GameClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/GameClient.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/example/Client.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/example/Client.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/example/GameClient.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/example/GameClient.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -41,45 +44,45 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Application.ChatClient.executor": "Run",
-    "Application.ChatServer.executor": "Run",
-    "Application.Client.executor": "Run",
-    "Application.Demo.executor": "Run",
-    "Application.Mac.executor": "Run",
-    "Application.Mac_Client.executor": "Run",
-    "Application.Mac_Demo.executor": "Run",
-    "Application.Mac_Tester.executor": "Run",
-    "Application.Main (2).executor": "Run",
-    "Application.Main (3).executor": "Run",
-    "Application.Main (4).executor": "Run",
-    "Application.Main.executor": "Run",
-    "Application.MainGameLoop (2).executor": "Run",
-    "Application.MainGameLoop.executor": "Run",
-    "Application.MainGameLoop30.executor": "Run",
-    "Application.PythonServerClient.executor": "Run",
-    "Application.TimeServer.executor": "Run",
-    "Application.Unnamed (1).executor": "Run",
-    "Application.Unnamed.executor": "Run",
-    "Application.test.executor": "Run",
-    "Application.test_client.executor": "Run",
-    "Python.client.executor": "Run",
-    "Python.server.executor": "Run",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "full.screen.before.presentation.mode": "true",
-    "git-widget-placeholder": "master",
-    "ignore.virus.scanning.warn.message": "true",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/yuval/Documents/GitHub/3D_Engine/lib/win",
-    "project.structure.last.edited": "Libraries",
-    "project.structure.proportion": "0.15429688",
-    "project.structure.side.proportion": "0.2",
-    "settings.editor.selected.configurable": "reference.settings.project.maven.repository.indices"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Application.ChatClient.executor&quot;: &quot;Run&quot;,
+    &quot;Application.ChatServer.executor&quot;: &quot;Run&quot;,
+    &quot;Application.Client.executor&quot;: &quot;Run&quot;,
+    &quot;Application.Demo.executor&quot;: &quot;Run&quot;,
+    &quot;Application.Mac.executor&quot;: &quot;Run&quot;,
+    &quot;Application.Mac_Client.executor&quot;: &quot;Run&quot;,
+    &quot;Application.Mac_Demo.executor&quot;: &quot;Run&quot;,
+    &quot;Application.Mac_Tester.executor&quot;: &quot;Run&quot;,
+    &quot;Application.Main (2).executor&quot;: &quot;Run&quot;,
+    &quot;Application.Main (3).executor&quot;: &quot;Run&quot;,
+    &quot;Application.Main (4).executor&quot;: &quot;Run&quot;,
+    &quot;Application.Main.executor&quot;: &quot;Run&quot;,
+    &quot;Application.MainGameLoop (2).executor&quot;: &quot;Run&quot;,
+    &quot;Application.MainGameLoop.executor&quot;: &quot;Run&quot;,
+    &quot;Application.MainGameLoop30.executor&quot;: &quot;Run&quot;,
+    &quot;Application.PythonServerClient.executor&quot;: &quot;Run&quot;,
+    &quot;Application.TimeServer.executor&quot;: &quot;Run&quot;,
+    &quot;Application.Unnamed (1).executor&quot;: &quot;Run&quot;,
+    &quot;Application.Unnamed.executor&quot;: &quot;Run&quot;,
+    &quot;Application.test.executor&quot;: &quot;Run&quot;,
+    &quot;Application.test_client.executor&quot;: &quot;Run&quot;,
+    &quot;Python.client.executor&quot;: &quot;Run&quot;,
+    &quot;Python.server.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;full.screen.before.presentation.mode&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/yuval/Documents/GitHub/3D_Engine/lib/win&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Libraries&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15429688&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;reference.settings.project.maven.repository.indices&quot;
   }
-}]]></component>
+}</component>
   <component name="RunManager" selected="Application.Client">
     <configuration name="Client" type="Application" factoryName="Application">
       <option name="MAIN_CLASS_NAME" value="org.example.Client" />
@@ -113,6 +116,7 @@
     <list>
       <item itemvalue="Application.Mac_Tester" />
       <item itemvalue="Application.Client" />
+      <item itemvalue="Application.Demo" />
     </list>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
