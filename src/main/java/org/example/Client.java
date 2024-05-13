@@ -3,8 +3,10 @@ package org.example;
 import org.example.Engine.Display_Manager;
 import org.example.Engine.Loader;
 import org.example.Engine.MasterRenderer;
+import org.example.Engine.NetworkConfigWindow;
 import org.example.Engine.entities.*;
 import org.example.Engine.guis.GuiRenderer;
+import org.example.Engine.guis.GuiTexture;
 import org.example.Engine.models.TexturedModel;
 import org.example.Engine.skybox.Sky;
 import org.example.Engine.terrains.GameWorld;
@@ -12,12 +14,15 @@ import org.example.Engine.terrains.Terrain;
 import org.example.Engine.terrains.World;
 import org.example.Engine.toolbox.MousePicker;
 import org.example.Engine.water.*;
+import org.joml.Vector2f;
 import org.joml.Vector3f;
 import org.joml.Vector4f;
 import org.lwjgl.opengl.GL11;
 import org.lwjgl.opengl.GL30;
 
+import javax.swing.*;
 import java.io.*;
+import java.lang.reflect.InvocationTargetException;
 import java.net.Socket;
 import java.util.Random;
 import java.util.ArrayList;
@@ -28,16 +33,19 @@ import java.util.concurrent.CountDownLatch;
 
 public class Client{
 
-    static GameClient client = new GameClient("localhost", 12345);
-
     // Engine Variables
     static Loader loader = new Loader();
     static List<Light> lights = new ArrayList<Light>();
     static List<Entity> entities = new ArrayList<>();
     static List<Enemy> enemies = new ArrayList<>();
     static Map<String, other_players> ips = new HashMap<>();
+    private static CountDownLatch latch = new CountDownLatch(1);
+    static String ip = "192.168.1.164";
+    static int port = 12345;
+    static int health_count = 1;
 
-    public static void main(String[] args) throws InterruptedException {
+    public static void main(String[] args) throws InterruptedException, InvocationTargetException {
+        GameClient client = new GameClient(ip, port);
         // Set up and run the Client
         new Thread(client).start();
 
@@ -68,11 +76,35 @@ public class Client{
 
         Camera camera = camera1;
 
+        // load the gui
+        List<GuiTexture> guiTextures = new ArrayList<>();
+        GuiRenderer guiRenderer = new GuiRenderer(loader);
+        int lastHp = 100;
 
         // Main Game Loop
         while (!Display_Manager.isCloseRequested()){
             player.move(world, enemies);
             camera.move();
+
+            int currentHealth = player.getHealth();
+            if (currentHealth < lastHp) {
+                int healthChange = lastHp - currentHealth;
+                int oldHealthIndex = lastHp / 20;  // Find out what index the lastHp corresponded to
+                int newHealthIndex = currentHealth / 20;  // Find out the new index based on current health
+
+                // Check if health dropped to the next lower 20% segment
+                if (newHealthIndex < oldHealthIndex) {
+                    for (int i = oldHealthIndex; i > newHealthIndex; i--) {
+                        if (i - 1 >= 0 && i - 1 < guiTextures.size()) {
+                            // Assuming you want to hide the texture, or you could change its appearance
+                            guiTextures.remove(guiTextures.get(i -1));
+                        }
+                    }
+                }
+
+                // Update lastHp to the current health after handling the GUI change
+                lastHp = currentHealth;
+            }
             client.sendPlayerPosition(player.getPosition());
             // prints the locations for testings
             Map<String, Vector3f> locations = client.getPlayerPositions();
@@ -87,9 +119,11 @@ public class Client{
 
             GL11.glEnable(GL30.GL_CLIP_DISTANCE0);
             renderer.renderScene(entities, terrains, lights, sky, camera, new Vector4f(0, -1, 0, 1000000));
+            guiRenderer.render(guiTextures);
             Display_Manager.updateDisplay();
         }
 
+        guiRenderer.cleanUp();
         client.stopClient();
         renderer.cleanUp();
         loader.cleanUp();

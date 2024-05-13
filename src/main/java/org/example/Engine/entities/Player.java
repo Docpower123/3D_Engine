@@ -35,18 +35,22 @@ public class Player extends Entity {
     private static final int DAMAGE_COOLDOWN = 300; // 3000 milliseconds (3 seconds) cooldown after taking damage
     private long lastDamageTime = 0;
 
-    public int getHealth() {
+    public int getHealth()
+    {
         return health;
     }
 
     public void move(World world, List<Enemy> enemies) {
         checkInputs();
-        if (Keyboard.isKeyDown(Keyboard.KEY_T)) {
-            long currentTime = System.currentTimeMillis();
-            if (currentTime - lastAttackTime > ATTACK_COOLDOWN) {
-                lastAttackTime = currentTime;
-                attack(enemies);
-            }
+//        if (Keyboard.isKeyDown(Keyboard.KEY_T)) {
+//            long currentTime = System.currentTimeMillis();
+//            if (currentTime - lastAttackTime > ATTACK_COOLDOWN) {
+//                lastAttackTime = currentTime;
+//                attack(enemies);
+//            }
+//        }
+        if(Keyboard.isKeyDown(Keyboard.KEY_T)){
+            health = health -10;
         }
         
         super.increaseRotation(0, currentTurnSpeed * Display_Manager.getFrameTimeSeconds(), 0);
