@@ -38,7 +38,7 @@ void main(void)
     vec3 unitNormal = normalize(surfaceNormal);
     vec3 unitVectorToCamera = normalize(toCameraVector);
     
-    vec3 totalDiffuse = vec3(0.0);
+    vec3 totalDiffuse = vec3(0.5);
     vec3 totalSpecular = vec3(0.0);    
     
     for (int i = 0; i < 4; i++) {

@@ -169,7 +169,7 @@ public class TerrainWater implements Terrain {
 
     private Vector3f calculateNormal(int x, int z, BufferedImage image) {
         float heightL = getHeight(x-1, z, image);
-        float heightR = getHeight(x+1, z, image);
+        float heightR = getHeight(x-1, z, image);
         float heightD = getHeight(x, z-1, image);
         float heightU = getHeight(x, z+1, image);
         Vector3f normal = new Vector3f(heightL - heightR, 2f, heightD - heightU);
