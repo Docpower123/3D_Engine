@@ -3,7 +3,6 @@ package org.example;
 import org.example.Engine.Display_Manager;
 import org.example.Engine.Loader;
 import org.example.Engine.MasterRenderer;
-import org.example.Engine.NetworkConfigWindow;
 import org.example.Engine.entities.*;
 import org.example.Engine.guis.GuiRenderer;
 import org.example.Engine.guis.GuiTexture;
@@ -12,24 +11,18 @@ import org.example.Engine.skybox.Sky;
 import org.example.Engine.terrains.GameWorld;
 import org.example.Engine.terrains.Terrain;
 import org.example.Engine.terrains.World;
-import org.example.Engine.toolbox.MousePicker;
-import org.example.Engine.water.*;
-import org.joml.Vector2f;
 import org.joml.Vector3f;
 import org.joml.Vector4f;
 import org.lwjgl.opengl.GL11;
 import org.lwjgl.opengl.GL30;
 
-import javax.swing.*;
-import java.io.*;
 import java.lang.reflect.InvocationTargetException;
-import java.net.Socket;
-import java.util.Random;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.concurrent.CountDownLatch;
+import java.util.concurrent.atomic.AtomicBoolean;
 
 public class Client{
 
@@ -81,6 +74,8 @@ public class Client{
         List<GuiTexture> guiTextures = new ArrayList<>();
         GuiRenderer guiRenderer = new GuiRenderer(loader);
         int lastHp = 100;
+        AtomicBoolean killswitch = new AtomicBoolean(false);
+
 
         // Main Game Loop
         while (!Display_Manager.isCloseRequested()){
@@ -104,15 +99,24 @@ public class Client{
             // handle hp
             Map<String, Integer> healths = client.getPlayerhealth();
             healths.forEach((playerId, health) -> {
-                System.out.println(health);
+                // if hp = 0 remove entity
+                if(health <= 0){
+                    entities.remove(ips.get(playerId));
+                    ips.remove(playerId);
+                    killswitch.set(true);
+                }
+                //attack feature
                     });
+            if(killswitch.get()){
+                break;
+            }
 
             GL11.glEnable(GL30.GL_CLIP_DISTANCE0);
             renderer.renderScene(entities, terrains, lights, sky, camera, new Vector4f(0, -1, 0, 1000000));
             guiRenderer.render(guiTextures);
             Display_Manager.updateDisplay();
         }
-
+        client.sendPlayerPosition(player.getPosition(), 0); // kill this player in others clients
         guiRenderer.cleanUp();
         client.stopClient();
         renderer.cleanUp();
