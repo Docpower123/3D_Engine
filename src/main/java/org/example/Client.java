@@ -41,7 +41,7 @@ public class Client{
     static Map<String, other_players> ips = new HashMap<>();
     private static CountDownLatch latch = new CountDownLatch(1);
     static String ip = "192.168.1.164";
-    static int port = 12345;
+    static int port = 5005;
     static int health_count = 1;
 
     public static void main(String[] args) throws InterruptedException, InvocationTargetException {
