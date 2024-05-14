@@ -31,7 +31,6 @@ public class Client{
     static List<Entity> entities = new ArrayList<>();
     static List<Enemy> enemies = new ArrayList<>();
     static Map<String, other_players> ips = new HashMap<>();
-    private static CountDownLatch latch = new CountDownLatch(1);
     static String ip = "192.168.1.164";
     static int port = 5005;
     static int health_count = 1;
@@ -87,7 +86,8 @@ public class Client{
                 key = key.split(",")[0].substring(2, key.split(",")[0].length()-1);
                 if(addr.equals(key)){
                     player.sethp(hp);
-                }   
+                    System.out.println(hp);
+                }
             }
             int currentHealth = player.getHealth();
             // handle clients positions
