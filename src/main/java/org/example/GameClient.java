@@ -22,6 +22,8 @@ public class GameClient implements Runnable {
     private final String serverAddress;
     private final int serverPort;
     private boolean running = true;
+    private boolean killed = false;  // Flag to indicate if the player was killed
+    private String killedPlayerId;  // Variable to store the ID of the killed player
     private String worldData;
     private Consumer<String> onPositionUpdateConsumer;
     private Map<String, Vector3f> playerPositions = new ConcurrentHashMap<>();
@@ -73,6 +75,15 @@ public class GameClient implements Runnable {
     public Map<String, Integer> getPlayerhealth() {
         return playerHealth;
     }
+
+    public boolean isKilled() {
+        return killed;
+    }
+
+    public String getKilledPlayerId() {
+        return killedPlayerId;
+    }
+
     @Override
     public void run() {
         try {
@@ -106,6 +117,18 @@ public class GameClient implements Runnable {
             // Assume the first line is already handled as world data
             while ((inputLine = in.readLine()) != null && running && firstLine) {
                 //System.out.println(inputLine);
+                // Check if the inputLine indicates the player was killed
+                if (inputLine.equals("You have been killed.")) {
+                    killed = true;
+                    break;  // Stop processing further input
+                }
+
+                if (inputLine.startsWith("PLAYER_KILLED")) {
+                    killedPlayerId = inputLine.split(" ")[1];  // Extract the player ID
+                    killedPlayerId = killedPlayerId + " "+inputLine.split(" ")[2];
+                    continue;  // Skip further processing for this line
+                }
+
                 String[] players = inputLine.split("/p");
                 for (String player : players) {
                     String[] entryComponents = player.split(";");
@@ -137,7 +160,6 @@ public class GameClient implements Runnable {
         }
     }
 
-
     public void sendPlayerPosition(Vector3f position, int health, boolean attack) {
         String flag = "false";
         if(attack){
@@ -146,7 +168,6 @@ public class GameClient implements Runnable {
         String positionUpdate = String.format("%.2f,%.2f,%.2f*%d*%s", position.x, position.y, position.z, health, flag);
         sendToServer(positionUpdate);
     }
-
 
     public void sendToServer(String data) {
         if (out != null) {

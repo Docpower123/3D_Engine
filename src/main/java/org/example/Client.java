@@ -94,7 +94,6 @@ public class Client{
         // loop to read all entities positions and add them to the list
         for(int i=200; i<50000; i+=6){
             TexturedModel model = (TexturedModel) variables.get(world_data[i]);
-            System.out.println(world_data[i]);
             ex = Float.parseFloat(world_data[i+1]);
             ez = Float.parseFloat(world_data[i+2]);
             ey = world.getHeightOfTerrain(ex, ez);
@@ -179,6 +178,7 @@ public class Client{
             // prints the locations for testings
             Map<String, Vector3f> locations = client.getPlayerPositions();
             locations.forEach((playerId, position) -> {
+                System.out.println(playerId);
                 if(!ips.containsKey(playerId)){
                     other_players other_player = new other_players(playerModel, position, 0.6f);
                     ips.put(playerId, other_player);
@@ -200,6 +200,10 @@ public class Client{
                 break;
             }
 
+            if(client.isKilled()){
+                break;
+            }
+
             float targetX = 100;
             float targetZ = 100;
             float radius = 20;
@@ -212,7 +216,10 @@ public class Client{
                 Thread.sleep(2000);
                 break;
             }
-
+            if(client.getKilledPlayerId() != null){
+                entities.remove(ips.get(client.getKilledPlayerId()));
+                ips.remove(client.getKilledPlayerId());
+            }
 
             GL11.glEnable(GL30.GL_CLIP_DISTANCE0);
             // render to reflection texture: set the clip plane to clip stuff above water
