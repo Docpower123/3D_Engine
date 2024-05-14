@@ -6,7 +6,11 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.PrintWriter;
+import java.net.InetAddress;
+import java.net.NetworkInterface;
 import java.net.Socket;
+import java.net.SocketException;
+import java.util.Enumeration;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.function.Consumer;
@@ -42,8 +46,32 @@ public class GameClient implements Runnable {
         return new ConcurrentHashMap<>(playerPositions);  // Return a copy to avoid modification outside
     }
 
+    public String getip(){
+        try {
+            Enumeration<NetworkInterface> interfaces = NetworkInterface.getNetworkInterfaces();
+            while (interfaces.hasMoreElements()) {
+                NetworkInterface iface = interfaces.nextElement();
+                // filters out 127.0.0.1 and inactive interfaces
+                if (iface.isLoopback() || !iface.isUp())
+                    continue;
+
+                Enumeration<InetAddress> addresses = iface.getInetAddresses();
+                while(addresses.hasMoreElements()) {
+                    InetAddress addr = addresses.nextElement();
+                    // Filter IPv4 addresses only
+                    if (addr.getAddress().length == 4) {
+                        return addr.getHostAddress();
+                    }
+                }
+            }
+        } catch (SocketException e) {
+            throw new RuntimeException(e);
+        }
+        return null;
+    }
+
     public Map<String, Integer> getPlayerhealth() {
-        return new ConcurrentHashMap<>(playerHealth);  // Return a copy to avoid modification outside
+        return playerHealth;
     }
     @Override
     public void run() {
@@ -77,7 +105,7 @@ public class GameClient implements Runnable {
             String inputLine;
             // Assume the first line is already handled as world data
             while ((inputLine = in.readLine()) != null && running && firstLine) {
-                System.out.println(inputLine);
+                //System.out.println(inputLine);
                 String[] players = inputLine.split("/p");
                 for (String player : players) {
                     String[] entryComponents = player.split(";");
@@ -111,9 +139,11 @@ public class GameClient implements Runnable {
 
 
     public void sendPlayerPosition(Vector3f position, int health, boolean attack) {
-        // Format the position into a string with labels for x, y, and z coordinates
-        // Now also includes the attack status separated by $
-        String positionUpdate = String.format("%.2f,%.2f,%.2f*%d*%b", position.x, position.y, position.z, health, attack);
+        String flag = "false";
+        if(attack){
+            flag = "True";
+        }
+        String positionUpdate = String.format("%.2f,%.2f,%.2f*%d*%s", position.x, position.y, position.z, health, flag);
         sendToServer(positionUpdate);
     }
 
