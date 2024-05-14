@@ -73,12 +73,22 @@ public class Client{
         List<GuiTexture> guiTextures = new ArrayList<>();
         GuiRenderer guiRenderer = new GuiRenderer(loader);
         int lastHp = 100;
+        client.sendPlayerPosition(player.getPosition(), lastHp, player.getAttack());
+        String addr = client.getip();
+
 
         // Main Game Loop
         while (!Display_Manager.isCloseRequested()){
             player.move(world, enemies);
             camera.move();
-
+            for (Map.Entry<String, Integer> entry : client.getPlayerhealth().entrySet()) {
+                String key = entry.getKey();
+                int hp = entry.getValue();
+                key = key.split(",")[0].substring(2, key.split(",")[0].length()-1);
+                if(addr.equals(key)){
+                    player.sethp(hp);
+                }   
+            }
             int currentHealth = player.getHealth();
             // handle clients positions
             client.sendPlayerPosition(player.getPosition(), currentHealth, player.getAttack());

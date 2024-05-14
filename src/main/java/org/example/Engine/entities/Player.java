@@ -50,6 +50,10 @@ public class Player extends Entity {
         attack = atk;
     }
 
+    public void sethp(int hp){
+        health = hp;
+    }
+
     public void move(World world, List<Enemy> enemies) {
         checkInputs();
 
