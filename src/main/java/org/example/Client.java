@@ -11,16 +11,15 @@ import org.example.Engine.skybox.Sky;
 import org.example.Engine.terrains.GameWorld;
 import org.example.Engine.terrains.Terrain;
 import org.example.Engine.terrains.World;
+import org.example.Engine.water.*;
+import org.joml.Vector2f;
 import org.joml.Vector3f;
 import org.joml.Vector4f;
 import org.lwjgl.opengl.GL11;
 import org.lwjgl.opengl.GL30;
 
 import java.lang.reflect.InvocationTargetException;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 import java.util.concurrent.CountDownLatch;
 
 public class Client{
@@ -33,6 +32,7 @@ public class Client{
     static Map<String, other_players> ips = new HashMap<>();
     static String ip = "192.168.1.164";
     static int port = 5005;
+    static Random random = new Random(676452);
     static int health_count = 1;
     static List<GuiTexture> guiTextures = new ArrayList<>();
 
@@ -49,9 +49,76 @@ public class Client{
         String[] world_data = client.getWorldData().substring(1, client.getWorldData().length()-2).split(",");
         World world = new GameWorld(loader, Float.parseFloat(world_data[0]), Float.parseFloat(world_data[1]), 0);
         List<Terrain> terrains = world.getTerrains();
+
+        // Load all Models
+        TexturedModel treeModel = loader.createTexturedModel("tree", "tree", 1, 0);
+        TexturedModel lowPolyTreeModel = loader.createTexturedModel("lowPolyTree", "lowPolyTree4", 2, 1, 0, false, false);
+        TexturedModel pineModel = loader.createTexturedModel("pine", "pine", 10, 0.5f);
+        TexturedModel grassModel = loader.createTexturedModel("grassModel", "grassTexture", 1, 0, true, true);
+        TexturedModel flowerModel = loader.createTexturedModel("grassModel", "flower", 1, 0, true, true);
+        TexturedModel fernModel = loader.createTexturedModel("fern", "fern4", 2, 1, 0, true, false);
+        TexturedModel rocksModel = loader.createTexturedModel("rocks", "rocks", 10, 1);
+        TexturedModel toonRocksModel = loader.createTexturedModel("toonRocks", "toonRocks", 10, 1);
+        TexturedModel lampModel = loader.createTexturedModel("lamp", "lamp", 1, 0, false, true);
+
+        Map<String, Object> variables = new HashMap<>();
+        variables.put(" 'rocksModel'", rocksModel);
+        variables.put(" 'toonRocksModel'", toonRocksModel);
+        variables.put(" 'treeModel'", treeModel);
+        variables.put(" 'lowPolyTreeModel'", lowPolyTreeModel);
+        variables.put(" 'pineModel'", pineModel);
+        variables.put(" 'grassModel'", grassModel);
+        variables.put(" 'flowerModel'", flowerModel);
+        variables.put(" 'fernModel'", fernModel);
+
         // create lights array and the sun
         Sky sky = new Sky(0.57f, 0.8f, 1.0f, 0.00015f, 7f);
         lights.add(new Light(new Vector3f(30000, 3000, 0), new Vector3f(1, 1, 1)));
+        float ex, ey, ez, rx, ry, rz, scale;
+        ex = 100;
+        ez = 100;
+        ey = world.getHeightOfTerrain(ex, ez);
+        entities.add(new Entity(lampModel, new Vector3f(ex, ey, ez), 0,0,0, 10f));
+        lights.add(new Light(new Vector3f(100, ey+140,100), new Vector3f(3,1,1), new Vector3f(1, 0.001f, 0.002f)));
+
+
+        // loop to read all lamps positions and add them to the list
+        for(int i=2; i<200; i+=2){
+            ex = Float.parseFloat(world_data[i]);
+            ez = Float.parseFloat(world_data[i+1]);
+            ey = world.getHeightOfTerrain(ex, ez);
+            entities.add(new Entity(lampModel, new Vector3f(ex, ey, ez), 0,0,0, 1f));
+            lights.add(new Light(new Vector3f(ex*10, ey+140,ez*10), new Vector3f(3,1,1), new Vector3f(1, 0.001f, 0.002f)));
+        }
+
+        // loop to read all entities positions and add them to the list
+        for(int i=200; i<50000; i+=6){
+            TexturedModel model = (TexturedModel) variables.get(world_data[i]);
+            System.out.println(world_data[i]);
+            ex = Float.parseFloat(world_data[i+1]);
+            ez = Float.parseFloat(world_data[i+2]);
+            ey = world.getHeightOfTerrain(ex, ez);
+            rx = Float.parseFloat(world_data[i+3]);
+            rz = Float.parseFloat(world_data[i+4]);
+            scale = Float.parseFloat(world_data[i+5]);
+            int numTextureRows = model.getTexture().getNumberOfRows();
+            int numSubTextures = numTextureRows * numTextureRows;
+
+            if(ey > world.getHeightOfWater(ex, ez)){
+                ry = ey * 360;
+
+                if(numSubTextures > 1){
+                    //TODO: change it to be delivered in the packet so there wont be any different textures
+                    int textureIndex = random.nextInt(numSubTextures);
+                    entities.add(new Entity(model, textureIndex, new Vector3f(ex,ey,ez), rx, ry, rz ,scale));
+                }
+                else{
+                    entities.add(new Entity(model, new Vector3f(ex,ey,ez), rx, ry, rz ,scale));
+                }
+            }
+        }
+
+
         // set up the player & camera
         float player_x = 20f;
         float player_z = 31f;
@@ -67,6 +134,22 @@ public class Client{
         camera2.getPosition().set(0, 30, 0);
 
         Camera camera = camera1;
+
+        // set up water
+        WaterFrameBuffers buffers = new WaterFrameBuffers();
+
+        WaterShader waterShader = new WaterShader();
+        WaterRenderer waterRenderer = new WaterRenderer(loader, waterShader, renderer.getProjectionMatrix(), buffers);
+        List<WaterTile> waters = new ArrayList<>();
+        WaterTile water = new GameWaterTile(0, 0, 0, Float.parseFloat(world_data[0]));
+        waters.add(water);
+        water = new GameWaterTile(-1 *  Float.parseFloat(world_data[0]), 0, 0,  Float.parseFloat(world_data[0]));
+        waters.add(water);
+        water = new GameWaterTile(-1 *  Float.parseFloat(world_data[0]), -1 *  Float.parseFloat(world_data[0]), 0,  Float.parseFloat(world_data[0]));
+        waters.add(water);
+        water = new GameWaterTile(0, -1 *  Float.parseFloat(world_data[0]), 0,  Float.parseFloat(world_data[0]));
+        waters.add(water);
+
 
         // load the gui
         List<GuiTexture> guiTextures = new ArrayList<>();
@@ -97,7 +180,7 @@ public class Client{
             Map<String, Vector3f> locations = client.getPlayerPositions();
             locations.forEach((playerId, position) -> {
                 if(!ips.containsKey(playerId)){
-                    other_players other_player = new other_players(playerModel, position, 3.6f);
+                    other_players other_player = new other_players(playerModel, position, 0.6f);
                     ips.put(playerId, other_player);
                     entities.add(other_player);
                 }
@@ -117,10 +200,42 @@ public class Client{
                 break;
             }
 
+            float targetX = 100;
+            float targetZ = 100;
+            float radius = 20;
+
+            if(Math.sqrt(Math.pow(player.getPosition().x - targetX, 2) + Math.pow(player.getPosition().z - targetZ, 2)) <= radius) {
+                GuiTexture gui3 = new GuiTexture(loader.loadTexture("winer"), new Vector2f(0.05f, 0.1f), new Vector2f(0.5f, 0.5f));
+                guiTextures.add(gui3);
+                guiRenderer.render(guiTextures);
+                Display_Manager.updateDisplay();
+                Thread.sleep(2000);
+                break;
+            }
+
+
             GL11.glEnable(GL30.GL_CLIP_DISTANCE0);
+            // render to reflection texture: set the clip plane to clip stuff above water
+            buffers.bindReflectionFrameBuffer();
+            float distance = 2 * (camera.getPosition().y - water.getHeight());
+            // change position and pitch of camera to render the reflection
+            camera.getPosition().y -= distance;
+            camera.invertPitch();
+            renderer.renderScene(entities, terrains, lights, sky, camera, new Vector4f(0, 1, 0, -water.getHeight()+1f));
+            camera.getPosition().y += distance;
+            camera.invertPitch();
+
+            // render to refraction texture: set the clip plane to clip stuff below water
+            buffers.bindRefractionFrameBuffer();
+            renderer.renderScene(entities, terrains, lights, sky, camera, new Vector4f(0, -1, 0, water.getHeight()+1f));
+
+            // render to screen: set the clip plane at a great height, so it won't clip anything
+            buffers.unbindCurrentFrameBuffer();
             renderer.renderScene(entities, terrains, lights, sky, camera, new Vector4f(0, -1, 0, 1000000));
-            guiRenderer.render(guiTextures);
+
+            waterRenderer.render(waters, sky, camera, lights);
             Display_Manager.updateDisplay();
+
         }
         client.sendPlayerPosition(player.getPosition(), 0, player.getAttack()); // kill this player in others clients
         guiRenderer.cleanUp();
