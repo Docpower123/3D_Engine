@@ -82,7 +82,7 @@ public class GameClient implements Runnable {
                     String[] entryComponents = player.split(";");
                     if (entryComponents.length > 1) {
                         String playerInfo = entryComponents[0];
-                        String[] positionAndHealth = entryComponents[1].split("");
+                        String[] positionAndHealth = entryComponents[1].split("\\*");
                         if (positionAndHealth.length == 2) {
                             String fixed_pos = positionAndHealth[0].substring(3,positionAndHealth[0].length()-2);
                             String[] loc_split = fixed_pos.split(",");
@@ -111,6 +111,7 @@ public class GameClient implements Runnable {
 
     public void sendPlayerPosition(Vector3f position, int health, boolean attack) {
         // Format the position into a string with labels for x, y, and z coordinates
+        // Now also includes the attack status separated by $
         String positionUpdate = String.format("%.2f,%.2f,%.2f*%d*%b", position.x, position.y, position.z, health, attack);
         sendToServer(positionUpdate);
     }
