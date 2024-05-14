@@ -73,32 +73,15 @@ public class GameClient implements Runnable {
             String inputLine;
             // Assume the first line is already handled as world data
             while ((inputLine = in.readLine()) != null && running && firstLine) {
-                // Split multiple updates contained in one line
-                String[] updates = inputLine.split(";");
-                for (String update : updates) {
-                    if (update.isEmpty()) continue; // Skip empty updates
-
-                    // Extract client info and coordinates
-                    // Expected format: ('IP', PORT); X,Y,Z
-                    int index = update.indexOf("); ");
-                    if (index == -1) continue; // Malformed input, no closing parenthesis followed by semicolon
-
-                    String clientInfo = update.substring(0, index + 1); // Includes ('IP', PORT)
-                    String coords = update.substring(index + 3).trim(); // X,Y,Z part
-
-                    if (!coords.isEmpty()) {
-                        String[] locSplit = coords.split(",");
-                        Vector3f loc = new Vector3f(Float.parseFloat(locSplit[0]),
-                                Float.parseFloat(locSplit[1]),
-                                Float.parseFloat(locSplit[2]));
-
-                        // Use the client info as the key, or process it further to extract just the IP or another unique identifier
-                        playerPositions.put(clientInfo, loc);
-
-                        // Optionally, notify about the position update
-                        if (onPositionUpdateConsumer != null) {
-                            onPositionUpdateConsumer.accept(clientInfo + " updated to " + loc.toString());
-                        }
+                //System.out.println(inputLine);
+                String[] entries = inputLine.split(";");
+                if (entries.length > 1) {
+                    String[] loc_split = entries[1].split(",");
+                    Vector3f loc = new Vector3f(Float.parseFloat(loc_split[0]), Float.parseFloat(loc_split[1]), Float.parseFloat(loc_split[2]));
+                    if (onPositionUpdateConsumer != null) {
+                        onPositionUpdateConsumer.accept(inputLine);
+                    } else {
+                        playerPositions.put(entries[0], loc);
                     }
                 }
             }
@@ -107,7 +90,6 @@ public class GameClient implements Runnable {
             close();  // Close connection on error
         }
     }
-
 
     public void sendPlayerPosition(Vector3f position) {
         // Format the position into a string with labels for x, y, and z coordinates
