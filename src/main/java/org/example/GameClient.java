@@ -7,6 +7,8 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.PrintWriter;
 import java.net.Socket;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.function.Consumer;
@@ -21,6 +23,7 @@ public class GameClient implements Runnable {
     private String worldData;
     private Consumer<String> onPositionUpdateConsumer;
     private Map<String, Vector3f> playerPositions = new ConcurrentHashMap<>();
+    private Map<String, Integer> playerHealth = new ConcurrentHashMap<>();
     private boolean firstLine = false;
 
     public GameClient(String address, int port) {
@@ -41,6 +44,9 @@ public class GameClient implements Runnable {
         return new ConcurrentHashMap<>(playerPositions);  // Return a copy to avoid modification outside
     }
 
+    public Map<String, Integer> getPlayerhealth() {
+        return new ConcurrentHashMap<>(playerHealth);  // Return a copy to avoid modification outside
+    }
     @Override
     public void run() {
         try {
@@ -73,20 +79,31 @@ public class GameClient implements Runnable {
             String inputLine;
             // Assume the first line is already handled as world data
             while ((inputLine = in.readLine()) != null && running && firstLine) {
-                    String[] players = inputLine.split("/p");
-                    for(String player:players){
-                        String[] entries = player.split(";");
-                        if (entries.length > 1) {
-                            String[] loc_split = entries[1].split(",");
-                            Vector3f loc = new Vector3f(Float.parseFloat(loc_split[0]), Float.parseFloat(loc_split[1]), Float.parseFloat(loc_split[2]));
+                System.out.println(inputLine);
+                String[] players = inputLine.split("/p");
+                for (String player : players) {
+                    String[] entryComponents = player.split(";");
+                    if (entryComponents.length > 1) {
+                        String playerInfo = entryComponents[0];
+                        String[] positionAndHealth = entryComponents[1].split("\\*");
+                        if (positionAndHealth.length == 2) {
+                            String fixed_pos = positionAndHealth[0].substring(3,positionAndHealth[0].length()-2);
+                            String[] loc_split = fixed_pos.split(",");
+                            Vector3f loc = new Vector3f(
+                                    Float.parseFloat(loc_split[0]),
+                                    Float.parseFloat(loc_split[1]),
+                                    Float.parseFloat(loc_split[2])
+                            );
+                            int health = Integer.parseInt(positionAndHealth[1]);
                             if (onPositionUpdateConsumer != null) {
-                                onPositionUpdateConsumer.accept(inputLine);
+                                onPositionUpdateConsumer.accept(player);
                             } else {
-                                playerPositions.put(entries[0], loc);
+                                playerPositions.put(playerInfo, loc);
+                                playerHealth.put(playerInfo, health);
                             }
                         }
                     }
-
+                }
             }
         } catch (IOException e) {
             System.out.println("Error reading from server: " + e.getMessage());
@@ -94,9 +111,10 @@ public class GameClient implements Runnable {
         }
     }
 
-    public void sendPlayerPosition(Vector3f position) {
+
+    public void sendPlayerPosition(Vector3f position, int health) {
         // Format the position into a string with labels for x, y, and z coordinates
-        String positionUpdate = String.format("%.2f,%.2f,%.2f", position.x, position.y, position.z);
+        String positionUpdate = String.format("%.2f,%.2f,%.2f*%d", position.x, position.y, position.z, health);
         sendToServer(positionUpdate);
     }
 

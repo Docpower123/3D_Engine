@@ -42,15 +42,13 @@ public class Player extends Entity {
 
     public void move(World world, List<Enemy> enemies) {
         checkInputs();
-//        if (Keyboard.isKeyDown(Keyboard.KEY_T)) {
-//            long currentTime = System.currentTimeMillis();
-//            if (currentTime - lastAttackTime > ATTACK_COOLDOWN) {
-//                lastAttackTime = currentTime;
-//                attack(enemies);
-//            }
-//        }
+
         if(Keyboard.isKeyDown(Keyboard.KEY_T)){
-            health = health -10;
+            long currentTime = System.currentTimeMillis();
+            if(currentTime - lastAttackTime > ATTACK_COOLDOWN){
+                lastAttackTime = currentTime;
+                health = health -10;
+            }
         }
         
         super.increaseRotation(0, currentTurnSpeed * Display_Manager.getFrameTimeSeconds(), 0);

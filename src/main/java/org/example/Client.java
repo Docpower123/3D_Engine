@@ -43,6 +43,7 @@ public class Client{
     static String ip = "192.168.1.164";
     static int port = 5005;
     static int health_count = 1;
+    static List<GuiTexture> guiTextures = new ArrayList<>();
 
     public static void main(String[] args) throws InterruptedException, InvocationTargetException {
         GameClient client = new GameClient(ip, port);
@@ -87,25 +88,8 @@ public class Client{
             camera.move();
 
             int currentHealth = player.getHealth();
-            if (currentHealth < lastHp) {
-                int healthChange = lastHp - currentHealth;
-                int oldHealthIndex = lastHp / 20;  // Find out what index the lastHp corresponded to
-                int newHealthIndex = currentHealth / 20;  // Find out the new index based on current health
-
-                // Check if health dropped to the next lower 20% segment
-                if (newHealthIndex < oldHealthIndex) {
-                    for (int i = oldHealthIndex; i > newHealthIndex; i--) {
-                        if (i - 1 >= 0 && i - 1 < guiTextures.size()) {
-                            // Assuming you want to hide the texture, or you could change its appearance
-                            guiTextures.remove(guiTextures.get(i -1));
-                        }
-                    }
-                }
-
-                // Update lastHp to the current health after handling the GUI change
-                lastHp = currentHealth;
-            }
-            client.sendPlayerPosition(player.getPosition());
+            // handle clients positions
+            client.sendPlayerPosition(player.getPosition(), currentHealth);
             // prints the locations for testings
             Map<String, Vector3f> locations = client.getPlayerPositions();
             locations.forEach((playerId, position) -> {
@@ -116,6 +100,12 @@ public class Client{
                 }
                 ips.get(playerId).moving(position);
             });
+
+            // handle hp
+            Map<String, Integer> healths = client.getPlayerhealth();
+            healths.forEach((playerId, health) -> {
+                System.out.println(health);
+                    });
 
             GL11.glEnable(GL30.GL_CLIP_DISTANCE0);
             renderer.renderScene(entities, terrains, lights, sky, camera, new Vector4f(0, -1, 0, 1000000));
