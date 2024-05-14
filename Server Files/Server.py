@@ -67,7 +67,7 @@ def handle_client(client_socket, addr):
 # Function to broadcast updated positions to all connected clients
 def update_positions():
     # Create a formatted string of all positions
-    positions_data = ';'.join(f"{addr}; {pos}" for addr, pos in client_positions.items())
+    positions_data = '/p'.join(f"{addr}; {pos}" for addr, pos in client_positions.items())
     encoded_data = bytes(positions_data + '\n', 'utf-8')
     for client, _ in clients:
         try:
@@ -80,8 +80,8 @@ def update_positions():
 
 # Function to start the server
 def server():
-    host = 'localhost'
-    port = 12345
+    host = '192.168.1.164'
+    port = 5005
     server_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
     server_socket.bind((host, port))
     server_socket.listen(5)

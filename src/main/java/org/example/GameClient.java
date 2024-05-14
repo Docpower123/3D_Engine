@@ -73,17 +73,20 @@ public class GameClient implements Runnable {
             String inputLine;
             // Assume the first line is already handled as world data
             while ((inputLine = in.readLine()) != null && running && firstLine) {
-                //System.out.println(inputLine);
-                String[] entries = inputLine.split(";");
-                if (entries.length > 1) {
-                    String[] loc_split = entries[1].split(",");
-                    Vector3f loc = new Vector3f(Float.parseFloat(loc_split[0]), Float.parseFloat(loc_split[1]), Float.parseFloat(loc_split[2]));
-                    if (onPositionUpdateConsumer != null) {
-                        onPositionUpdateConsumer.accept(inputLine);
-                    } else {
-                        playerPositions.put(entries[0], loc);
+                    String[] players = inputLine.split("/p");
+                    for(String player:players){
+                        String[] entries = player.split(";");
+                        if (entries.length > 1) {
+                            String[] loc_split = entries[1].split(",");
+                            Vector3f loc = new Vector3f(Float.parseFloat(loc_split[0]), Float.parseFloat(loc_split[1]), Float.parseFloat(loc_split[2]));
+                            if (onPositionUpdateConsumer != null) {
+                                onPositionUpdateConsumer.accept(inputLine);
+                            } else {
+                                playerPositions.put(entries[0], loc);
+                            }
+                        }
                     }
-                }
+
             }
         } catch (IOException e) {
             System.out.println("Error reading from server: " + e.getMessage());
