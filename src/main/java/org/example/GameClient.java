@@ -77,6 +77,7 @@ public class GameClient implements Runnable {
             String inputLine;
             // Assume the first line is already handled as world data
             while ((inputLine = in.readLine()) != null && running && firstLine) {
+                System.out.println(inputLine);
                 String[] players = inputLine.split("/p");
                 for (String player : players) {
                     String[] entryComponents = player.split(";");

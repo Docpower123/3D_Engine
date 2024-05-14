@@ -46,6 +46,10 @@ public class Player extends Entity {
         return attack;
     }
 
+    public void setAttack(boolean atk){
+        attack = atk;
+    }
+
     public void move(World world, List<Enemy> enemies) {
         checkInputs();
 

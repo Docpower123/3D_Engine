@@ -82,6 +82,7 @@ public class Client{
             int currentHealth = player.getHealth();
             // handle clients positions
             client.sendPlayerPosition(player.getPosition(), currentHealth, player.getAttack());
+            player.setAttack(false);
             // prints the locations for testings
             Map<String, Vector3f> locations = client.getPlayerPositions();
             locations.forEach((playerId, position) -> {
