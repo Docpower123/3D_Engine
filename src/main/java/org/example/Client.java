@@ -74,8 +74,6 @@ public class Client{
         List<GuiTexture> guiTextures = new ArrayList<>();
         GuiRenderer guiRenderer = new GuiRenderer(loader);
         int lastHp = 100;
-        AtomicBoolean killswitch = new AtomicBoolean(false);
-
 
         // Main Game Loop
         while (!Display_Manager.isCloseRequested()){
@@ -103,11 +101,10 @@ public class Client{
                 if(health <= 0){
                     entities.remove(ips.get(playerId));
                     ips.remove(playerId);
-                    killswitch.set(true);
                 }
                 //attack feature
                     });
-            if(killswitch.get()){
+            if(player.getHealth() <= 0){
                 break;
             }
 
