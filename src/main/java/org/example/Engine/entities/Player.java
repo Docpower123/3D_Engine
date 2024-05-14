@@ -27,6 +27,8 @@ public class Player extends Entity {
     private static final int ATTACK_COOLDOWN = 1000; // Cooldown duration in milliseconds
     private long lastAttackTime = 0;
 
+    static boolean attack = false;
+
     public Player(TexturedModel model, Vector3f position, float rotX, float rotY, float rotZ, float scale) {
         super(model, position, rotX, rotY, rotZ, scale);
     }
@@ -40,6 +42,10 @@ public class Player extends Entity {
         return health;
     }
 
+    public boolean getAttack(){
+        return attack;
+    }
+
     public void move(World world, List<Enemy> enemies) {
         checkInputs();
 
@@ -47,7 +53,7 @@ public class Player extends Entity {
             long currentTime = System.currentTimeMillis();
             if(currentTime - lastAttackTime > ATTACK_COOLDOWN){
                 lastAttackTime = currentTime;
-                health = health -10;
+                attack = true;
             }
         }
         

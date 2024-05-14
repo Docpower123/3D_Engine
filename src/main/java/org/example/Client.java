@@ -22,7 +22,6 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.concurrent.CountDownLatch;
-import java.util.concurrent.atomic.AtomicBoolean;
 
 public class Client{
 
@@ -82,7 +81,7 @@ public class Client{
 
             int currentHealth = player.getHealth();
             // handle clients positions
-            client.sendPlayerPosition(player.getPosition(), currentHealth);
+            client.sendPlayerPosition(player.getPosition(), currentHealth, player.getAttack());
             // prints the locations for testings
             Map<String, Vector3f> locations = client.getPlayerPositions();
             locations.forEach((playerId, position) -> {
@@ -102,7 +101,6 @@ public class Client{
                     entities.remove(ips.get(playerId));
                     ips.remove(playerId);
                 }
-                //attack feature
                     });
             if(player.getHealth() <= 0){
                 break;
@@ -113,7 +111,7 @@ public class Client{
             guiRenderer.render(guiTextures);
             Display_Manager.updateDisplay();
         }
-        client.sendPlayerPosition(player.getPosition(), 0); // kill this player in others clients
+        client.sendPlayerPosition(player.getPosition(), 0, player.getAttack()); // kill this player in others clients
         guiRenderer.cleanUp();
         client.stopClient();
         renderer.cleanUp();
