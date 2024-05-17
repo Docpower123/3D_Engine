@@ -9,6 +9,7 @@ clients = []
 client_positions = {}  # Dictionary to store client positions
 attack_req = {}
 
+
 # Function to create the world data
 def create_world():
     world = []
@@ -31,6 +32,7 @@ def create_world():
         world.append(abs(random.random()))
         world.append(random.uniform(0.7, 3))
     return world
+
 
 def handle_client(client_socket, addr):
     print("Connection from", addr)
@@ -73,9 +75,11 @@ def handle_client(client_socket, addr):
         client_socket.close()
         print("Connection closed with", addr)
 
+
 def distance(pos1, pos2):
     # Calculate Euclidean distance between two 3D points
     return math.sqrt((pos1[0] - pos2[0]) ** 2 + (pos1[1] - pos2[1]) ** 2 + (pos1[2] - pos2[2]) ** 2)
+
 
 def handle_attacks():
     attack_radius = 30  # Define your attack radius here
@@ -123,6 +127,7 @@ def handle_attacks():
             # Reset the attack flag
             attack_req[addr1] = 'false'
 
+
 def send_death_message(addr):
     for client, client_addr in clients:
         if client_addr == addr:
@@ -131,12 +136,14 @@ def send_death_message(addr):
             except Exception as e:
                 print(f"Error sending death message to {addr}:", e)
 
+
 def broadcast_message(message):
     for client, _ in clients:
         try:
             client.sendall(bytes(message + '\n', 'utf-8'))
         except Exception as e:
             print(f"Error broadcasting message: {e}")
+
 
 def remove_client(addr):
     for client, client_addr in clients:
@@ -149,6 +156,7 @@ def remove_client(addr):
     if addr in attack_req:
         attack_req.pop(addr, None)
     print(f"Client {addr} has been removed.")
+
 
 def update_positions():
     handle_attacks()  # Process all attacks before sending updates
@@ -163,9 +171,10 @@ def update_positions():
         except Exception as e:
             print(f"Error broadcasting positions to {addr}:", e)
 
+
 # Function to start the server
 def server():
-    host = '192.168.1.164'
+    host = 'localhost'
     port = 5005
     server_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
     server_socket.bind((host, port))
@@ -176,6 +185,7 @@ def server():
         client_socket, addr = server_socket.accept()
         client_thread = threading.Thread(target=handle_client, args=(client_socket, addr))
         client_thread.start()
+
 
 if __name__ == "__main__":
     server()

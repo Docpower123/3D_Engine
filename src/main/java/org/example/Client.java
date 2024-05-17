@@ -18,6 +18,7 @@ import org.joml.Vector4f;
 import org.lwjgl.opengl.GL11;
 import org.lwjgl.opengl.GL30;
 
+
 import java.lang.reflect.InvocationTargetException;
 import java.util.*;
 import java.util.concurrent.CountDownLatch;
@@ -30,7 +31,7 @@ public class Client{
     static List<Entity> entities = new ArrayList<>();
     static List<Enemy> enemies = new ArrayList<>();
     static Map<String, other_players> ips = new HashMap<>();
-    static String ip = "192.168.1.164";
+    static String ip = "localhost";
     static int port = 5005;
     static Random random = new Random(676452);
     static int health_count = 1;
