@@ -1,6 +1,5 @@
 package org.example.Engine;
 
-
 import org.example.Engine.entities.Camera;
 import org.example.Engine.entities.Entity;
 import org.example.Engine.entities.Light;
@@ -164,7 +163,7 @@ public class MasterRenderer {
         GL11.glEnable(GL11.GL_DEPTH_TEST);
         Vector3f skyColor = sky.getColor();
         GL11.glClearColor(skyColor.x, skyColor.y, skyColor.z, 1);
-        GL11.glClear(GL11.GL_COLOR_BUFFER_BIT|GL11.GL_DEPTH_BUFFER_BIT);
+        GL11.glClear(GL11.GL_COLOR_BUFFER_BIT | GL11.GL_DEPTH_BUFFER_BIT);
     }
 
     /**

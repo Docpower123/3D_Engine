@@ -21,7 +21,6 @@ import org.lwjgl.opengl.GL30;
 
 import java.lang.reflect.InvocationTargetException;
 import java.util.*;
-import java.util.concurrent.CountDownLatch;
 
 public class Client{
 
@@ -34,8 +33,7 @@ public class Client{
     static String ip = "localhost";
     static int port = 5005;
     static Random random = new Random(676452);
-    static int health_count = 1;
-    static List<GuiTexture> guiTextures = new ArrayList<>();
+
 
     public static void main(String[] args) throws InterruptedException, InvocationTargetException {
         GameClient client = new GameClient(ip, port);

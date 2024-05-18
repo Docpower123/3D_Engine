@@ -5,11 +5,97 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="79f98a2b-50b6-4938-825d-816dbcea5210" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Server Files/Server.py" beforeDir="false" afterPath="$PROJECT_DIR$/Server Files/Server.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ReadMe.md" beforeDir="false" afterPath="$PROJECT_DIR$/ReadMe.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/res/barrel.obj" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/res/barrel.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/res/barrelNormal.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/res/bobbleTree.obj" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/res/bobbleTree.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/res/boulder.obj" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/res/boulder.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/res/boulderNormal.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/res/box.obj" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/res/box.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/res/cosmic.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/res/crate.obj" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/res/crate.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/res/crateNormal.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/res/fire.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/res/fonts/arial.fnt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/res/fonts/arial.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/res/fonts/berlinSans.fnt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/res/fonts/berlinSans.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/res/fonts/candara.fnt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/res/fonts/candara.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/res/fonts/ebGaramond12AllSC.fnt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/res/fonts/ebGaramond12AllSC.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/res/fonts/gentium.fnt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/res/fonts/gentium.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/res/fonts/harrington.fnt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/res/fonts/harrington.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/res/fonts/sans.fnt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/res/fonts/sans.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/res/fonts/segoe.fnt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/res/fonts/segoe.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/res/fonts/segoeUI.fnt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/res/fonts/segoeUI.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/res/foot.obj" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/res/foot.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/res/footNormal.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/res/health.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/res/health/h1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/res/health/h2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/res/health/h3.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/res/health/h4.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/res/health/h5.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/res/health/h6.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/res/particleAtlas.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/res/particleStar.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/res/playerTexture.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/res/stall.obj" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/res/stallTexture.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/res/stanfordBunny.obj" beforeDir="false" afterPath="$PROJECT_DIR$/res/stanfordBunny.obj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/res/vao-vbo.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/res/win.png" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Client.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Client.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/example/Client.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/example/Client.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Engine/Display_Manager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Engine/Display_Manager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Engine/EntityRenderer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Engine/EntityRenderer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Engine/Loader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Engine/Loader.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Engine/MasterRenderer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Engine/MasterRenderer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Engine/NetworkConfigWindow.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Engine/TerrainRenderer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Engine/TerrainRenderer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Engine/entities/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Engine/entities/Player.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Engine/entities/other_players.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Engine/entities/other_players.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Engine/fontMeshCreator/Character.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Engine/fontMeshCreator/FontType.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Engine/fontMeshCreator/GUIText.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Engine/fontMeshCreator/Line.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Engine/fontMeshCreator/MetaFile.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Engine/fontMeshCreator/TextMeshCreator.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Engine/fontMeshCreator/TextMeshData.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Engine/fontMeshCreator/Word.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Engine/fontRendering/FontRenderer.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Engine/fontRendering/FontShader.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Engine/fontRendering/TextMaster.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Engine/fontRendering/fontFragment.glsl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Engine/fontRendering/fontVertex.glsl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Engine/guis/GuiRenderer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Engine/guis/GuiRenderer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Engine/normalMappingObjConverter/ModelDataNM.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Engine/normalMappingObjConverter/NormalMappedObjLoader.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Engine/normalMappingObjConverter/VertexNM.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Engine/objConverter/OBJFileLoader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Engine/objConverter/OBJFileLoader.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Engine/objConverter/Vertex.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Engine/objConverter/Vertex.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Engine/skybox/Sky.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Engine/skybox/Sky.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Engine/skybox/SkyboxRenderer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Engine/skybox/SkyboxRenderer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Engine/terrains/GameWorld.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Engine/terrains/GameWorld.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Engine/terrains/TerrainWater.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Engine/terrains/TerrainWater.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Engine/toolbox/Maths.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Engine/toolbox/Maths.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Engine/toolbox/MousePicker.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Engine/toolbox/MousePicker.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Engine/water/WaterFrameBuffers.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Engine/water/WaterFrameBuffers.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Engine/water/WaterRenderer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Engine/water/WaterRenderer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Engine/water/WaterShader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Engine/water/WaterShader.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/GameClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/GameClient.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

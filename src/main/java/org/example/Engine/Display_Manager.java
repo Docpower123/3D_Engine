@@ -23,6 +23,11 @@ public class Display_Manager {
     private static long oldNanoTime = 0;
     private static int frames = 0;
 
+    /**
+     * Creates the display window with the specified title.
+     *
+     * @param Title The title of the window.
+     */
     public static void createDisplay(String Title) {
         title = Title;
         if (!glfwInit()) {
@@ -38,7 +43,7 @@ public class Display_Manager {
         if (window == NULL) {
             throw new RuntimeException("Failed to create GLFW window");
         }
-        // Enable VSync (1 means enable, 0 means disable)
+        // Enable VSync
         glfwSwapInterval(1);
         glfwMakeContextCurrent(window);
         createCapabilities();
@@ -53,6 +58,10 @@ public class Display_Manager {
         Mouse.setWindow(window);
     }
 
+    /**
+     * Updates the display by polling events and swapping buffers.
+     * Also calculates the frame time and updates the window title with FPS.
+     */
     public static void updateDisplay() {
         glfwPollEvents();
         glfwSwapBuffers(window);
@@ -75,29 +84,57 @@ public class Display_Manager {
         }
     }
 
+    /**
+     * Closes the display by freeing callbacks and destroying the window.
+     */
     public static void closeDisplay() {
         glfwFreeCallbacks(window);
         glfwDestroyWindow(window);
         glfwTerminate();
     }
+
+    /**
+     * Gets the time in seconds for the last frame.
+     *
+     * @return The time in seconds for the last frame.
+     */
     public static float getFrameTimeSeconds() {
         return delta;
     }
 
+    /**
+     * Checks if the window close request has been made.
+     *
+     * @return true if the window close request has been made, false otherwise.
+     */
     public static boolean isCloseRequested() {
         return glfwWindowShouldClose(window);
     }
 
-    // Return current time in milliseconds
+    /**
+     * Returns the current time in milliseconds.
+     *
+     * @return The current time in milliseconds.
+     */
     private static long getCurrentTime() {
         return currentTimeMillis();
     }
 
-    public static float getWidth() {
+    /**
+     * Gets the width of the display window.
+     *
+     * @return The width of the display window.
+     */
+    public static int getWidth() {
         return width;
     }
 
-    public static Object getHeight(){
+    /**
+     * Gets the height of the display window.
+     *
+     * @return The height of the display window.
+     */
+    public static int getHeight() {
         return height;
     }
 }

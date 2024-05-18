@@ -116,7 +116,6 @@ public class GameClient implements Runnable {
             String inputLine;
             // Assume the first line is already handled as world data
             while ((inputLine = in.readLine()) != null && running && firstLine) {
-                //System.out.println(inputLine);
                 // Check if the inputLine indicates the player was killed
                 if (inputLine.equals("You have been killed.")) {
                     killed = true;

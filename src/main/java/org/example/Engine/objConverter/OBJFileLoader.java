@@ -1,6 +1,5 @@
 package org.example.Engine.objConverter;
 
-
 import org.example.Engine.Loader;
 import org.example.Engine.models.RawModel;
 import org.joml.Vector2f;
@@ -14,6 +13,13 @@ public class OBJFileLoader {
 
     private static final String RES_LOC = "res/";
 
+    /**
+     * Loads an OBJ file and converts it to a RawModel.
+     *
+     * @param objFileName The name of the OBJ file to load.
+     * @param loader The loader used to load the model data.
+     * @return The loaded RawModel.
+     */
     public static RawModel loadOBJ(String objFileName, Loader loader) {
         FileReader isr = null;
         String fileName = RES_LOC + objFileName + ".obj";
@@ -39,24 +45,23 @@ public class OBJFileLoader {
                 line = reader.readLine();
                 if (line.startsWith("v ")) {
                     String[] currentLine = line.split(" ");
-                    Vector3f vertex = new Vector3f((float) Float.valueOf(currentLine[1]),
-                            (float) Float.valueOf(currentLine[2]),
-                            (float) Float.valueOf(currentLine[3]));
+                    Vector3f vertex = new Vector3f(Float.parseFloat(currentLine[1]),
+                            Float.parseFloat(currentLine[2]),
+                            Float.parseFloat(currentLine[3]));
                     Vertex newVertex = new Vertex(vertices.size(), vertex);
                     vertices.add(newVertex);
                     vCount++;
-
                 } else if (line.startsWith("vt ")) {
                     String[] currentLine = line.split(" ");
-                    Vector2f texture = new Vector2f((float) Float.valueOf(currentLine[1]),
-                            (float) Float.valueOf(currentLine[2]));
+                    Vector2f texture = new Vector2f(Float.parseFloat(currentLine[1]),
+                            Float.parseFloat(currentLine[2]));
                     textures.add(texture);
                     vtCount++;
                 } else if (line.startsWith("vn ")) {
                     String[] currentLine = line.split(" ");
-                    Vector3f normal = new Vector3f((float) Float.valueOf(currentLine[1]),
-                            (float) Float.valueOf(currentLine[2]),
-                            (float) Float.valueOf(currentLine[3]));
+                    Vector3f normal = new Vector3f(Float.parseFloat(currentLine[1]),
+                            Float.parseFloat(currentLine[2]),
+                            Float.parseFloat(currentLine[3]));
                     normals.add(normal);
                     vnCount++;
                 } else if (line.startsWith("f ")) {
@@ -79,70 +84,70 @@ public class OBJFileLoader {
         } catch (IOException e) {
             System.err.println("OBJFileLoader: Error reading the file: " + fileName);
         }
-        
+
         System.out.println("OBJFileLoader:"
                 + " vertices: " + vCount
                 + " textureCoords: " + vtCount
                 + " normals: " + vnCount
                 + " faces: " + fCount);
-        
+
         removeUnusedVertices(vertices);
         float[] verticesArray = new float[vertices.size() * 3];
         float[] texturesArray = new float[vertices.size() * 2];
         float[] normalsArray = new float[vertices.size() * 3];
         float[] tangentsArray = new float[vertices.size() * 3];
-        //float furthest =
-                convertDataToArrays(vertices, textures, normals, verticesArray,
+        convertDataToArrays(vertices, textures, normals, verticesArray,
                 texturesArray, normalsArray, tangentsArray);
         int[] indicesArray = convertIndicesListToArray(indices);
-        // ModelData data = new ModelData(verticesArray, texturesArray,
-        // normalsArray, tangentsArray, indicesArray,
-        // furthest);
         return loader.loadToVAO(verticesArray, texturesArray, normalsArray, indicesArray);
     }
 
-    // Changed scale() to mul()
+    /**
+     * Calculates the tangents for the given vertices.
+     *
+     * @param v0 The first vertex.
+     * @param v1 The second vertex.
+     * @param v2 The third vertex.
+     * @param textures The list of texture coordinates.
+     */
     private static void calculateTangents(Vertex v0, Vertex v1, Vertex v2,
-            List<Vector2f> textures) {
-        // Vector3f deltaPos1 = Vector3f.sub(v1.getPosition(), v0.getPosition(), null);
+                                          List<Vector2f> textures) {
         Vector3f deltaPos1 = new Vector3f(v1.getPosition());
         deltaPos1.sub(v0.getPosition());
-        // Vector3f deltaPos2 = Vector3f.sub(v2.getPosition(), v0.getPosition(), null);
         Vector3f deltaPos2 = new Vector3f(v2.getPosition());
         deltaPos2.sub(v0.getPosition());
 
         Vector2f uv0 = textures.get(v0.getTextureIndex());
         Vector2f uv1 = textures.get(v1.getTextureIndex());
         Vector2f uv2 = textures.get(v2.getTextureIndex());
-        
-        // Vector2f deltaUv1 = Vector2f.sub(uv1, uv0, null);
+
         Vector2f deltaUv1 = new Vector2f(uv1);
         deltaUv1.sub(uv0);
-        // Vector2f deltaUv2 = Vector2f.sub(uv2, uv0, null);
         Vector2f deltaUv2 = new Vector2f(uv2);
-        deltaUv1.sub(uv0);
+        deltaUv2.sub(uv0);
 
         float r = 1.0f / (deltaUv1.x * deltaUv2.y - deltaUv1.y * deltaUv2.x);
         deltaPos1.mul(deltaUv2.y);
         deltaPos2.mul(deltaUv1.y);
 
-        // Vector3f tangent = Vector3f.sub(deltaPos1, deltaPos2, null);
         Vector3f tangent = new Vector3f(deltaPos1);
         tangent.sub(deltaPos2);
-
         tangent.mul(r);
         v0.addTangent(tangent);
         v1.addTangent(tangent);
         v2.addTangent(tangent);
     }
 
+    /**
+     * Processes a vertex and updates the indices list.
+     *
+     * @param vertex The vertex data.
+     * @param vertices The list of vertices.
+     * @param indices The list of indices.
+     * @return The processed vertex.
+     */
     private static Vertex processVertex(String[] vertex, List<Vertex> vertices,
-            List<Integer> indices) {
-        
-        //System.out.println("vertex[0] = " + vertex[0]);
-        //System.out.println("vertex[1] = " + vertex[1]);
-        //System.out.println("vertex[2] = " + vertex[2]);
-        
+                                        List<Integer> indices) {
         int index = Integer.parseInt(vertex[0]) - 1;
         Vertex currentVertex = vertices.get(index);
         int textureIndex = Integer.parseInt(vertex[1]) - 1;
@@ -158,6 +163,12 @@ public class OBJFileLoader {
         }
     }
 
+    /**
+     * Converts the list of indices to an array.
+     *
+     * @param indices The list of indices.
+     * @return The array of indices.
+     */
     private static int[] convertIndicesListToArray(List<Integer> indices) {
         int[] indicesArray = new int[indices.size()];
         for (int i = 0; i < indicesArray.length; i++) {
@@ -166,9 +177,21 @@ public class OBJFileLoader {
         return indicesArray;
     }
 
+    /**
+     * Converts the vertex data to arrays.
+     *
+     * @param vertices The list of vertices.
+     * @param textures The list of texture coordinates.
+     * @param normals The list of normal vectors.
+     * @param verticesArray The array to store vertex positions.
+     * @param texturesArray The array to store texture coordinates.
+     * @param normalsArray The array to store normal vectors.
+     * @param tangentsArray The array to store tangents.
+     * @return The furthest point distance.
+     */
     private static float convertDataToArrays(List<Vertex> vertices, List<Vector2f> textures,
-            List<Vector3f> normals, float[] verticesArray, float[] texturesArray,
-            float[] normalsArray, float[] tangentsArray) {
+                                             List<Vector3f> normals, float[] verticesArray, float[] texturesArray,
+                                             float[] normalsArray, float[] tangentsArray) {
         float furthestPoint = 0;
         for (int i = 0; i < vertices.size(); i++) {
             Vertex currentVertex = vertices.get(i);
@@ -190,13 +213,22 @@ public class OBJFileLoader {
             tangentsArray[i * 3] = tangent.x;
             tangentsArray[i * 3 + 1] = tangent.y;
             tangentsArray[i * 3 + 2] = tangent.z;
-
         }
         return furthestPoint;
     }
 
+    /**
+     * Handles already processed vertices and creates duplicate vertices if necessary.
+     *
+     * @param previousVertex The previously processed vertex.
+     * @param newTextureIndex The new texture index.
+     * @param newNormalIndex The new normal index.
+     * @param indices The list of indices.
+     * @param vertices The list of vertices.
+     * @return The processed vertex.
+     */
     private static Vertex dealWithAlreadyProcessedVertex(Vertex previousVertex, int newTextureIndex,
-            int newNormalIndex, List<Integer> indices, List<Vertex> vertices) {
+                                                         int newNormalIndex, List<Integer> indices, List<Vertex> vertices) {
         if (previousVertex.hasSameTextureAndNormal(newTextureIndex, newNormalIndex)) {
             indices.add(previousVertex.getIndex());
             return previousVertex;
@@ -214,10 +246,14 @@ public class OBJFileLoader {
                 indices.add(duplicateVertex.getIndex());
                 return duplicateVertex;
             }
-
         }
     }
 
+    /**
+     * Removes unused vertices and averages their tangents.
+     *
+     * @param vertices The list of vertices.
+     */
     private static void removeUnusedVertices(List<Vertex> vertices) {
         for (Vertex vertex : vertices) {
             vertex.averageTangents();

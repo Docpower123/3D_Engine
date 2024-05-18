@@ -80,16 +80,6 @@ public class Player extends Entity {
             isInAir = false;
             super.getPosition().y = terrainHeight;
         }
-        //TODO: fix this thing
-        // assume all low places are filled with water
-        // make player swim so the head stays above surface
-        //float playerHeight = 5;
-        //float waterHeight = world.getHeightOfWater(getPosition().x, getPosition().z);
-        //if (super.getPosition().y < waterHeight - playerHeight) {
-            //upwardsSpeed = 0;
-            //isInAir = false;
-            //super.getPosition().y = waterHeight - playerHeight;
-        //}
     }
 
     private void attack(List<Enemy> enemies) {

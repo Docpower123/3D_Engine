@@ -1,6 +1,5 @@
 package org.example.Engine.terrains;
 
-
 import org.example.Engine.Loader;
 import org.example.Engine.models.RawModel;
 import org.example.Engine.textures.ModelTexture;
@@ -16,6 +15,7 @@ import java.io.File;
 import java.io.IOException;
 
 public class TerrainWater implements Terrain {
+
     private static final float MAX_PIXEL_COLOR = 256 * 256 * 256;
     private static final float HEIGHT_OFFSET = 0;
 
@@ -29,6 +29,18 @@ public class TerrainWater implements Terrain {
 
     private float[][] heights;
 
+    /**
+     * Constructs a water terrain tile.
+     *
+     * @param gridX          The x position of the terrain grid.
+     * @param gridZ          The z position of the terrain grid.
+     * @param size           The size of the terrain tile.
+     * @param maxHeight      The maximum height of the terrain.
+     * @param loader         The loader used to load the terrain model.
+     * @param texturePack    The texture pack for the terrain.
+     * @param blendMap       The blend map for the terrain textures.
+     * @param heightMap      The height map image file for the terrain.
+     */
     public TerrainWater(int gridX, int gridZ, float size, float maxHeight, Loader loader, TerrainTexturePack texturePack,
                         TerrainTexture blendMap, String heightMap) {
         this.texturePack = texturePack;
@@ -47,18 +59,19 @@ public class TerrainWater implements Terrain {
     public float getZ() {
         return z;
     }
-    
+
     public float getSize() {
         return size;
     }
-    
+
     public Vector3f getPosition() {
         return new Vector3f(x, 0, z);
     }
-    
+
     public RawModel getModel() {
         return model;
     }
+
     public ModelTexture getTexture() {
         return null;
     }
@@ -70,23 +83,33 @@ public class TerrainWater implements Terrain {
     public TerrainTexture getBlendMap() {
         return blendMap;
     }
-    
+
+    /**
+     * Checks if the specified world coordinates are within this terrain tile.
+     *
+     * @param worldX The x coordinate in the world.
+     * @param worldZ The z coordinate in the world.
+     * @return True if the coordinates are within this terrain tile, false otherwise.
+     */
     public boolean containsPosition(float worldX, float worldZ) {
-        if (worldX < x || worldX >= x + size)
-            return false;
-        if (worldZ < z || worldZ >= z + size)
-            return false;
-        return true;
+        return !(worldX < x || worldX >= x + size || worldZ < z || worldZ >= z + size);
     }
 
     public float getHeightOfWater() {
         return 0;
     }
-    
+
+    /**
+     * Gets the height of the terrain at the specified world coordinates.
+     *
+     * @param worldX The x coordinate in the world.
+     * @param worldZ The z coordinate in the world.
+     * @return The height of the terrain at the specified coordinates.
+     */
     public float getHeightOfTerrain(float worldX, float worldZ) {
         float terrainX = worldX - this.x;
         float terrainZ = worldZ - this.z;
-        float gridSquareSize = size / ((float)heights.length - 1);
+        float gridSquareSize = size / ((float) heights.length - 1);
         int gridX = (int) Math.floor(terrainX / gridSquareSize);
         int gridZ = (int) Math.floor(terrainZ / gridSquareSize);
         if (gridX >= heights.length - 1 || gridZ >= heights.length - 1 || gridX < 0 || gridZ < 0) {
@@ -98,22 +121,28 @@ public class TerrainWater implements Terrain {
 
         if (xCoord <= (1 - zCoord)) {
             answer = Maths.baryCentric(
-                new Vector3f(0, heights[gridX][gridZ], 0),
-                new Vector3f(1, heights[gridX + 1][gridZ], 0),
-                new Vector3f(0, heights[gridX][gridZ + 1], 1),
-                new Vector2f(xCoord, zCoord));
+                    new Vector3f(0, heights[gridX][gridZ], 0),
+                    new Vector3f(1, heights[gridX + 1][gridZ], 0),
+                    new Vector3f(0, heights[gridX][gridZ + 1], 1),
+                    new Vector2f(xCoord, zCoord));
         } else {
             answer = Maths.baryCentric(
-                new Vector3f(1, heights[gridX + 1][gridZ], 0),
-                new Vector3f(1, heights[gridX + 1][gridZ + 1], 1),
-                new Vector3f(0, heights[gridX][gridZ + 1], 1),
-                new Vector2f(xCoord, zCoord));
+                    new Vector3f(1, heights[gridX + 1][gridZ], 0),
+                    new Vector3f(1, heights[gridX + 1][gridZ + 1], 1),
+                    new Vector3f(0, heights[gridX][gridZ + 1], 1),
+                    new Vector2f(xCoord, zCoord));
         }
         return answer;
     }
 
+    /**
+     * Generates the terrain model based on the height map.
+     *
+     * @param loader The loader used to load the terrain model.
+     * @param heightMap The height map image file.
+     * @return The generated RawModel.
+     */
     private RawModel generateTerrain(Loader loader, String heightMap) {
-
         BufferedImage image = null;
         String fileName = "res/" + heightMap + ".png";
         try {
@@ -123,7 +152,7 @@ public class TerrainWater implements Terrain {
             e.printStackTrace();
         }
         int VERTEX_COUNT = image.getHeight();
-         
+
         int count = VERTEX_COUNT * VERTEX_COUNT;
         heights = new float[VERTEX_COUNT][VERTEX_COUNT];
         float[] vertices = new float[count * 3];
@@ -167,16 +196,32 @@ public class TerrainWater implements Terrain {
         return loader.loadToVAO(vertices, textureCoords, normals, indices);
     }
 
+    /**
+     * Calculates the normal vector at the specified coordinates in the height map.
+     *
+     * @param x     The x coordinate.
+     * @param z     The z coordinate.
+     * @param image The height map image.
+     * @return The calculated normal vector.
+     */
     private Vector3f calculateNormal(int x, int z, BufferedImage image) {
-        float heightL = getHeight(x-1, z, image);
-        float heightR = getHeight(x-1, z, image);
-        float heightD = getHeight(x, z-1, image);
-        float heightU = getHeight(x, z+1, image);
+        float heightL = getHeight(x - 1, z, image);
+        float heightR = getHeight(x + 1, z, image);
+        float heightD = getHeight(x, z - 1, image);
+        float heightU = getHeight(x, z + 1, image);
         Vector3f normal = new Vector3f(heightL - heightR, 2f, heightD - heightU);
         normal.normalize();
         return normal;
     }
 
+    /**
+     * Gets the height at the specified coordinates in the height map.
+     *
+     * @param x     The x coordinate.
+     * @param z     The z coordinate.
+     * @param image The height map image.
+     * @return The height at the specified coordinates.
+     */
     private float getHeight(int x, int z, BufferedImage image) {
         if (x < 0 || x >= image.getHeight() || z < 0 || z >= image.getHeight()) {
             return HEIGHT_OFFSET;

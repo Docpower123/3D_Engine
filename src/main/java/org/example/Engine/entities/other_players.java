@@ -9,7 +9,6 @@ public class other_players extends Entity{
         super(model, position, scale);
     }
 
-    //TODO: implement jumping
     public void moving(Vector3f position) {
         super.setPosition(position);
     }

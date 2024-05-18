@@ -1,6 +1,5 @@
 package org.example.Engine.water;
 
-
 import org.example.Engine.Display_Manager;
 import org.example.Engine.Loader;
 import org.example.Engine.entities.Camera;
@@ -18,25 +17,33 @@ import org.lwjgl.opengl.GL30;
 import java.util.List;
 
 public class WaterRenderer {
-    
+
     private static final String DUDV_MAP = "waterDUDV";
     private static final String NORMAL_MAP = "normalMap";
-    
+
     private static final float WAVE_SPEED = 0.03f;
 
     private RawModel quad;
     private WaterShader shader;
     private WaterFrameBuffers fbos;
     private float tiling = 100f;
-    
+
     private float moveFactor = 0f;
     private float waveStrength = 0.04f;
-    
+
     private int dudvTexture;
     private int normalMap;
-    
+
     private float shadingLevels = 10.0f;
-    
+
+    /**
+     * Constructs a WaterRenderer with the specified loader, shader, projection matrix, and frame buffers.
+     *
+     * @param loader The loader used to load textures and models.
+     * @param shader The water shader program.
+     * @param projectionMatrix The projection matrix to be used.
+     * @param fbos The frame buffers for reflection and refraction.
+     */
     public WaterRenderer(Loader loader, WaterShader shader, Matrix4f projectionMatrix,
                          WaterFrameBuffers fbos) {
         this.shader = shader;
@@ -50,6 +57,14 @@ public class WaterRenderer {
         setUpVAO(loader);
     }
 
+    /**
+     * Renders the water tiles.
+     *
+     * @param water The list of water tiles to render.
+     * @param sky The sky settings.
+     * @param camera The camera viewing the scene.
+     * @param lights The lights in the scene.
+     */
     public void render(List<WaterTile> water, Sky sky, Camera camera, List<Light> lights) {
         prepareRender(sky, camera, lights);
         for (WaterTile tile : water) {
@@ -61,7 +76,14 @@ public class WaterRenderer {
         }
         unbind();
     }
-    
+
+    /**
+     * Prepares the renderer by starting the shader, loading uniforms, and binding textures.
+     *
+     * @param sky The sky settings.
+     * @param camera The camera viewing the scene.
+     * @param lights The lights in the scene.
+     */
     private void prepareRender(Sky sky, Camera camera, List<Light> lights) {
         shader.start();
         shader.loadViewMatrix(camera);
@@ -75,7 +97,7 @@ public class WaterRenderer {
         shader.loadSkyColor(sky.getColor());
         shader.loadSkyVariables(sky.getDensity(), sky.getGradient());
         shader.loadShadingLevels(shadingLevels);
-       
+
         GL30.glBindVertexArray(quad.getVaoID());
         GL20.glEnableVertexAttribArray(0);
         GL13.glActiveTexture(GL13.GL_TEXTURE0);
@@ -88,11 +110,14 @@ public class WaterRenderer {
         GL11.glBindTexture(GL11.GL_TEXTURE_2D, normalMap);
         GL13.glActiveTexture(GL13.GL_TEXTURE4);
         GL11.glBindTexture(GL11.GL_TEXTURE_2D, fbos.getRefractionDepthTexture());
-        
+
         GL11.glEnable(GL11.GL_BLEND);
         GL11.glBlendFunc(GL11.GL_SRC_ALPHA, GL11.GL_ONE_MINUS_SRC_ALPHA);
     }
-    
+
+    /**
+     * Unbinds the current VAO and stops the shader.
+     */
     private void unbind() {
         GL11.glDisable(GL11.GL_BLEND);
         GL20.glDisableVertexAttribArray(0);
@@ -100,15 +125,19 @@ public class WaterRenderer {
         shader.stop();
     }
 
+    /**
+     * Sets up the VAO for the water quad.
+     *
+     * @param loader The loader used to load the VAO.
+     */
     private void setUpVAO(Loader loader) {
         float[] vertices = {
-                 0, 0,
-                 0, 1,
-                 1, 0,
-                 1, 0,
-                 0, 1,
-                 1, 1 };
+                0, 0,
+                0, 1,
+                1, 0,
+                1, 0,
+                0, 1,
+                1, 1};
         quad = loader.loadToVAO(vertices, 2);
     }
-
 }

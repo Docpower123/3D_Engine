@@ -12,7 +12,6 @@ import java.util.List;
 
 import org.example.Engine.models.RawModel;
 import org.example.Engine.models.TexturedModel;
-import org.example.Engine.normalMappingObjConverter.NormalMappedObjLoader;
 import org.example.Engine.objConverter.OBJFileLoader;
 import org.example.Engine.textures.ModelTexture;
 import org.example.Engine.textures.Texture;
@@ -243,19 +242,4 @@ public class Loader {
         return texturedModel;
     }
 
-    public TexturedModel createTexturedModel(
-            String objFileName,
-            String textureFileName,
-            String normalMapFileName,
-            float materialShineDamper,
-            float materialReflectivity) {
-        RawModel model = NormalMappedObjLoader.loadOBJ(objFileName, this);
-        ModelTexture texture = new ModelTexture(this.loadTexture(textureFileName));
-        int normalMap = loadTexture(normalMapFileName);
-        texture.setNormalMap(normalMap);
-        texture.setShineDamper(materialShineDamper);
-        texture.setReflectivity(materialReflectivity);
-        TexturedModel texturedModel = new TexturedModel(model, texture);
-        return texturedModel;
-    }
 }

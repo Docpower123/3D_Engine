@@ -33,7 +33,6 @@ public class Vertex {
             return;
         }
         for (Vector3f tangent : tangents) {
-            //Vector3f.add(averagedTangent, tangent, averagedTangent);
             averagedTangent.add(tangent);
         }
         if (averagedTangent.length() > 0.0f) {

@@ -9,7 +9,6 @@ public class Sky {
     public static final float CLEAR_DENSITY = 0.00015f;
     public static final float CLEAR_GRADIENT = 7f;
 
-    // OpenGL 3D Game Tutorial 16: Fog
     public static final float FOG_RED   = 0.5f;
     public static final float FOG_GREEN = 0.7f;
     public static final float FOG_BLUE  = 0.9f;
@@ -27,11 +26,7 @@ public class Sky {
     public float red = CLEAR_RED;
     public float green = CLEAR_GREEN;
     public float blue = CLEAR_BLUE;
-    
-    public Sky() {
-        // default values
-    }
-    
+
     public Sky(float red, float green, float blue, float density, float gradient) {
         this.red = red;
         this.green = green;
