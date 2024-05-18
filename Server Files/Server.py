@@ -34,11 +34,10 @@ def create_world():
     return world
 
 
-def handle_client(client_socket, addr):
+def handle_client(client_socket, addr, world_data):
     print("Connection from", addr)
     try:
-        # Send world data to the client
-        world_data = create_world()
+        # Send world data to the server
         client_socket.sendall(bytes(str(world_data) + '\n', 'utf-8'))
         time.sleep(1)  # Introduce a delay for demonstration
 
@@ -180,10 +179,11 @@ def server():
     server_socket.bind((host, port))
     server_socket.listen(5)
     print("Server listening on port", port)
+    world_data = create_world()
 
     while True:
         client_socket, addr = server_socket.accept()
-        client_thread = threading.Thread(target=handle_client, args=(client_socket, addr))
+        client_thread = threading.Thread(target=handle_client, args=(client_socket, addr, world_data))
         client_thread.start()
 
 
