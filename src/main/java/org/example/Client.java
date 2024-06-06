@@ -71,7 +71,7 @@ public class Client{
         variables.put(" 'fernModel'", fernModel);
 
         // create lights array and the sun
-        Sky sky = new Sky(0.57f, 0.8f, 1.0f, 0.00015f, 7f);
+        Sky sky = new Sky(0.57f, 0.8f, 1.0f, 0.00015f, 7f); // the color of the sky
         lights.add(new Light(new Vector3f(30000, 3000, 0), new Vector3f(1, 1, 1)));
         float ex, ey, ez, rx, ry, rz, scale;
         ex = 100;

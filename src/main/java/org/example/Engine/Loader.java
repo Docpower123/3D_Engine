@@ -9,7 +9,6 @@ import java.nio.channels.FileChannel;
 import java.util.ArrayList;
 import java.util.List;
 
-
 import org.example.Engine.models.RawModel;
 import org.example.Engine.models.TexturedModel;
 import org.example.Engine.objConverter.OBJFileLoader;
@@ -29,11 +28,13 @@ import org.lwjgl.stb.STBImage;
 
 public class Loader {
 
-    private final static float LOD_BIAS = -0.4f;
+    private final static float LOD_BIAS = -0.4f; // distance required to lower quality of the model
 
     private List<Integer> vaos = new ArrayList<>();
     private List<Integer> vbos = new ArrayList<>();
     private List<Integer> textures = new ArrayList<>();
+
+    // Load model data into a VAO
     public RawModel loadToVAO(float[] positions, float[] textureCoords, float[] normals, int[] indices) {
         int vaoID = createVAO();
         bindIndicesBuffer(indices);
@@ -43,29 +44,16 @@ public class Loader {
         unbindVAO();
         return new RawModel(vaoID, indices.length);
     }
-    public int loadToVAO(float[] positions, float[] textureCoords) {
-        int vaoID = createVAO();
-        storeDataInAttributeList(0, 2, positions);
-        storeDataInAttributeList(1, 2, textureCoords);
-        unbindVAO();
-        return vaoID;
-    }
-    public RawModel loadToVAO(float[] positions, float[] textureCoords, float[] normals, float[] tangents, int[] indices) {
-        int vaoID = createVAO();
-        bindIndicesBuffer(indices);
-        storeDataInAttributeList(0, 3, positions);
-        storeDataInAttributeList(1, 2, textureCoords);
-        storeDataInAttributeList(2, 3, normals);
-        storeDataInAttributeList(3, 3, tangents);
-        unbindVAO();
-        return new RawModel(vaoID, indices.length);
-    }
+
+    // Load 2D images to the VAO
     public RawModel loadToVAO(float[] positions, int dimensions) {
         int vaoID = createVAO();
         storeDataInAttributeList(0, dimensions, positions);
         unbindVAO();
         return new RawModel(vaoID, positions.length / dimensions);
     }
+
+    // Load a texture from file
     public int loadTexture(String fileName, float lodBias) {
         Texture texture = null;
         fileName = "res/" + fileName + ".png";
@@ -85,14 +73,12 @@ public class Loader {
         return textureID;
     }
 
+    // Overloaded method to load a texture with default LOD bias
     public int loadTexture(String fileName) {
         return loadTexture(fileName, LOD_BIAS);
     }
 
-    public int loadFontTextureAtlas(String fileName) {
-        return loadTexture("fonts/" + fileName, 0);
-    }
-
+    // Clean up all VAOs, VBOs, and textures
     public void cleanUp() {
         for (int vao : vaos) {
             GL30.glDeleteVertexArrays(vao);
@@ -105,6 +91,7 @@ public class Loader {
         }
     }
 
+    // Load the skybox texture and model
     public int loadCubeMap(String[] textureFiles) {
         int texID = GL11.glGenTextures();
         GL13.glActiveTexture(GL13.GL_TEXTURE0);
@@ -113,7 +100,7 @@ public class Loader {
         for (int i = 0; i < textureFiles.length; i++) {
             TextureData data = decodeTextureFile("res/" + textureFiles[i] + ".png");
             GL11.glTexImage2D(GL13.GL_TEXTURE_CUBE_MAP_POSITIVE_X + i, 0, GL11.GL_RGBA,
-                    data.getWidth(), data.getHeight(),0, GL11.GL_RGBA, GL11.GL_UNSIGNED_BYTE,
+                    data.getWidth(), data.getHeight(), 0, GL11.GL_RGBA, GL11.GL_UNSIGNED_BYTE,
                     data.getBuffer());
             data.freeBuffer();
         }
@@ -126,6 +113,7 @@ public class Loader {
         return texID;
     }
 
+    // Read ByteBuffer from FileInputStream
     private ByteBuffer readByteBufferFromFileInputStream(FileInputStream fs) throws IOException {
         FileChannel fc = fs.getChannel();
         ByteBuffer buffer = fc.map(FileChannel.MapMode.READ_ONLY, 0, fc.size());
@@ -133,6 +121,8 @@ public class Loader {
         fs.close();
         return buffer;
     }
+
+    // Decode a texture file into TextureData
     private TextureData decodeTextureFile(String fileName) {
         int width = 0;
         int height = 0;
@@ -157,12 +147,15 @@ public class Loader {
         return new TextureData(buffer, width, height);
     }
 
+    // Create a new VAO
     private int createVAO() {
         int vaoID = GL30.glGenVertexArrays();
         vaos.add(vaoID);
         GL30.glBindVertexArray(vaoID);
         return vaoID;
     }
+
+    // Store data in attribute list
     private void storeDataInAttributeList(int attributeNumber, int coordinateSize, float[] data) {
         int vboID = GL15.glGenBuffers();
         vbos.add(vboID);
@@ -173,10 +166,12 @@ public class Loader {
         GL15.glBindBuffer(GL15.GL_ARRAY_BUFFER, 0);
     }
 
+    // Unbind the currently bound VAO
     private void unbindVAO() {
         GL30.glBindVertexArray(0);
     }
 
+    // Bind indices buffer
     private void bindIndicesBuffer(int[] indices) {
         int vboID = GL15.glGenBuffers();
         vbos.add(vboID);
@@ -185,6 +180,7 @@ public class Loader {
         GL15.glBufferData(GL15.GL_ELEMENT_ARRAY_BUFFER, buffer, GL15.GL_STATIC_DRAW);
     }
 
+    // Store data in IntBuffer
     private IntBuffer storeDataInIntBuffer(int[] data) {
         IntBuffer buffer = BufferUtils.createIntBuffer(data.length);
         buffer.put(data);
@@ -192,12 +188,15 @@ public class Loader {
         return buffer;
     }
 
+    // Store data in FloatBuffer
     private FloatBuffer storeDataInFloatBuffer(float[] data) {
         FloatBuffer buffer = BufferUtils.createFloatBuffer(data.length);
         buffer.put(data);
         buffer.flip();
         return buffer;
     }
+
+    // Create a textured model from OBJ file and texture
     public TexturedModel createTexturedModel(
             String objFileName,
             String textureFileName,
@@ -211,6 +210,7 @@ public class Loader {
         return texturedModel;
     }
 
+    // Create a textured model with transparency and fake lighting
     public TexturedModel createTexturedModel(
             String objFileName,
             String textureFileName,
@@ -225,6 +225,8 @@ public class Loader {
         texturedModel.getTexture().setUseFakeLighting(useFakeLighting);
         return texturedModel;
     }
+
+    // Create a textured model with additional settings
     public TexturedModel createTexturedModel(
             String objFileName,
             String textureFileName,
@@ -241,5 +243,4 @@ public class Loader {
         texturedModel.getTexture().setNumberOfRows(numberOfRows);
         return texturedModel;
     }
-
 }

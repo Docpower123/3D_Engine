@@ -22,17 +22,15 @@ public class Display_Manager {
 
     private static long oldNanoTime = 0;
     private static int frames = 0;
-    /**
-     * Creates the display window with the specified title.
-     *
-     * @param Title The title of the window.
-     */
+
+    //Creates the display window with the specified title
     public static void createDisplay(String Title) {
         title = Title;
         if (!glfwInit()) {
             throw new IllegalStateException("Unable to initialize GLFW");
         }
         glfwDefaultWindowHints();
+        // configure the version
         glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 3);
         glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 3);
         glfwWindowHint(GLFW_OPENGL_FORWARD_COMPAT, GLFW_TRUE);
