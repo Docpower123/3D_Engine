@@ -214,7 +214,7 @@ public class Client{
                 guiTextures.add(gui3);
                 guiRenderer.render(guiTextures);
                 Display_Manager.updateDisplay();
-                client.sendPlayerPosition(player.getPosition(),100,false,true);
+                client.sendPlayerPosition(player.getPosition(),player.getHealth(),false,true);
                 Thread.sleep(2000);
                 break;
             }

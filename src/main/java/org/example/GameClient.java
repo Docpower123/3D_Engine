@@ -167,7 +167,7 @@ public class GameClient implements Runnable {
         String flag = "false";
         String flag1 = "false";
         if(attack){
-            flag1 = "True";
+            flag = "True";
         }
         if(won){
             flag1 = "True";
