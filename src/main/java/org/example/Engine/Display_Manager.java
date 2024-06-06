@@ -13,8 +13,8 @@ import static java.lang.System.*;
 public class Display_Manager {
 
     private static String title;
-    private static int width = 1024;
-    private static int height = 768;
+    private static int width = 800;
+    private static int height = 600;
     private static long window;
 
     private static long lastFrameTime = getCurrentTime();
@@ -22,7 +22,6 @@ public class Display_Manager {
 
     private static long oldNanoTime = 0;
     private static int frames = 0;
-
     /**
      * Creates the display window with the specified title.
      *

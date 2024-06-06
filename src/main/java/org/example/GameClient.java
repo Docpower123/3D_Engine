@@ -24,6 +24,7 @@ public class GameClient implements Runnable {
     private boolean running = true;
     private boolean killed = false;  // Flag to indicate if the player was killed
     private String killedPlayerId;  // Variable to store the ID of the killed player
+    private boolean win = false;
     private String worldData;
     private Consumer<String> onPositionUpdateConsumer;
     private Map<String, Vector3f> playerPositions = new ConcurrentHashMap<>();
@@ -121,7 +122,10 @@ public class GameClient implements Runnable {
                     killed = true;
                     break;  // Stop processing further input
                 }
-
+                if(inputLine.equals("win!")){
+                    win = true;
+                    break;
+                }
                 if (inputLine.startsWith("PLAYER_KILLED")) {
                     killedPlayerId = inputLine.split(" ")[1];  // Extract the player ID
                     killedPlayerId = killedPlayerId + " "+inputLine.split(" ")[2];
@@ -159,12 +163,16 @@ public class GameClient implements Runnable {
         }
     }
 
-    public void sendPlayerPosition(Vector3f position, int health, boolean attack) {
+    public void sendPlayerPosition(Vector3f position, int health, boolean attack, boolean won) {
         String flag = "false";
+        String flag1 = "false";
         if(attack){
-            flag = "True";
+            flag1 = "True";
         }
-        String positionUpdate = String.format("%.2f,%.2f,%.2f*%d*%s", position.x, position.y, position.z, health, flag);
+        if(won){
+            flag1 = "True";
+        }
+        String positionUpdate = String.format("%.2f,%.2f,%.2f*%d*%s*%s", position.x, position.y, position.z, health, flag, flag1);
         sendToServer(positionUpdate);
     }
 
@@ -183,6 +191,10 @@ public class GameClient implements Runnable {
         } catch (IOException e) {
             System.out.println("Error closing client: " + e.getMessage());
         }
+    }
+
+    public boolean getwin(){
+        return win;
     }
 
     public void stopClient() {

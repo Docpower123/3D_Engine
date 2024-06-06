@@ -106,7 +106,6 @@ public class Client{
                 ry = ey * 360;
 
                 if(numSubTextures > 1){
-                    //TODO: change it to be delivered in the packet so there wont be any different textures
                     int textureIndex = random.nextInt(numSubTextures);
                     entities.add(new Entity(model, textureIndex, new Vector3f(ex,ey,ez), rx, ry, rz ,scale));
                 }
@@ -153,12 +152,15 @@ public class Client{
         List<GuiTexture> guiTextures = new ArrayList<>();
         GuiRenderer guiRenderer = new GuiRenderer(loader);
         int lastHp = 100;
-        client.sendPlayerPosition(player.getPosition(), lastHp, player.getAttack());
+        client.sendPlayerPosition(player.getPosition(), lastHp, player.getAttack(), false);
         String addr = client.getip();
 
 
         // Main Game Loop
         while (!Display_Manager.isCloseRequested()){
+            if(client.getwin()){
+                break;
+            }
             player.move(world, enemies);
             camera.move();
             for (Map.Entry<String, Integer> entry : client.getPlayerhealth().entrySet()) {
@@ -172,7 +174,7 @@ public class Client{
             }
             int currentHealth = player.getHealth();
             // handle clients positions
-            client.sendPlayerPosition(player.getPosition(), currentHealth, player.getAttack());
+            client.sendPlayerPosition(player.getPosition(), currentHealth, player.getAttack(), false);
             player.setAttack(false);
             // prints the locations for testings
             Map<String, Vector3f> locations = client.getPlayerPositions();
@@ -212,6 +214,7 @@ public class Client{
                 guiTextures.add(gui3);
                 guiRenderer.render(guiTextures);
                 Display_Manager.updateDisplay();
+                client.sendPlayerPosition(player.getPosition(),100,false,true);
                 Thread.sleep(2000);
                 break;
             }
@@ -243,7 +246,7 @@ public class Client{
             Display_Manager.updateDisplay();
 
         }
-        client.sendPlayerPosition(player.getPosition(), 0, player.getAttack()); // kill this player in others clients
+        client.sendPlayerPosition(player.getPosition(), 0, player.getAttack(), false); // kill this player in others clients
         guiRenderer.cleanUp();
         client.stopClient();
         renderer.cleanUp();

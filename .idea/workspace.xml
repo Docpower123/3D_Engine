@@ -6,7 +6,19 @@
   <component name="ChangeListManager">
     <list default="true" id="79f98a2b-50b6-4938-825d-816dbcea5210" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Server Files/Server.py" beforeDir="false" afterPath="$PROJECT_DIR$/Server Files/Server.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Client.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Client.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Engine/Display_Manager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Engine/Display_Manager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Engine/entities/GameCamera.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Engine/entities/GameCamera.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/GameClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/GameClient.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/example/Client.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/example/Client.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/example/Engine/Display_Manager.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/example/Engine/Display_Manager.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/example/Engine/EntityRenderer.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/example/Engine/EntityRenderer.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/example/Engine/entities/GameCamera.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/example/Engine/entities/GameCamera.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/example/Engine/entities/Player.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/example/Engine/entities/Player.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/example/Engine/input/Mouse.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/example/Engine/input/Mouse.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/example/Engine/toolbox/Maths.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/example/Engine/toolbox/Maths.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/example/Engine/toolbox/MousePicker.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/example/Engine/toolbox/MousePicker.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/example/Engine/water/WaterFrameBuffers.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/example/Engine/water/WaterFrameBuffers.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

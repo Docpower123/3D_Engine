@@ -6,6 +6,7 @@ import org.joml.Vector3f;
 public class GameCamera implements Camera {
 
     private final float MIN_DISTANCE_FROM_PLAYER = 1;
+    private final float MAX_DISTANCE_FROM_PLAYER = 100;
     private final float MIN_PITCH = -90;
     private final float MAX_PITCH = 90;
     private final float CAMERA_Y_OFFSET = 7;
@@ -92,8 +93,8 @@ public class GameCamera implements Camera {
         distanceFromPlayer -= zoomLevel;
         if (distanceFromPlayer < MIN_DISTANCE_FROM_PLAYER)
             distanceFromPlayer = MIN_DISTANCE_FROM_PLAYER;
-        //if (distanceFromPlayer > MAX_DISTANCE_FROM_PLAYER)
-        //    distanceFromPlayer = MAX_DISTANCE_FROM_PLAYER;
+        if (distanceFromPlayer > MAX_DISTANCE_FROM_PLAYER)
+            distanceFromPlayer = MAX_DISTANCE_FROM_PLAYER;
     }
 
     private void calculatePitch() {
